@@ -1,0 +1,6 @@
+com\mycompany\model\User.class
+com\mycompany\database\DBQuery.class
+com\mycompany\config\WebApplicationContextConfig.class
+com\mycompany\database\DB.class
+com\mycompany\demo2\controller\HomeController.class
+com\mycompany\config\DispatcherServletInitializer.class
