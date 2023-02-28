@@ -4,12 +4,12 @@
  */
 package com.mycompany.database;
 
+import com.mycompany.config.Utils;
 import com.mycompany.model.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import jdk.internal.org.jline.keymap.KeyMap;
 
 /**
  *
@@ -20,7 +20,7 @@ public class DBQuery {
     DB db = new DB();
 
     public List<User> GetUser() {
-        ResultSet rs = db.Query("selet * from user");
+        ResultSet rs = db.Query("select * from user");
         List<User> list = new ArrayList<>();
         if (rs != null) {
             try {
@@ -29,28 +29,57 @@ public class DBQuery {
                     list.add(f);
                 }
             } catch (SQLException ex) {
-                    System.out.println("error get films: " + ex.toString());
+                System.out.println("error: " + ex.toString());
             }
         }
         return list;
     }
-    public List<User> SignUpUser(){
-        ResultSet rs = db.Query("insert into user (name, username, password) "
-                + "values(?,?,?)");
-        List<User> list = new ArrayList<>();
+
+    public boolean SignUpUser(User user) {
+        System.err.println("name: "+ user.getFirstName());
+        System.err.println("email: "+ user.getEmail());
+        System.err.println("pass: "+ user.getPassword());
+        System.out.println("encrypt: "+Utils.SHA1(user.getPassword()));
+        String[] params = new String[]{user.getFirstName(), user.getEmail(), Utils.SHA1(user.getPassword())};
+        if (GetUserByEmail(user.getEmail()) == null) {
+            if (db.Update("insert into user(firstName, email, password) values (?, ?, ?)", params)> 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public User GetUserByEmail(String email) {
+        ResultSet rs = db.Query("SELECT * FROM user WHERE email = ?", new String[]{email});
         if (rs != null) {
             try {
                 while (rs.next()) {
-                    User f = new User();
-                    f.setName(rs.getString("name"));
-                    f.setPassword(rs.getString("password"));
-                    f.setUsername(rs.getString("username"));
-                    list.add(f);
+                    User u = new User();
+                    u.setFirstName(rs.getString("firstName"));
+                    u.setEmail(rs.getString("email"));
+                    return u;
                 }
             } catch (SQLException ex) {
-                    System.out.println("error: " + ex.toString());
             }
         }
-        return list;
+        return null;
+    }
+
+    public User GetUserByAuthentication(User user) {
+        if (user.getPassword() != null) {
+            ResultSet rs = db.Query("SELECT * FROM user WHERE email = ? AND password = ?", new String[]{user.getEmail(), Utils.SHA1(user.getPassword())});
+            if (rs != null) {
+                try {
+                    while (rs.next()) {
+                        User u = new User();
+                        u.setPassword(rs.getString("password"));
+                        u.setEmail(rs.getString("email"));
+                        return u;
+                    }
+                } catch (SQLException ex) {
+                }
+            }
+        }
+        return null;
     }
 }

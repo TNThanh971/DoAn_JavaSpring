@@ -18,7 +18,7 @@
 <body>
   <div class="container" id="container">
     <div class="form-container  sign-up-container">
-      <form action="#">
+      <form action="" method="POST" name="signUp">
         <div class="header">Sign Up</div>
         <div class="social__media__container">
           <a href="https://codepen.io/Rittenhouse" target="_blank" class="social codepen">
@@ -38,19 +38,19 @@
 
         <div class="button-input-group">
           <div class="group input-group">
-            <input type="text" placeholder="Name" required>
+            <input type="text" name="firstName" placeholder="Name" required >
           </div>
           <div class="group input-group">
-            <input type="email" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
           </div>
           <div class="group input-group">
-            <input type="password" placeholder="Password" required pattern=".{8,}">
+            <input type="password" name="password" placeholder="Password" required pattern=".{8,}">
           </div>
           <div class="alert-text signup__alert">
             <span class="help__text">At least 8 character</span>
           </div>
           <div class="group button-group">
-            <button class="signup-btn" onclick="return false;">Sign Up</button>
+            <button class="signup-btn" onclick="">Sign Up</button>
           </div>
         </div>
 
@@ -58,7 +58,7 @@
     </div>
 
     <div class="form-container  sign-in-container">
-      <form action="#">
+      <form action="" name="signIn" method="GET">
         <div class="header">Sign In</div>
         <div class="social__media__container">
           <a href="" target="_blank" class="social codepen">
@@ -77,10 +77,10 @@
 
         <div class="button-input-group">
           <div class="group input-group">
-            <input type="email" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email"  required>
           </div>
           <div class="group input-group">
-            <input type="password" placeholder="Password" required pattern=".{8,}">
+              <input type="password" name="password" placeholder="Password"  required pattern=".{8,}">
           </div>
           <div class="alert-text signup__alert">
             <span class="help__text">At least 8 character</span>
@@ -89,7 +89,7 @@
             <a href="#" class="login-link">Forgot your password?</a>
           </div>
           <div class="group button-group">
-            <button class="signin-btn" onclick="return false;">Sign in</button>
+            <button class="signin-btn" onclick="">Sign in</button>
           </div>
         </div>
       </form>

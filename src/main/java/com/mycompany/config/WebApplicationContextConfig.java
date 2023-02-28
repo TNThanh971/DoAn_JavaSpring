@@ -20,24 +20,21 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.mycompany.demo2")
+@ComponentScan(basePackages = "com.mycompany.doanjavaspring")
 public class WebApplicationContextConfig implements WebMvcConfigurer {
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
-
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setViewClass(JstlView.class);
         resolver.setPrefix("/WEB-INF/jsp/");
         resolver.setSuffix(".jsp");
-
         return resolver;
     }
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry

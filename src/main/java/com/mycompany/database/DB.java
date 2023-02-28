@@ -6,6 +6,7 @@ package com.mycompany.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,14 +16,14 @@ import java.sql.Statement;
  * @author truongthanh
  */
 public class DB {
-
-    private Connection con;
+    private  Connection con;
     private Statement stmt;
+    private PreparedStatement pstmt = null;
 
     private Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String URL = "jdbc:mysql://localhost/demo?user=root";
+            String URL = "jdbc:mysql://localhost/cosplaymobile?user=root&useUnicode=true&characterEncoding=UTF-8";
             Connection conn = DriverManager.getConnection(URL);
             return conn;
         } catch (ClassNotFoundException | SQLException ex) {
@@ -56,5 +57,29 @@ public class DB {
             return null;
         }
     }
+    public int Update(String sql, String[] params) {
+        try {
+            pstmt = con.prepareStatement(sql);
+            int i = 1;
+            for (String ele : params) {
+                pstmt.setString(i++, ele);
+            }
+            return pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            System.err.println(ex);
+            return 0;
+        }
+    }
+    public ResultSet Query(String sql, String[] params) {
+        try {
+            pstmt = con.prepareStatement(sql);
+            int i = 1;
+            for (String ele : params) {
+                pstmt.setString(i++, ele);
+            }
+            return pstmt.executeQuery();
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
 }
-
