@@ -1,118 +1,199 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!doctype html>
+<html class="no-js" lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="HTML/CSS">
-  <meta name="author" content="Anil">
-  <title>Website -Template</title>
-  <link rel="stylesheet" href="./assets/css/home.css">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Wibu Shop</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-</head>
+        <!-- CSS 
+        ========================= -->
 
-<body>
-  <div class="header" id="topheader">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <div class="container text-uppercase p-2">
-        <a class="navbar-brand font-weight-bold text-white" href="#">wibu lord</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./loginLogout">Sign In</a>
-            </li>
-          
-          </ul>
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="./assets/css/plugins.css">
+
+        <!-- Main Style CSS -->
+        <link rel="stylesheet" href="./assets/css/styleHome.css">
+
+    </head>
+
+    <body>
+
+        <!--header area start-->
+        <%@include file="header.jsp" %>
+        <!--header area end-->
+
+        <!--slider area start-->
+        <section class="slider_section slider_s_one mb-40">
+            <div class="slider_area owl-carousel">
+                <div class="single_slider d-flex align-items-center" data-bgimg="assets/img/slider/slider1.webp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-7">
+                                <div class="slider_content content_left">
+                                    <h1> fashion sale preview</h1>
+                                    <h2>50% off</h2>
+                                    <p> Look good with fall's fresh take on white shirts with cool blue swaters </p>
+
+                                    <a class="button" href="shop.html">shop Now <i
+                                            class="zmdi zmdi-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="single_slider d-flex align-items-center" data-bgimg="assets/img/slider/slider2.webp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-6 col-md-6 offset-md-6">
+                                <div class="slider_content content_right">
+                                    <h1> fashion sale preview</h1>
+                                    <h2>50% off</h2>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                                    <a class="button" href="shop.html">shop Now <i
+                                            class="zmdi zmdi-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--slider area end-->
+
+        <!--banner area start-->
+        <div class="banner_area mb-66">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <figure class="single_banner">
+                            <div class="banner_thumb">
+                                <a href="shop.html"><img src="assets/img/bg/banner1.webp" alt=""></a>
+                                <div class="banner_conent">
+                                    <h3>sale up to</h3>
+                                    <h2>50%</h2>
+                                    <p>Hoodies <span> & </span> Sweatshirts</p>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <figure class="single_banner">
+                            <div class="banner_thumb">
+                                <a href="shop.html"><img src="assets/img/bg/banner2.webp" alt=""></a>
+                                <div class="banner_conent">
+                                    <h3>sale up to</h3>
+                                    <h2>70%</h2>
+                                    <p>Caps & Hats</p>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <figure class="single_banner">
+                            <div class="banner_thumb">
+                                <a href="shop.html"><img src="assets/img/bg/banner3.webp" alt=""></a>
+                                <div class="banner_conent">
+                                    <h3>model & Trending</h3>
+                                    <h2>2021</h2>
+                                    <p>winter collections</p>
+                                </div>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
-    <section class="header-section">
-      <div class="center-div">
-        <h1 class="font-weight-bold">Home Page</h1>
-        <p>------------------------</p>
-        <div class="header-buttons">
-          <a href="#newsletterdiv">AboutUs</a>
-          <a href="#contactdiv">ContactUs</a>
+        <!--banner area end-->
+
+        <!--product area start-->
+        <div class="product_area mb-65">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section_title">
+                            <h2>Sản Phẩm</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="Men" role="tabpanel">
+                        <div class="row">
+                            <div class="product_carousel product_column4 owl-carousel">
+                                <!--item product-->
+                                <c:forEach items="${products}" var="product">
+                                    <div class="col-lg-3">
+                                        <div class="product_items">
+
+                                            <article class="single_product">
+                                                <figure>
+                                                    <div class="product_thumb">
+                                                        <a class="primary_img" href="product-details.html"><img
+                                                                src="${product.productUrlImage}" alt=""></a>
+                                                        <a class="secondary_img" href="product-details.html"><img
+                                                                src="${product.productUrlImage}" alt=""></a>  
+                                                        <div class="action_links">
+                                                            <ul>
+                                                                <li class="add_to_cart"><a href="cart.html"
+                                                                                           title="Add to cart"><i
+                                                                            class="zmdi zmdi-shopping-cart"></i></a></li>
+
+                                                                <li class="wishlist"><a href="wishlist.html"
+                                                                                        title="Add to Wishlist"><i
+                                                                            class="zmdi zmdi-favorite-outline"></i></a></li>
+
+                                                                <li class="compare"><a href="#" title="Add to Compare"><i
+                                                                            class="zmdi zmdi-shuffle"></i></a></li>
+
+                                                                <li class="quick_button"><a href="#" data-bs-toggle="modal"
+                                                                                            data-bs-target="#modal_box" title="quick view"> <i
+                                                                            class="zmdi zmdi-eye"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <figcaption class="product_content">
+                                                        <h4 class="product_name"><a href="product-details.html">${product.productName}</a></h4>
+                                                        <div class="price_box">
+                                                            <span class="current_price">${product.productPrice} VNĐ</span>
+                                                        </div>
+                                                    </figcaption>
+                                                </figure>
+                                            </article>
+                                        </div>
+                                    </div>
+                                    <!--item product-->
+                                </c:forEach>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-  </div>
+        <!--product area end-->
 
-  <!-- ***************** header part end ************************** -->
+        <!--footer area start-->
+        <%@include file ="footer.jsp"%>
+        <!--footer area end-->
 
-  <!-- ********************* three extra header div starts ******************** -->
+        <!-- JS
+    ============================================ -->
 
-  <section class="header-extradiv">
-    <div class="container">
-      <div class="row">
-        <div class="extradiv col-lg-4 col-md-4 col-12">
-          <a href="#"><i class="fa-3x fa fa-desktop"></i></a>
-          <h2>EASY TO USE</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-        </div>
-        <div class="extradiv col-lg-4 col-md-4 col-12">
-          <a href="#"><i class="fa-3x fa fa-trophy"></i></a>
-          <h2>AWESOME DESIGN</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-        </div>
-        <div class="extradiv col-lg-4 col-md-4 col-12">
-          <a href="#"><i class="fa-3x fa fa-magic"></i></a>
-          <h2>EASY TO CUSTOMIZE</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Plugins JS -->
+        <script src="assets/js/plugins.js"></script>
 
-  <!-- ********************* three extra header div starts ******************** -->
+        <!-- Main JS -->
+        <script src="assets/js/main.js"></script>
 
-  <!-- ********************* offer section starts ****************************** -->
 
- 
 
-  <!-- ********************* footer ends ****************************** -->
-
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    $('.count').counterUp({
-      delay: 10,
-      time: 300
-    })
-    // Get the button:
-    mybutton = document.getElementById("myBtn");
-    //When the user scrolls down 20px from the top of the document, show the buttons
-    window.onscroll = function() {
-      scrollFunction()
-    };
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-    //When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    }
-  </script>
-</body>
+    </body>
 
 </html>
