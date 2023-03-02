@@ -16,10 +16,4 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ProductController {
     private DBQuery dbq = new DBQuery();
-//    @RequestMapping("/")
-//    public String productList(Model model){
-//        List<Product> products=dbq.GetProductList();
-//        return "/";
-//    }
-    
 }

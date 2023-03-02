@@ -7,12 +7,40 @@ package com.mycompany.config;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author truongthanh
  */
 public class Utils {
+    public static int LIMIT_ROWS = 10;
+
+    public static int Page(String page) {
+        try {
+            int p = Integer.parseInt(page);
+            if (p < 1) {
+                p = 1;
+            }
+            return p;
+        } catch (NumberFormatException ex) {
+            return 1;
+        }
+    }
+    public static String Offset(int page, int limit) {
+        if (limit == 0) {
+            return "";
+        }
+        if (page < 1) {
+            page = 1;
+        }
+        return " LIMIT " + ((page - 1) * limit) + "," + limit;
+    }
+
+    public static String Offset(int page) {
+        return Offset(page, LIMIT_ROWS);
+    }
     public static String SHA1(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
@@ -27,5 +55,16 @@ public class Utils {
         catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static String StrDate() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        return dtf.format(now);
+    }
+
+    public static String StrDate(String format) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(format);
+        LocalDateTime now = LocalDateTime.now();
+        return dtf.format(now);
     }
 }

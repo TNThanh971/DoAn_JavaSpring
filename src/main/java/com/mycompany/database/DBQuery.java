@@ -87,7 +87,7 @@ public class DBQuery {
     }
 
     public List<Product> GetProductList() {
-        ResultSet rs = db.Query("select * from product");
+        ResultSet rs = db.Query("select * from product " + Utils.Offset(8));
         List<Product> lst = new ArrayList<Product>();
         if (rs != null) {
             try {
