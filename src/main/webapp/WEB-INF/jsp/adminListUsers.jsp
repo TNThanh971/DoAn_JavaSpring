@@ -17,8 +17,8 @@
     <link href="assetsAdmin/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assetsAdmin/libs/css/style.css">
 
-    <link rel="stylesheet" href="../assetsAdmin/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="../assetsAdmin/vendor/bootstrap-select/css/bootstrap-select.css">
+    <link rel="stylesheet" href="./assetsAdmin/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="./assetsAdmin/vendor/bootstrap-select/css/bootstrap-select.css">
 
     <link rel="stylesheet" href="assetsAdmin/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="assetsAdmin/vendor/charts/chartist-bundle/chartist.css">
@@ -203,19 +203,19 @@
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./adminAddProduct">Thêm sản phẩm <span
+                                            <a class="nav-link" href="addProduct.html">Thêm sản phẩm <span
                                                     class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./adminListProduct">Danh sách sản phẩm <span
+                                            <a class="nav-link" href="listProduct.html">Danh sách sản phẩm <span
                                                     class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./adminListInvoices">Danh sách đơn hàng <span
+                                            <a class="nav-link" href="listInvoices.html">Danh sách đơn hàng <span
                                                     class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./adminListUsers">Danh sách khách hàng <span
+                                            <a class="nav-link" href="listUsers.html">Danh sách khách hàng <span
                                                     class="badge badge-secondary">New</span></a>
                                         </li>
                                     </ul>
@@ -271,7 +271,8 @@
                             <div class="contentListProduct ml-3 mt-3">
                                 <h3>Lọc khách hàng</h3>
                                 <p>Tìm kiếm nhanh theo tên, email hoặc số điện thoại.</p>
-                                <div class="form-row d-flex position-relative">
+                                <div class="form-row d-flex position-relative>
+
                                     <div class="row">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                             <label for="validationCustom01">Thông tin</label>
@@ -320,7 +321,7 @@
                                                 <td>0123456789</td>
                                                 <td>a@gmail.com</td>   
                                                 <td>                                                                               
-                                                    <a class="ml-4" href="./adminDetailsUser">
+                                                    <a class="ml-4" href="./detailsUser.html">
                                                         <i class="text-xl m-r-10 mdi mdi-account-plus">
                                                         </i>
                                                     </a>
