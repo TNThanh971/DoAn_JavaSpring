@@ -1,12 +1,13 @@
 com\mycompany\config\Utils.class
+com\mycompany\doanjavaspring\controller\HomeController.class
+com\mycompany\doanjavaspring\controller\adminController.class
+com\mycompany\model\InvoiceDetail.class
+com\mycompany\database\DBQuery.class
 com\mycompany\doanjavaspring\controller\ProductController.class
 com\mycompany\model\User.class
 com\mycompany\model\Invoice.class
 com\mycompany\model\Product.class
 com\mycompany\config\DispatcherServletInitializer.class
 com\mycompany\doanjavaspring\controller\InvoiceController.class
-com\mycompany\model\InvoiceDetail.class
-com\mycompany\doanjavaspring\controller\MainController.class
-com\mycompany\database\DBQuery.class
 com\mycompany\config\WebApplicationContextConfig.class
 com\mycompany\database\DB.class

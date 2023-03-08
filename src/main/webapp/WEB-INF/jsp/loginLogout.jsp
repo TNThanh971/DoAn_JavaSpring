@@ -9,7 +9,7 @@
         <meta http-equiv="refresh" content="100">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
-        <link rel="stylesheet" href="./assets/css/styleSignInSignUp.css">
+        <link rel="stylesheet" href="./assetsUser/css/styleSignInSignUp.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     </head>
@@ -126,6 +126,6 @@
 
         </div>
 
-        <script src="./assets/js/index.js"></script>
+        <script src="./assetsUser/js/index.js"></script>
     </body>
 </html>

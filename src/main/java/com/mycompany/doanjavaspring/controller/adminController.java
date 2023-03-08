@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author truongthanh
  */
 @Controller
-public class InvoiceController {
-    
+public class adminController {
+   @RequestMapping(value = "/adminIndex")
+    public String adminIndex(Model model) {
+        return "adminIndex";
+    } 
 }

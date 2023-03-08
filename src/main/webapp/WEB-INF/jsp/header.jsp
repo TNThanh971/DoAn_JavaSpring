@@ -12,16 +12,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assetsUser/img/favicon.ico">
 
     <!-- CSS 
     ========================= -->
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="./assets/css/plugins.css">
+    <link rel="stylesheet" href="./assetsUser/css/plugins.css">
 
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="./assets/css/styleHome.css">
+    <link rel="stylesheet" href="./assetsUser/css/styleHome.css">
 
 </head>
 <header>
@@ -32,7 +32,7 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="header_account">
                                 <ul>
-                                    <li class="language"><a href="#"><img src="assets/img/icon/vietnam.png" alt=""> VN
+                                    <li class="language"><a href="#"><img src="assetsUser/img/icon/vietnam.png" alt=""> VN
                                             <i class="zmdi zmdi-chevron-down zmdi-hc-fw"></i></a>
                                         <ul class="dropdown_language">
                                             <li><a href="#">English</a></li>
@@ -61,7 +61,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.webp" alt=""></a>
+                                <a href="./"><img src="./assetsUser/img/logo/logo.webp" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-9">
@@ -70,22 +70,22 @@
                                 <div class="main_menu menu_position">
                                     <nav>
                                         <ul>
-                                            <li><a class="active" href="index.html">Trang Chủ</a>
-                                            </li>
+                                            <li><a class="active" href="./">Trang Chủ</a></li>
+                                            
                                             
                                             <li><a href="#">Sản Phẩm <i class="fa fa-angle-down"></i></a>
                                                 <ul class="sub_menu pages">
-                                                    <li><a href="wig.html">Wig</a></li>
-                                                    <li><a href="sanpham.html">Phụ Kiện</a></li>
-                                                    <li><a href="sanpham.html">Trang Phục</a></li>
+                                                    <li><a href="./wig">Wig</a></li>
+                                                    <li><a href="./accessory">Phụ Kiện</a></li>
+                                                    <li><a href="./cloth">Trang Phục</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Tài Khoản <i class="fa fa-angle-down"></i></a>
                                                 <ul class="sub_menu pages">
-                                                    <li><a href="checkout.html">Checkout </a></li>
+                                                    <li><a href="./checkout">Checkout </a></li>
                                                     <li><a href="./loginLogout">My Account </a></li>
-                                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                                    <li><a href="./cart">Shopping Cart</a></li>
+                                                    <li><a href="">Wishlist</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="about.html">Giới Thiệu</a></li>
@@ -115,7 +115,7 @@
                                                 <div class="cart_gallery">
                                                     <div class="cart_item">
                                                         <div class="cart_img">
-                                                            <a href="#"><img src="assets/img/s-product/product.webp"
+                                                            <a href="#"><img src="assetsUser/img/s-product/product.webp"
                                                                     alt=""></a>
                                                         </div>
                                                         <div class="cart_info">
@@ -128,7 +128,7 @@
                                                     </div>
                                                     <div class="cart_item">
                                                         <div class="cart_img">
-                                                            <a href="#"><img src="assets/img/s-product/product2.webp"
+                                                            <a href="#"><img src="assetsUser/img/s-product/product2.webp"
                                                                     alt=""></a>
                                                         </div>
                                                         <div class="cart_info">
@@ -154,10 +154,10 @@
                                                 </div>
                                                 <div class="mini_cart_footer">
                                                     <div class="cart_button">
-                                                        <a href="cart.html">View cart</a>
+                                                        <a href="./cart">View cart</a>
                                                     </div>
                                                     <div class="cart_button">
-                                                        <a href="checkout.html"> Checkout</a>
+                                                        <a href="./checkout"> Checkout</a>
                                                     </div>
 
                                                 </div>

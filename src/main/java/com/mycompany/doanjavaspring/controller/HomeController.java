@@ -1,9 +1,11 @@
 package com.mycompany.doanjavaspring.controller;
 
+import com.mycompany.config.Utils;
 import com.mycompany.database.DBQuery;
 import com.mycompany.model.Product;
 import com.mycompany.model.User;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,23 +14,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class MainController {
+public class HomeController {
 
     private DBQuery dbq = new DBQuery();
 
     @RequestMapping(value = "/")
-    public String home(Model model) {
-        
-        if (dbq.GetProductList() != null) {
-            List<Product> products = dbq.GetProductList();
+    public String home(HttpSession session, @RequestParam(required = false) String page, Model model) {
+        int page_id = Utils.Page(page);
+        List<Product> products;
+        if (dbq.GetProductList(page_id) != null) {
+            products = dbq.GetProductList(page_id);
             model.addAttribute("products",products);
         } else System.out.println("failed");
         return "home";
-    }
-
+    } 
+    
     @RequestMapping(value = "/loginLogout")
-    public String index(Model model
-    ) {
+    public String index(Model model) {
         return "loginLogout";
     }
 
@@ -66,5 +68,13 @@ public class MainController {
             return "loginLogout";
         }
         return "redirect:/";
+    }
+    @RequestMapping(value = "/cart")
+    public String cart(Model model) {
+        return "cart";
+    }
+    @RequestMapping(value = "/checkout")
+    public String checkout(Model model) {
+        return "checkout";
     }
 }

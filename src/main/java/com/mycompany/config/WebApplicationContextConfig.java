@@ -38,7 +38,10 @@ public class WebApplicationContextConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
-                .addResourceHandler("/assets/**")
-                .addResourceLocations("/assets/");
+                .addResourceHandler("/assetsUser/**")
+                .addResourceLocations("/assetsUser/");
+        registry
+                .addResourceHandler("/assetsAdmin/**")
+                .addResourceLocations("/assetsAdmin/");
     }
 }

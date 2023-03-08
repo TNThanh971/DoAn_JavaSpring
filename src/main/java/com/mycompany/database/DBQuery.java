@@ -80,14 +80,16 @@ public class DBQuery {
                         return u;
                     }
                 } catch (SQLException ex) {
+
                 }
             }
         }
         return null;
     }
 
-    public List<Product> GetProductList() {
-        ResultSet rs = db.Query("select * from product " + Utils.Offset(8));
+    //product
+    public List<Product> GetProductList(int page) {
+        ResultSet rs = db.Query("select * from product " + Utils.Offset(page));
         List<Product> lst = new ArrayList<Product>();
         if (rs != null) {
             try {
@@ -104,10 +106,35 @@ public class DBQuery {
                     p.setProductPrice(rs.getFloat("productPrice"));
                     p.setProductWeight(rs.getFloat("productWeight"));
                     lst.add(p);
-                    System.out.println(p.getIdProduct());
                 }
             } catch (Exception e) {
-                System.err.println(e);
+                System.out.println(e);
+            }
+        }
+        return lst;
+    }
+    public List<Product> GetProductListByType(int page, String name) {
+        ResultSet rs = db.Query("select * from product as p left outer join product_type as t on p.idProductType = t.idProductType where t.typeName = ?" 
+                + Utils.Offset(page), new String[]{name});
+        List<Product> lst = new ArrayList<Product>();
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    Product p = new Product();
+                    p.setIdProduct(rs.getInt("idProduct"));
+                    p.setProductName(rs.getString("productName"));
+                    p.setProductQuantity(rs.getInt("productQuantity"));
+                    p.setProductUrlImage(rs.getString("productUrlImage"));
+                    p.setIdProductType(rs.getInt("idProductType"));
+                    p.setProductSize(rs.getString("productSize"));
+                    p.setProductRentalPrice(rs.getFloat("productRentalPrice"));
+                    p.setProductDescription(rs.getString("productDescription"));
+                    p.setProductPrice(rs.getFloat("productPrice"));
+                    p.setProductWeight(rs.getFloat("productWeight"));
+                    lst.add(p);
+                }
+            } catch (Exception e) {
+                System.out.println(e);
             }
         }
         return lst;
@@ -121,7 +148,7 @@ public class DBQuery {
             product.getProductDescription(), Float.toString(product.getProductPrice()),
             Float.toString(product.getProductWeight())};
 
-        if (GetUserByIdProduct(Integer.toString(product.getIdProduct())) == null) {
+        if (GetProductByIdProduct(product.getIdProduct()) == null) {
             if (db.Update("insert into product(productName,productQuantity, productUrlImage, idProductType, productSize,productRentalPrice, productDescription, productPrice, productWeight) "
                     + "values(?,?,?,?,?,?,?,?,?)", params) > 0) {
                 return true;
@@ -135,8 +162,8 @@ public class DBQuery {
         return false;
     }
 
-    public Product GetUserByIdProduct(String idProduct) {
-        ResultSet rs = db.Query("SELECT * FROM user WHERE idProduct = ?", new String[]{idProduct});
+    public Product GetProductByIdProduct(int idProduct) {
+        ResultSet rs = db.Query("SELECT * FROM user WHERE idProduct = "+idProduct);
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -145,11 +172,27 @@ public class DBQuery {
                     return p;
                 }
             } catch (SQLException ex) {
+                System.err.println(ex);
             }
         }
         return null;
     }
 
+    public int getCountProducts() {
+        ResultSet rs = db.Query("SELECT COUNT(id) AS total FROM product");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    return rs.getInt("total");
+                }
+            } catch (SQLException ex) {
+                System.out.println("error get count product: " + ex.toString());
+            }
+        }
+        return 0;
+    }
+
+    //products
     public Invoice GetInvoiceByEmail(String email) {
         ResultSet rs = db.Query("select * from invoice where email=?", new String[]{email});
         if (rs != null) {
@@ -213,6 +256,7 @@ public class DBQuery {
 
         return false;
     }
+
     public Invoice GetInvoiceByIdInvoice(int idInvoice) {
         ResultSet rs = db.Query("select * from invoice where idInvoice=?", new String[]{Integer.toString(idInvoice)});
         if (rs != null) {
