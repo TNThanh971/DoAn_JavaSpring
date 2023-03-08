@@ -167,19 +167,19 @@
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="addProduct.html">Thêm sản phẩm <span
+                                            <a class="nav-link" href="./adminAddProduct">Thêm sản phẩm <span
                                                     class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="listProduct.html">Danh sách sản phẩm <span
+                                            <a class="nav-link" href="./adminListProduct">Danh sách sản phẩm <span
                                                     class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="listInvoices.html">Danh sách đơn hàng <span
+                                            <a class="nav-link" href="./adminListInvoices">Danh sách đơn hàng <span
                                                     class="badge badge-secondary">New</span></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="listUsers.html">Danh sách khách hàng <span
+                                            <a class="nav-link" href="./adminListUsers">Danh sách khách hàng <span
                                                     class="badge badge-secondary">New</span></a>
                                         </li>
                                     </ul>

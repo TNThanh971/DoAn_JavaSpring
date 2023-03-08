@@ -14,10 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="./assetsAdmin/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="./assetsAdmin/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assetsAdmin/libs/css/style.css">
+    <link rel="stylesheet" href="./assetsAdmin/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <style>
     html,
     body {
@@ -41,7 +41,7 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center badge-dark"><a href="../index.html"><img class="logo-img" src="https://cs-wibu.phatnef.me/assets/img/logo/logo.webp" alt="logo"></a><span class="splash-description"></span></div>
+            <div class="card-header text-center badge-dark"><a href="./"><img class="logo-img" src="https://cs-wibu.phatnef.me/assets/img/logo/logo.webp" alt="logo"></a><span class="splash-description"></span></div>
             <div class="card-body badge-dark">
                 <form>
                     <div class="form-group">
@@ -66,8 +66,8 @@
     <!-- end login page  -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="./assetsAdmin/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="./assetsAdmin/vendor/bootstrap/js/bootstrap.bundle.js"></script>
 </body>
  
 </html>

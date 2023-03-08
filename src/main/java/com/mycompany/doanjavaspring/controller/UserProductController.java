@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author truongthanh
  */
 @Controller
-public class ProductController {
+public class UserProductController {
     private DBQuery dbq = new DBQuery();
     
     @RequestMapping(value = "/wig")

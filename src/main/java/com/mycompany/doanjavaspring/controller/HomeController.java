@@ -77,4 +77,8 @@ public class HomeController {
     public String checkout(Model model) {
         return "checkout";
     }
+    @RequestMapping(value = "/accountInfor")
+    public String accountInfor(Model model) {
+        return "accountInfor";
+    }
 }

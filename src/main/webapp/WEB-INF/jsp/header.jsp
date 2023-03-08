@@ -83,7 +83,7 @@
                                             <li><a href="#">Tài Khoản <i class="fa fa-angle-down"></i></a>
                                                 <ul class="sub_menu pages">
                                                     <li><a href="./checkout">Checkout </a></li>
-                                                    <li><a href="./loginLogout">My Account </a></li>
+                                                    <li><a href="./accountInfor">My Account </a></li>
                                                     <li><a href="./cart">Shopping Cart</a></li>
                                                     <li><a href="">Wishlist</a></li>
                                                 </ul>
