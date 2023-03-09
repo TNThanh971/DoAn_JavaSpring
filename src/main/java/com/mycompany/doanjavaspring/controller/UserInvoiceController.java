@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author truongthanh
  */
 @Controller
-public class InvoiceController {
+public class UserInvoiceController {
     
 }

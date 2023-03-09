@@ -55,15 +55,8 @@ public class UserProductController {
         return "accessory";
     }
     @RequestMapping(value = "/productDetail")
-    public String productsById(Model model,
-            @RequestParam(required = false) String id) {
-        Product productById;
-        int temp = Integer.parseInt(id);
-        System.err.println(id);
-        if (dbq.GetProductByIdProduct(temp) != null) {
-            productById = dbq.GetProductByIdProduct(temp);
-            model.addAttribute("productById",productById);
-        } else System.out.println("failed");
+    public String productsById(Model model ) {
+        
         return "productDetail";
     }
 }

@@ -86,24 +86,24 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="product-details.html"><img src="${cloth.productUrlImage}" alt=""></a>
-                                                <a class="secondary_img" href="product-details.html"><img src="${cloth.productUrlImage}" alt=""></a>
+                                                <a class="primary_img" href="./productDetail"><img src="${cloth.productUrlImage}" alt=""></a>
+                                                <a class="secondary_img" href="./productDetail"><img src="${cloth.productUrlImage}" alt=""></a>
                                                 <div class="action_links">
                                                     <ul>
-                                                        <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
+                                                        <li class="add_to_cart"><a href="./cart" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
                                                         <li class="quick_button"><a href="" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
 
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="product_content grid_content">
-                                                <h4 class="product_name"><a href="product-details.html">${cloth.productName}</a></h4>
+                                                <h4 class="product_name"><a href="./productDetail">${cloth.productName}</a></h4>
                                                 <div class="price_box"> 
                                                     <span class="current_price">${cloth.productPrice} VND</span>
                                                 </div>
                                             </div>
                                             <div class="product_content list_content">
-                                                <h4 class="product_name"><a href="product-details.html">${cloth.productName}</a></h4>
+                                                <h4 class="product_name"><a href="./productDetail">${cloth.productName}</a></h4>
                                                 <div class="price_box"> 
                                                     <span class="current_price">${cloth.productPrice} VND</span>
                                                 </div>

@@ -58,7 +58,7 @@
                                     <li><a href="#dashboard" data-bs-toggle="tab" class="nav-link active">Tổng Quan</a></li>
                                     <li> <a href="#orders" data-bs-toggle="tab" class="nav-link">Đơn Hàng</a></li>
                                     <li><a href="#account-details" data-bs-toggle="tab" class="nav-link">Thông Tin Tài Khoản</a></li>
-                                    <li><a href="login.html" class="nav-link">logout</a></li>
+                                    <li><a href="./loginLogout" class="nav-link">logout</a></li>
                                 </ul>
                             </div>    
                         </div>
