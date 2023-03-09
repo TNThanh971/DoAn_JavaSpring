@@ -17,8 +17,8 @@
         <link href="assetsAdmin/vendor/fonts/circular-std/style.css" rel="stylesheet">
         <link rel="stylesheet" href="assetsAdmin/libs/css/style.css">
 
-        <link rel="stylesheet" href="../assetsAdmin/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
-        <link rel="stylesheet" href="../assetsAdmin/vendor/bootstrap-select/css/bootstrap-select.css">
+        <link rel="stylesheet" href="./assetsAdmin/vendor/fonts/simple-line-icons/css/simple-line-icons.css">
+        <link rel="stylesheet" href="./assetsAdmin/vendor/bootstrap-select/css/bootstrap-select.css">
 
         <link rel="stylesheet" href="assetsAdmin/vendor/fonts/fontawesome/css/fontawesome-all.css">
         <link rel="stylesheet" href="assetsAdmin/vendor/charts/chartist-bundle/chartist.css">

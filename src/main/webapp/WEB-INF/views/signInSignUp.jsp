@@ -17,9 +17,14 @@
         <!--header area start-->
 
         <!--header area end-->
+        
         <div class="container" id="container"> 
+            <!--form sign up-->
             <div class="form-container  sign-up-container">
                 <form action="" method="POST" name="signUp">
+                    <c:if test="${not empty msg}">
+                        <div class="form-group"><p>${msg}</p></div>
+                            </c:if>
                     <div class="header">Sign Up</div>
                     <div class="social__media__container">
                         <a href="https://codepen.io/Rittenhouse" target="_blank" class="social codepen">
@@ -39,13 +44,16 @@
 
                     <div class="button-input-group">
                         <div class="group input-group">
-                            <input type="text" name="firstName" placeholder="Name" required >
+                            <input type="text" name="firstName1" placeholder="Name" required >
                         </div>
                         <div class="group input-group">
-                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="email" name="email1" placeholder="Email" required>
                         </div>
                         <div class="group input-group">
-                            <input type="password" name="password" placeholder="Password" required pattern=".{8,}">
+                            <input type="password" name="password1" placeholder="Password" required pattern=".{8,}">
+                        </div>
+                        <div class="group input-group">
+                            <input type="password" name="password2" placeholder="Confirm your password"  required pattern=".{8,}">
                         </div>
                         <div class="alert-text signup__alert">
                             <span class="help__text">At least 8 character</span>
@@ -57,9 +65,13 @@
 
                 </form>
             </div>
-
+            <!--end form sign up-->
+            <!--form sign in-->
             <div class="form-container  sign-in-container">
-                <form action="" name="signIn" method="GET">
+                <form action="" method="POST" name="signIn" >
+                    <c:if test="${not empty msg}">
+                        <div class="form-group"><p>${msg}</p></div>
+                            </c:if>
                     <div class="header">Sign In</div>
                     <div class="social__media__container">
                         <a href="" target="_blank" class="social codepen">
@@ -95,7 +107,7 @@
                     </div>
                 </form>
             </div>
-
+            <!--end form sign in-->
             <div class="overlay-container">
                 <div class="overlay">
                     <div class="overlay-panel overlay-left">

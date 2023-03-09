@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -38,18 +39,25 @@ public class DBQuery {
         return list;
     }
 
-    public boolean SignUpUser(User user) {
-        System.err.println("name: " + user.getFirstName());
-        System.err.println("email: " + user.getEmail());
-        System.err.println("pass: " + user.getPassword());
-        System.out.println("encrypt: " + Utils.SHA1(user.getPassword()));
+    public boolean Login(String email, String password) {
+        password = Utils.SHA1(password);
+        ResultSet ls =  db.Query("SELECT * FROM user WHERE email = ? AND password = ?", new String[]{email, password});
+        if (ls!=null) {
+            return true;
+        }
+        return false;
+    }
+
+    public int SignUpUser(User user) {
         String[] params = new String[]{user.getFirstName(), user.getEmail(), Utils.SHA1(user.getPassword())};
         if (GetUserByEmail(user.getEmail()) == null) {
             if (db.Update("insert into user(firstName, email, password) values (?, ?, ?)", params) > 0) {
-                return true;
+                return 1;
+            } else {
+                return -1;
             }
         }
-        return false;
+        return 0;
     }
 
     public User GetUserByEmail(String email) {
@@ -58,6 +66,7 @@ public class DBQuery {
             try {
                 while (rs.next()) {
                     User u = new User();
+                    u.setIdUser(rs.getInt("idUser"));
                     u.setFirstName(rs.getString("firstName"));
                     u.setEmail(rs.getString("email"));
                     return u;
@@ -66,6 +75,11 @@ public class DBQuery {
             }
         }
         return null;
+    }
+
+    public boolean UpdateUser(User user) {
+        String[] params = new String[]{user.getFirstName(), user.getPhoneNumber(), user.getAddress(), String.valueOf(user.getIdUser())};
+        return db.Update("UPDATE user SET full_name = ?, phone = ?, address = ? WHERE id = ?", params) > 0;
     }
 
     public User GetUserByAuthentication(User user) {
@@ -113,8 +127,9 @@ public class DBQuery {
         }
         return lst;
     }
+
     public List<Product> GetProductListByType(int page, String name) {
-        ResultSet rs = db.Query("select * from product as p left outer join product_type as t on p.idProductType = t.idProductType where t.typeName = ?" 
+        ResultSet rs = db.Query("select * from product as p left outer join product_type as t on p.idProductType = t.idProductType where t.typeName = ?"
                 + Utils.Offset(page), new String[]{name});
         List<Product> lst = new ArrayList<Product>();
         if (rs != null) {
@@ -163,7 +178,7 @@ public class DBQuery {
     }
 
     public Product GetProductByIdProduct(int idProduct) {
-        ResultSet rs = db.Query("SELECT * FROM user WHERE idProduct = "+idProduct);
+        ResultSet rs = db.Query("SELECT * FROM user WHERE idProduct = " + idProduct);
         if (rs != null) {
             try {
                 while (rs.next()) {

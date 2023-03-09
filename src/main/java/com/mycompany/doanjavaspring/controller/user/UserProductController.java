@@ -1,5 +1,5 @@
 
-package com.mycompany.doanjavaspring.controller;
+package com.mycompany.doanjavaspring.controller.user;
 
 import com.mycompany.config.Utils;
 import com.mycompany.database.DBQuery;

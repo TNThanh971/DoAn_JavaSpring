@@ -4,7 +4,10 @@
  */
 package com.mycompany.config;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
@@ -16,6 +19,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class Utils {
     public static int LIMIT_ROWS = 10;
+    public static String DB_MYSQL;
 
     public static int Page(String page) {
         try {
@@ -66,5 +70,20 @@ public class Utils {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern(format);
         LocalDateTime now = LocalDateTime.now();
         return dtf.format(now);
+    }
+     public static String URLEncode(String str) {
+        try {
+            return URLEncoder.encode(str, "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            return str;
+        }
+    }
+
+    public static String URLDecode(String str) {
+        try {
+            return URLDecoder.decode(str, "UTF-8");
+        } catch (UnsupportedEncodingException ex) {
+            return str;
+        }
     }
 }

@@ -9,10 +9,23 @@ package com.mycompany.model;
  * @author truongthanh
  */
 public class User {
-    private String firstName ;
-    private String email ;
-    private String password ;
+
+    private int idUser;
+    private String firstName;
+    private String email;
+    private String password;
+    private String phoneNumber;
+    private String address;
     
+    
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -35,5 +48,20 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
