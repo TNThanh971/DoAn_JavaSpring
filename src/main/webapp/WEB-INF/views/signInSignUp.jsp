@@ -9,7 +9,7 @@
         <meta http-equiv="refresh" content="100">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
-        <link rel="stylesheet" href="./assetsUser/css/styleSignInSignUp.css">
+        <link rel="stylesheet" href="./assets/user/css/styleSignInSignUp.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     </head>
@@ -90,10 +90,10 @@
 
                     <div class="button-input-group">
                         <div class="group input-group">
-                            <input type="email" name="email" placeholder="Email"  required>
+                            <input type="email" name="email" placeholder="Email"  required pattern=".{8,}">
                         </div>
                         <div class="group input-group">
-                            <input type="password" name="password" placeholder="Password"  required pattern=".{8,}">
+                                <input type="password" name="password" placeholder="Password"  required pattern=".{8,}">
                         </div>
                         <div class="alert-text signup__alert">
                             <span class="help__text">At least 8 character</span>
@@ -138,6 +138,6 @@
 
         </div>
 
-        <script src="./assetsUser/js/index.js"></script>
+        <script src="./assets/user/js/index.js"></script>
     </body>
 </html>

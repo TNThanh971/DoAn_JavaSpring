@@ -13,16 +13,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assetsUser/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/user/img/favicon.ico">
 
     <!-- CSS 
     ========================= -->
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="./assetsUser/css/plugins.css">
+    <link rel="stylesheet" href="./assets/user/css/plugins.css">
 
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="./assetsUser/css/styleHome.css">
+    <link rel="stylesheet" href="./assets/user/css/styleHome.css">
 
 </head>
 <header>
@@ -33,16 +33,24 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header_account">
                             <ul>
-                                <li class="language"><a href="#"><img src="assetsUser/img/icon/vietnam.png" alt=""> VN
+                                <li class="language"><a href="#"><img src="assets/user/img/icon/vietnam.png" alt=""> VN
                                         <i class="zmdi zmdi-chevron-down zmdi-hc-fw"></i></a>
                                     <ul class="dropdown_language">
                                         <li><a href="#">English</a></li>
                                     </ul>
                                 </li>
-
-                                <li class="top_links"><a href="#"> Tài Khoản</a>
-                                </li>
-
+                                <%
+                                    if (session.getAttribute("user") == null) {
+                                %>
+                                <li class="top_links"><a href="#"> Tài Khoản</a></li>
+                                <%
+                                } else {
+                                    User user = (User) session.getAttribute("user");
+                                %>
+                                <li class="top_links"><a href="#"> Xin chào <%= user.getFirstName()%></a></li>
+                                <%
+                                    }
+                                %>
                             </ul>
                         </div>
                     </div>
@@ -62,7 +70,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3">
                         <div class="logo">
-                            <a href="./"><img src="./assetsUser/img/logo/logo.webp" alt=""></a>
+                            <a href="./"><img src="./assets/user/img/logo/logo.webp" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -85,18 +93,17 @@
                                             <%
                                                 if (session.getAttribute("user") == null) {
                                             %>
-                                            <a href="./signInSignUp">Đăng nhập</a>
+                                            <a href="./signIn">Đăng nhập</a>
                                             <%
                                             } else {
                                                 User user = (User) session.getAttribute("user");
                                             %>
-                                            <a href="#">Xin chào <%= user.getFirstName()%> <i class="fa fa-angle-down"></i></a>
+                                            <a href="#">Tài khoản <i class="fa fa-angle-down"></i></a>
                                             <ul class="sub_menu pages">
-                                                <li><a href="./checkout">Checkout </a></li>
-                                                <li><a href="./profile">My Account </a></li>
-                                                <li><a href="./cart">Shopping Cart</a></li>
-                                                <li><a href="">Wishlist</a></li>
-                                                <li><a href="./logout">Sign Out</a></li>
+                                                <li><a href="./checkout">Thanh toán </a></li>
+                                                <li><a href="./profile">Thông tin tài khoản</a></li>
+                                                <li><a href="./cart">Giỏ hàng</a></li>
+                                                <li><a href="./logout">Đăng xuất</a></li>
 
                                             </ul>
                                             <%
@@ -130,7 +137,7 @@
                                             <div class="cart_gallery">
                                                 <div class="cart_item">
                                                     <div class="cart_img">
-                                                        <a href="#"><img src="assetsUser/img/s-product/product.webp"
+                                                        <a href="#"><img src="assets/user/img/s-product/product.webp"
                                                                          alt=""></a>
                                                     </div>
                                                     <div class="cart_info">
@@ -143,7 +150,7 @@
                                                 </div>
                                                 <div class="cart_item">
                                                     <div class="cart_img">
-                                                        <a href="#"><img src="assetsUser/img/s-product/product2.webp"
+                                                        <a href="#"><img src="assets/user/img/s-product/product2.webp"
                                                                          alt=""></a>
                                                     </div>
                                                     <div class="cart_info">

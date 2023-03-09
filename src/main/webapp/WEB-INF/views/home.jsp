@@ -11,16 +11,16 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="assetsUser/img/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/user/img/favicon.ico">
 
         <!-- CSS 
         ========================= -->
 
         <!-- Plugins CSS -->
-        <link rel="stylesheet" href="./assetsUser/css/plugins.css">
+        <link rel="stylesheet" href="./assets/user/css/plugins.css">
 
         <!-- Main Style CSS -->
-        <link rel="stylesheet" href="./assetsUser/css/styleHome.css">
+        <link rel="stylesheet" href="./assets/user/css/styleHome.css">
 
     </head>
 
@@ -33,7 +33,7 @@
         <!--slider area start-->
         <section class="slider_section slider_s_one mb-40">
             <div class="slider_area owl-carousel">
-                <div class="single_slider d-flex align-items-center" data-bgimg="assetsUser/img/slider/slider1.webp">
+                <div class="single_slider d-flex align-items-center" data-bgimg="assets/user/img/slider/slider1.webp">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6 col-md-7">
@@ -50,7 +50,7 @@
                     </div>
 
                 </div>
-                <div class="single_slider d-flex align-items-center" data-bgimg="assetsUser/img/slider/slider2.webp">
+                <div class="single_slider d-flex align-items-center" data-bgimg="assets/user/img/slider/slider2.webp">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6 offset-lg-6 col-md-6 offset-md-6">
@@ -76,7 +76,7 @@
                     <div class="col-lg-4 col-md-4">
                         <figure class="single_banner">
                             <div class="banner_thumb">
-                                <a href="shop.html"><img src="assetsUser/img/bg/banner1.webp" alt=""></a>
+                                <a href="shop.html"><img src="assets/user/img/bg/banner1.webp" alt=""></a>
                                 <div class="banner_conent">
                                     <h3>sale up to</h3>
                                     <h2>50%</h2>
@@ -88,7 +88,7 @@
                     <div class="col-lg-4 col-md-4">
                         <figure class="single_banner">
                             <div class="banner_thumb">
-                                <a href="shop.html"><img src="assetsUser/img/bg/banner2.webp" alt=""></a>
+                                <a href="shop.html"><img src="assets/user/img/bg/banner2.webp" alt=""></a>
                                 <div class="banner_conent">
                                     <h3>sale up to</h3>
                                     <h2>70%</h2>
@@ -100,7 +100,7 @@
                     <div class="col-lg-4 col-md-4">
                         <figure class="single_banner">
                             <div class="banner_thumb">
-                                <a href="shop.html"><img src="assetsUser/img/bg/banner3.webp" alt=""></a>
+                                <a href="shop.html"><img src="assets/user/img/bg/banner3.webp" alt=""></a>
                                 <div class="banner_conent">
                                     <h3>model & Trending</h3>
                                     <h2>2021</h2>
@@ -189,10 +189,10 @@
     ============================================ -->
 
         <!-- Plugins JS -->
-        <script src="./assetsUser/js/plugins.js"></script>
+        <script src="./assets/user/js/plugins.js"></script>
 
         <!-- Main JS -->
-        <script src="./assetsUser/js/main.js"></script>
+        <script src="./assets/user/js/main.js"></script>
 
 
 

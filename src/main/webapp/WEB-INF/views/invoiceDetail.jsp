@@ -8,17 +8,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assetsUser/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/user/img/favicon.ico">
     
     <!-- CSS 
     ========================= -->
 
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assetsUser/css/plugins.css">
+    <link rel="stylesheet" href="assets/user/css/plugins.css">
     
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assetsUser/css/style.css">
+    <link rel="stylesheet" href="assets/user/css/style.css">
     
 
 </head>
@@ -134,12 +134,12 @@
                                                     <tr>
                                                         <td><b>MOMO</b></td>
                                                         <td>0358xxxxxx</td>
-                                                        <td><img src="assetsUser/payment/momo.jpg" alt=""></td>
+                                                        <td><img src="assets/user/payment/momo.jpg" alt=""></td>
                                                     </tr>
                                                     <tr>
                                                         <td><b>ACB</b></td>
                                                         <td>123456</td>
-                                                        <td><img src="assetsUser/payment/vcb.jpg" alt=""></td>
+                                                        <td><img src="assets/user/payment/vcb.jpg" alt=""></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -191,10 +191,10 @@
 ============================================ -->
 
 <!-- Plugins JS -->
-<script src="assetsUser/js/plugins.js"></script>
+<script src="assets/user/js/plugins.js"></script>
 
 <!-- Main JS -->
-<script src="assetsUser/js/main.js"></script>
+<script src="assets/user/js/main.js"></script>
 
 
 

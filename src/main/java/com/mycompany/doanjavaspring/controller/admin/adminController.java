@@ -14,36 +14,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class adminController {
-   @RequestMapping(value = "/adminIndex")
+   @RequestMapping(value = "/admin/adminIndex")
     public String adminIndex(Model model) {
-        return "adminIndex";
+        return "admin/adminIndex";
     } 
-    @RequestMapping(value = "/adminAddProduct")
+    @RequestMapping(value = "/admin/adminAddProduct")
     public String adminAddProduct(Model model) {
-        return "adminAddProduct";
+        return "admin/adminAddProduct";
     } 
-    @RequestMapping(value = "/adminDetailsInvoices")
+    @RequestMapping(value = "/admin/adminDetailsInvoices")
     public String adminDetailsInvoices(Model model) {
-        return "adminDetailsInvoices";
+        return "admin/adminDetailsInvoices";
     } 
-    @RequestMapping(value = "/adminDetailsUser")
+    @RequestMapping(value = "/admin/adminDetailsUser")
     public String adminDetailsUser(Model model) {
-        return "adminDetailsUser";
+        return "admin/adminDetailsUser";
     } 
-    @RequestMapping(value = "/adminListInvoices")
+    @RequestMapping(value = "/admin/adminListInvoices")
     public String adminListInvoices(Model model) {
-        return "adminListInvoices";
+        return "admin/adminListInvoices";
     } 
-    @RequestMapping(value = "/adminListProduct")
+    @RequestMapping(value = "/admin/adminListProduct")
     public String adminListProduct(Model model) {
-        return "adminListProduct";
+        return "admin/adminListProduct";
     } 
-    @RequestMapping(value = "/adminListUsers")
+    @RequestMapping(value = "/admin/adminListUsers")
     public String adminListUsers(Model model) {
-        return "adminListUsers";
+        return "admin/adminListUsers";
     } 
-    @RequestMapping(value = "/adminLogin")
+    @RequestMapping(value = "/admin/adminLogin")
     public String adminLogin(Model model) {
-        return "adminLogin";
+        return "admin/adminLogin";
     } 
 }

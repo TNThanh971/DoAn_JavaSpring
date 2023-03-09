@@ -12,16 +12,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assetsUser/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/user/img/favicon.ico">
 
     <!-- CSS 
     ========================= -->
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="./assetsUser/css/plugins.css">
+    <link rel="stylesheet" href="./assets/user/css/plugins.css">
 
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="./assetsUser/css/styleHome.css">
+    <link rel="stylesheet" href="./assets/user/css/styleHome.css">
 </head>
 
 <footer class="footer_widgets">
@@ -31,7 +31,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-7">
                     <div class="widgets_container contact_us">
                         <div class="footer_logo">
-                            <a href="index.html"><img src="assetsUser/img/logo/logo.webp" alt=""></a>
+                            <a href="index.html"><img src="assets/user/img/logo/logo.webp" alt=""></a>
                         </div>
                         <div class="footer_desc">
                             <p>Wibu Shop luôn đồng hành với tín đồ cosplay</p>

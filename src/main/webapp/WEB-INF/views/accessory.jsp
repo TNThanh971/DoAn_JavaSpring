@@ -11,17 +11,17 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="./assetsUser/img/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/user/img/favicon.ico">
 
         <!-- CSS 
         ========================= -->
 
 
         <!-- Plugins CSS -->
-        <link rel="stylesheet" href="./assetsUser/css/plugins.css">
+        <link rel="stylesheet" href="assets/user/css/plugins.css">
 
         <!-- Main Style CSS -->
-        <link rel="stylesheet" href="./assetsUser/css/styleHome.css">
+        <link rel="stylesheet" href="assets/user/css/styleHome.css">
 
     </head>
 
@@ -158,38 +158,38 @@
                                         <div class="tab-content product-details-large">
                                             <div class="tab-pane fade show active" id="tab1" role="tabpanel" >
                                                 <div class="modal_tab_img">
-                                                    <a href="#"><img src="./assetsUser/img/product/productbig6.webp" alt=""></a>    
+                                                    <a href="#"><img src="assets/user/img/product/productbig6.webp" alt=""></a>    
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="tab2" role="tabpanel">
                                                 <div class="modal_tab_img">
-                                                    <a href="#"><img src="./assetsUser/img/product/productbig7.webp" alt=""></a>    
+                                                    <a href="#"><img src="assets/user/img/product/productbig7.webp" alt=""></a>    
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="tab3" role="tabpanel">
                                                 <div class="modal_tab_img">
-                                                    <a href="#"><img src="./assetsUser/img/product/productbig8.webp" alt=""></a>    
+                                                    <a href="#"><img src="assets/user/img/product/productbig8.webp" alt=""></a>    
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade" id="tab4" role="tabpanel">
                                                 <div class="modal_tab_img">
-                                                    <a href="#"><img src="./assetsUser/img/product/productbig9.webp" alt=""></a>    
+                                                    <a href="#"><img src="assets/user/img/product/productbig9.webp" alt=""></a>    
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal_tab_button">    
                                             <ul class="nav product_navactive owl-carousel" role="tablist">
                                                 <li >
-                                                    <a class="nav-link active" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="./assetsUser/img/product/product1.webp" alt=""></a>
+                                                    <a class="nav-link active" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="./assets/user/img/product/product1.webp" alt=""></a>
                                                 </li>
                                                 <li>
-                                                    <a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="./assetsUser/img/product/product3.webp" alt=""></a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="./assets/user/img/product/product3.webp" alt=""></a>
                                                 </li>
                                                 <li>
-                                                    <a class="nav-link button_three" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="./assetsUser/img/product/product7.webp" alt=""></a>
+                                                    <a class="nav-link button_three" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="./assets/user/img/product/product7.webp" alt=""></a>
                                                 </li>
                                                 <li>
-                                                    <a class="nav-link" data-bs-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="./assetsUser/img/product/product10.webp" alt=""></a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="./assets/user/img/product/product10.webp" alt=""></a>
                                                 </li>
 
                                             </ul>
@@ -240,10 +240,10 @@
         ============================================ -->
 
         <!-- Plugins JS -->
-        <script src="./assetsUser/js/plugins.js"></script>
+        <script src="assets/user/js/plugins.js"></script>
 
         <!-- Main JS -->
-        <script src="./assetsUser/js/main.js"></script>
+        <script src="assets/user/js/main.js"></script>
 
 
 

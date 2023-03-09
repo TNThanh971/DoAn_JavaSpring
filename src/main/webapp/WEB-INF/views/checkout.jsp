@@ -11,17 +11,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assetsUser/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/user/img/favicon.ico">
     
     <!-- CSS 
     ========================= -->
 
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assetsUser/css/plugins.css">
+    <link rel="stylesheet" href="assets/user/css/plugins.css">
     
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assetsUser/css/style.css">
+    <link rel="stylesheet" href="assets/user/css/style.css">
 
 </head>
 
@@ -184,10 +184,10 @@
 ============================================ -->
 
 <!-- Plugins JS -->
-<script src="assetsUser/js/plugins.js"></script>
+<script src="assets/user/js/plugins.js"></script>
 
 <!-- Main JS -->
-<script src="assetsUser/js/main.js"></script>
+<script src="assets/user/js/main.js"></script>
 
 
 

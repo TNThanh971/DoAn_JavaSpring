@@ -11,17 +11,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assetsUser/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/user/img/favicon.ico">
     
     <!-- CSS 
     ========================= -->
 
 
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="./assetsUser/css/plugins.css">
+    <link rel="stylesheet" href="./assets/user/css/plugins.css">
     
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="./assetsUser/css/style.css">
+    <link rel="stylesheet" href="./assets/user/css/style.css">
 
 </head>
 
@@ -70,7 +70,7 @@
                             <tbody>
                                 <tr>
                                    <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assetsUser/img/s-product/product.webp" alt=""></a></td>
+                                    <td class="product_thumb"><a href="#"><img src="assets/user/img/s-product/product.webp" alt=""></a></td>
                                     <td class="product_name"><a href="#">Handbag fringilla</a></td>
                                     <td class="product-price">£65.00</td>
                                     <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" value="1" type="number"></td>
@@ -81,7 +81,7 @@
 
                                 <tr>
                                    <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assetsUser/img/s-product/product2.webp" alt=""></a></td>
+                                    <td class="product_thumb"><a href="#"><img src="assets/user/img/s-product/product2.webp" alt=""></a></td>
                                     <td class="product_name"><a href="#">Handbags justo</a></td>
                                     <td class="product-price">£90.00</td>
                                     <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" value="1" type="number"></td>
@@ -91,7 +91,7 @@
                                 </tr>
                                 <tr>
                                    <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product_thumb"><a href="#"><img src="assetsUser/img/s-product/product3.webp" alt=""></a></td>
+                                    <td class="product_thumb"><a href="#"><img src="assets/user/img/s-product/product3.webp" alt=""></a></td>
                                     <td class="product_name"><a href="#">Handbag elit</a></td>
                                     <td class="product-price">£80.00</td>
                                     <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" value="1" type="number"></td>
@@ -162,10 +162,10 @@
 ============================================ -->
 
 <!-- Plugins JS -->
-<script src="assetsUser/js/plugins.js"></script>
+<script src="assets/user/js/plugins.js"></script>
 
 <!-- Main JS -->
-<script src="assetsUser/js/main.js"></script>
+<script src="assets/user/js/main.js"></script>
 
 
 

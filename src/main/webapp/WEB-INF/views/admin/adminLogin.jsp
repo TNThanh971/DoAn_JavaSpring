@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
  
@@ -14,10 +15,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./assetsAdmin/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="./assetsAdmin/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assetsAdmin/libs/css/style.css">
-    <link rel="stylesheet" href="./assetsAdmin/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    
+    <link rel="stylesheet" href="<c:url value="/assets/admin/vendor/bootstrap/css/bootstrap.min.css"/>">
+    <link href="<c:url value="/assets/admin/vendor/fonts/circular-std/style.css"/>" rel="stylesheet">
+    <link rel="stylesheet" href="<c:url value="/assets/admin/libs/css/style.css"/>">
+    <link rel="stylesheet" href="<c:url value="/assets/admin/vendor/fonts/fontawesome/css/fontawesome-all.css"/>">
     <style>
     html,
     body {
@@ -66,8 +68,8 @@
     <!-- end login page  -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="./assetsAdmin/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="./assetsAdmin/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="<c:url value="/assets/admin/vendor/jquery/jquery-3.3.1.min.js"/>"></script>
+    <script src="<c:url value="/assets/admin/vendor/bootstrap/js/bootstrap.bundle.js"/>"></script>
 </body>
  
 </html>
