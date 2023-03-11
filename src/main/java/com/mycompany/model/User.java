@@ -16,7 +16,18 @@ public class User {
     private String password;
     private String phoneNumber;
     private String address;
+    private String bankAccountNumber;
+    private String bankName;
+
     
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
     
     public int getIdUser() {
         return idUser;
@@ -63,5 +74,12 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getBankAccountNumber() {
+        return bankAccountNumber;
+    }
+
+    public void setBankAccountNumber(String bankAccountNumber) {
+        this.bankAccountNumber = bankAccountNumber;
     }
 }

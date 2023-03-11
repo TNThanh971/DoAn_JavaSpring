@@ -3,7 +3,6 @@ package com.mycompany.doanjavaspring.controller.user;
 import com.mycompany.config.Utils;
 import com.mycompany.database.DBQuery;
 import com.mycompany.model.Product;
-import com.mycompany.model.User;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;

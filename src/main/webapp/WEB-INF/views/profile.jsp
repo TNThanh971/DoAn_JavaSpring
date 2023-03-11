@@ -1,3 +1,8 @@
+<%@page import="com.mycompany.model.User"%>
+<%
+    User user = (User) session.getAttribute("user");
+%>
+<jsp:include page="header.jsp" />
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -24,10 +29,6 @@
     </head>
 
     <body>
-
-        <!--header area start-->
-        <%@include file="header.jsp" %>
-        <!--header area end-->
 
         <!--breadcrumbs area start-->
         <div class="breadcrumbs_area">
@@ -110,18 +111,18 @@
                                             <div class="account_login_form">
                                                 <form method="POST" action="">
                                                     <label>Họ tên *</label>
-                                                    <input type="text" name="user_fullname" id="user_fullname" required="">
+                                                    <input type="text" name="firstName" id="user_fullname" value="<%= user.getFirstName()%>" required="">
                                                     <label>Địa chỉ Email *</label>
-                                                    <input type="email" name="user_email" id="user_email" required="">
+                                                    <input type="email" name="email" id="user_email" value="<%= user.getEmail()%>" required="">
                                                     <label>Số điện thoại *</label>
-                                                    <input type="text" name="user_phone_number" id="user_phone_number" pattern="(84|0[3|5|7|8|9])+([0-9]{8})" required="">
+                                                    <input type="text" name="phoneNumber" id="user_phone_number" pattern="(84|0[3|5|7|8|9])+([0-9]{8})" value="<%= user.getPhoneNumber()%>" required="">
                                                     <label>Địa chỉ giao hàng mặc định *</label>
-                                                    <input type="text" name="user_address" id="user_address" required="">
+                                                    <input type="text" name="address" id="user_address" value="<%= user.getAddress()%>" required="">
                                                     <p>Thông tin ngân hàng được dùng để HOÀN LẠI phí đảm bảo tài sản:</p>
                                                     <label>Số tài khoản ngân hàng *</label>
-                                                    <input type="text" name="user_bank_account_number" id="user_bank_account_number" pattern="[0-9]+" required="">
+                                                    <input type="text" name="bankAccountNumber" id="user_bank_account_number" value="<%= user.getBankAccountNumber()%>" >
                                                     <label>Tên ngân hàng *</label>
-                                                    <input type="text" name="user_bank_name" id="user_bank_name" required="">
+                                                    <input type="text" name="bankName" id="user_bank_name" value="<%= user.getBankName()%>" >
                                                     <div class="save_button primary_btn default_button">
                                                         <button type="submit" name="submit" value="update_info">Lưu</button>
                                                     </div>
@@ -131,9 +132,9 @@
                                             <div class="account_login_form">
                                                 <form method="POST" action="">
                                                     <label>Mật khẩu mới</label>
-                                                    <input type="password" name="user_password" minlength="6" required="">
+                                                    <input type="password" name="password" value="<%= user.getPassword()%>" minlength="6" required="">
                                                     <label>Nhập lại mật khẩu mới</label>
-                                                    <input type="password" name="user_password_again" minlength="6" required="">
+                                                    <input type="password" name="password2" minlength="6" required="">
                                                     <div class="save_button primary_btn default_button">
                                                         <button type="submit" name="submit" value="change_pass">Đổi mật khẩu</button>
                                                     </div>

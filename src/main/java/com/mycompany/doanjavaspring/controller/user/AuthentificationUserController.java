@@ -52,8 +52,6 @@ public class AuthentificationUserController {
 
     @RequestMapping(value = "/signUp", method = RequestMethod.POST)
     public String SignUpProcess(HttpSession session, @ModelAttribute() User user, @RequestParam("password2") String password2, Model model) {
-//        System.out.println("user: " + user.getEmail());
-//        System.out.println("pass2: " + password2);
         if (user.getPassword().equals(password2)) {
             int is_reg = dbq.SignUpUser(user);
             if (is_reg == 1) {

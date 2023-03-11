@@ -41,8 +41,8 @@ public class DBQuery {
 
     public boolean Login(String email, String password) {
         password = Utils.SHA1(password);
-        ResultSet ls =  db.Query("SELECT * FROM user WHERE email = ? AND password = ?", new String[]{email, password});
-        if (ls!=null) {
+        ResultSet ls = db.Query("SELECT * FROM user WHERE email = ? AND password = ?", new String[]{email, password});
+        if (ls != null) {
             return true;
         }
         return false;
@@ -69,6 +69,11 @@ public class DBQuery {
                     u.setIdUser(rs.getInt("idUser"));
                     u.setFirstName(rs.getString("firstName"));
                     u.setEmail(rs.getString("email"));
+                    u.setAddress(rs.getString("address"));
+                    u.setPhoneNumber(rs.getString("phoneNumber"));
+                    u.setBankAccountNumber(rs.getString("bankAccountNumber"));
+                    u.setBankName(rs.getString("bankName"));
+                    u.setPassword(rs.getString("password"));
                     return u;
                 }
             } catch (SQLException ex) {
@@ -77,9 +82,16 @@ public class DBQuery {
         return null;
     }
 
-    public boolean UpdateUser(User user) {
-        String[] params = new String[]{user.getFirstName(), user.getPhoneNumber(), user.getAddress(), String.valueOf(user.getIdUser())};
-        return db.Update("UPDATE user SET full_name = ?, phone = ?, address = ? WHERE id = ?", params) > 0;
+    public boolean UpdateUserInfor(User user) {
+        System.out.println(user.getAddress());
+
+        String[] params = new String[]{user.getFirstName(), user.getPhoneNumber(), user.getAddress(), user.getBankAccountNumber(), user.getBankName(), String.valueOf(user.getIdUser())};
+        return db.Update("UPDATE user SET firstName = ?, phoneNumber = ?, address = ?, bankAccountNumber = ?, bankName = ? WHERE idUser = ?", params) > 0;
+    }
+    public boolean UpdateUserPassword(String pass, User user) {
+        
+        String[] params = new String[]{Utils.SHA1(pass), String.valueOf(user.getIdUser())};
+        return db.Update("UPDATE user SET  password = ? WHERE idUser = ?", params) > 0;
     }
 
     public User GetUserByAuthentication(User user) {

@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -30,14 +31,17 @@ public class UserController {
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
-    public String UpdateProfile(HttpSession session, @ModelAttribute() User user, Model model) {
+    public String UpdateProfile(HttpSession session, @ModelAttribute() User user, Model model, @RequestParam("password2") String pass) {
         if (session.getAttribute("user") == null) {
             return "redirect:/";
         }
         User u = (User) session.getAttribute("user");
         user.setIdUser(u.getIdUser());
         user.setEmail(u.getEmail());
-        if (dbq.UpdateUser(user)) {
+        if (pass!=null){
+            dbq.UpdateUserPassword(pass, user);
+        }
+        if (dbq.UpdateUserInfor(user)) {
             session.setAttribute("user", user);
         }
         return "profile";
@@ -48,4 +52,5 @@ public class UserController {
         session.removeAttribute("user");
         return "redirect:/";
     }
+    
 }

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : Mar 2, 2023, 6:06:30 PM
-    Author     : truongthanh
---%>
-
 <%@page import="com.mycompany.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
