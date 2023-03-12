@@ -128,8 +128,8 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            <hr style="background: #180000;">
-                                            <div class="account_login_form">
+                                            <!--<hr style="background: #180000;">-->
+<!--                                            <div class="account_login_form">
                                                 <form method="POST" action="">
                                                     <label>Mật khẩu mới</label>
                                                     <input type="password" name="password" value="<%= user.getPassword()%>" minlength="6" required="">
@@ -139,7 +139,7 @@
                                                         <button type="submit" name="submit" value="change_pass">Đổi mật khẩu</button>
                                                     </div>
                                                 </form>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                 </div>

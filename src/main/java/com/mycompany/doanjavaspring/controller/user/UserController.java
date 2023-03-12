@@ -38,12 +38,14 @@ public class UserController {
         User u = (User) session.getAttribute("user");
         user.setIdUser(u.getIdUser());
         user.setEmail(u.getEmail());
-        if (pass!=null){
-            dbq.UpdateUserPassword(pass, user);
-        }
         if (dbq.UpdateUserInfor(user)) {
             session.setAttribute("user", user);
+            return "profile";
         }
+//        if (pass!=null){
+//            dbq.UpdateUserPassword(pass, user);
+//            return "profile";
+//        }
         return "profile";
     }
 

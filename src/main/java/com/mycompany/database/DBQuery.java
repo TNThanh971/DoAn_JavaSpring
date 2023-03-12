@@ -5,6 +5,7 @@
 package com.mycompany.database;
 
 import com.mycompany.config.Utils;
+import com.mycompany.model.Cart;
 import com.mycompany.model.Invoice;
 import com.mycompany.model.InvoiceDetail;
 import com.mycompany.model.Product;
@@ -39,11 +40,17 @@ public class DBQuery {
         return list;
     }
 
-    public boolean Login(String email, String password) {
+    public boolean Login(String email, String password) throws SQLException {
+        System.out.println(password);
         password = Utils.SHA1(password);
+        System.out.println(password);
         ResultSet ls = db.Query("SELECT * FROM user WHERE email = ? AND password = ?", new String[]{email, password});
         if (ls != null) {
-            return true;
+            while (ls.next()){
+                System.out.println(ls.getString("email"));
+                System.out.println(ls.getString("password"));
+                return true;
+            }
         }
         return false;
     }
@@ -83,13 +90,12 @@ public class DBQuery {
     }
 
     public boolean UpdateUserInfor(User user) {
-        System.out.println(user.getAddress());
-
         String[] params = new String[]{user.getFirstName(), user.getPhoneNumber(), user.getAddress(), user.getBankAccountNumber(), user.getBankName(), String.valueOf(user.getIdUser())};
         return db.Update("UPDATE user SET firstName = ?, phoneNumber = ?, address = ?, bankAccountNumber = ?, bankName = ? WHERE idUser = ?", params) > 0;
     }
+
     public boolean UpdateUserPassword(String pass, User user) {
-        
+
         String[] params = new String[]{Utils.SHA1(pass), String.valueOf(user.getIdUser())};
         return db.Update("UPDATE user SET  password = ? WHERE idUser = ?", params) > 0;
     }
@@ -113,7 +119,7 @@ public class DBQuery {
         return null;
     }
 
-    //product
+    // begin product
     public List<Product> GetProductList(int page) {
         ResultSet rs = db.Query("select * from product " + Utils.Offset(page));
         List<Product> lst = new ArrayList<Product>();
@@ -190,12 +196,19 @@ public class DBQuery {
     }
 
     public Product GetProductByIdProduct(int idProduct) {
-        ResultSet rs = db.Query("SELECT * FROM user WHERE idProduct = " + idProduct);
+        ResultSet rs = db.Query("SELECT * FROM product WHERE idProduct = " + idProduct);
         if (rs != null) {
             try {
                 while (rs.next()) {
                     Product p = new Product();
                     p.setIdProduct(rs.getInt("idProduct"));
+                    p.setProductDescription(rs.getString("productDescription"));
+                    p.setProductQuantity(rs.getInt("productQuantity"));
+                    p.setProductName(rs.getString("productName"));
+                    p.setProductUrlImage(rs.getString("productUrlImage"));
+                    p.setProductRentalPrice(rs.getFloat("productRentalPrice"));
+                    p.setProductPrice(rs.getFloat("productPrice"));
+                    p.setProductWeight(rs.getFloat("productWeight"));
                     return p;
                 }
             } catch (SQLException ex) {
@@ -219,7 +232,8 @@ public class DBQuery {
         return 0;
     }
 
-    //products
+    //end products
+    //begin invoice
     public Invoice GetInvoiceByEmail(String email) {
         ResultSet rs = db.Query("select * from invoice where email=?", new String[]{email});
         if (rs != null) {
@@ -310,4 +324,41 @@ public class DBQuery {
         }
         return null;
     }
+    //end invoice
+
+    //begin cart
+    public List<Cart> GetCartByIdUser(String idUser) {
+        System.out.println("user has an id : "+idUser);
+        ResultSet rs = db.Query("select p.productName, p.productUrlImage, p.productRentalPrice,c.productQuantity from cart c, product p where c.idProduct = p.idProduct and idUser = " + idUser);
+        List<Cart> list = new ArrayList<>();
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    Cart c = new Cart();
+                    c.setProductName(rs.getString("productName"));
+                    c.setImage(rs.getString("productUrlImage"));
+                    c.setPrice(rs.getFloat("productRentalPrice"));
+                    c.setCartProductQuantity(rs.getInt("productQuantity"));
+                    System.out.println(c.getProductName());
+                    System.out.println(c.getImage());
+                    System.out.println(c.getPrice());
+                    System.out.println(c.getCartProductQuantity());
+                    list.add(c);
+                }
+            } catch (SQLException ex) {
+                System.out.println("error: " + ex.toString());
+            }
+        }
+        return list;
+    }
+
+    public int AddProductToCart(String idUser, String idProduct, int quantity) {
+        String[] params = new String[]{idUser, idProduct, Integer.toString(quantity)};
+        ResultSet rs = db.Query("insert into cart(idUser, idProduct, cartProductQuantity) values(?,?,?)", params);
+        if (rs != null) {
+            return 1;
+        }
+        return 0;
+    }
+    //end cart
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -52,36 +53,8 @@
                         <div class="product-details-tab">
                             <div id="img-1" class="zoomWrapper single-zoom">
                                 <a href="#">
-                                    <img id="zoom1" src="assets/user/img/product/productbig5.webp" data-zoom-image="assets/user/img/product/productbig5.webp" alt="big-1">
+                                    <img id="zoom1" src="${product.productUrlImage}" data-zoom-image="${product.productUrlImage}" alt="big-1">
                                 </a>
-                            </div>
-                            <div class="single-zoom-thumb">
-                                <ul class="s-tab-zoom owl-carousel single-product-active" id="gallery_01">
-                                    <li>
-                                        <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/user/img/product/productbig4.webp" data-zoom-image="assets/user/img/product/productbig4.webp">
-                                            <img src="assets/user/img/product/productbig4.webp" alt="zo-th-1"/>
-                                        </a>
-
-                                    </li>
-                                    <li >
-                                        <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/user/img/product/productbig1.webp" data-zoom-image="assets/user/img/product/productbig1.webp">
-                                            <img src="assets/user/img/product/productbig1.webp" alt="zo-th-1"/>
-                                        </a>
-
-                                    </li>
-                                    <li >
-                                        <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/user/img/product/productbig2.webp" data-zoom-image="assets/user/img/product/productbig2.webp">
-                                            <img src="assets/user/img/product/productbig2.webp" alt="zo-th-1"/>
-                                        </a>
-
-                                    </li>
-                                    <li >
-                                        <a href="#" class="elevatezoom-gallery active" data-update="" data-image="assets/user/img/product/productbig3.webp" data-zoom-image="assets/user/img/product/productbig3.webp">
-                                            <img src="assets/user/img/product/productbig3.webp" alt="zo-th-1"/>
-                                        </a>
-
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -89,19 +62,19 @@
                         <div class="product_d_right">
                             <form action="#">
 
-                                <h1>Nonstick Dishwasher PFOA</h1>
+                                <h1>${product.productName}</h1>
                                 <div class="product_nav">
                                 </div>
                                 <div class="price_box">
-                                    <span class="current_price">$70.00</span>
+                                    <span class="current_price">${product.productPrice}</span>
                                 </div>
                                 <div class="product_desc">
-                                    <p>eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in </p>
+                                    <p>${product.productDescription}</p>
                                 </div>
                                 <div class="product_variant color">
                                 </div>
 
-                                <div class="product_variant size">
+<!--                                <div class="product_variant size">
                                     <label>SIZE</label>
                                     <select class="niceselect_option" id="color2" name="produc_color2">
                                         <option selected value="1"> Size in option</option>        
@@ -111,10 +84,10 @@
                                         <option value="5">XL</option>              
                                         <option value="6">XXL</option>              
                                     </select>   
-                                </div>
+                                </div>-->
                                 <div class="product_variant quantity">
                                     <label>quantity</label>
-                                    <input min="1" max="100" value="1" type="number">
+                                    <input min="1" max="100" value="1" type="number">/${product.productQuantity}
                                     <button class="button" type="submit">add to cart</button>  
 
                                 </div> 
@@ -128,7 +101,7 @@
         <!--product details end-->
 
         <!--product area start-->
-        <section class="product_area related_products">
+<!--        <section class="product_area related_products">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -280,7 +253,7 @@
                     </div> 
                 </div>  
             </div>
-        </section>
+        </section>-->
         <!--product area end-->
 
         <!--footer area start-->

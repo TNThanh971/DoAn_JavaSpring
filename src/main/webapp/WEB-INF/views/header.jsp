@@ -96,7 +96,7 @@
                                             <ul class="sub_menu pages">
                                                 <li><a href="./checkout">Thanh toán </a></li>
                                                 <li><a href="./profile">Thông tin tài khoản</a></li>
-                                                <li><a href="./cart">Giỏ hàng</a></li>
+                                                <li><a href="./cart?idUser=${user.idUser}">Giỏ hàng</a></li>
                                                 <li><a href="./logout">Đăng xuất</a></li>
 
                                             </ul>
@@ -128,7 +128,7 @@
                                                 class="item_count">2</span></a>
                                         <!--mini cart-->
                                         <div class="mini_cart">
-                                            <div class="cart_gallery">
+<!--                                            <div class="cart_gallery">
                                                 <div class="cart_item">
                                                     <div class="cart_img">
                                                         <a href="#"><img src="assets/user/img/s-product/product.webp"
@@ -167,7 +167,7 @@
                                                         <span class="price">$125.00</span>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="mini_cart_footer">
                                                 <div class="cart_button">
                                                     <a href="./cart">View cart</a>

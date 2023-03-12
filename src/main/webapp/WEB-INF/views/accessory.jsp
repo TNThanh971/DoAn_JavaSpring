@@ -86,8 +86,8 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="./productDetail"><img src="${accessory.productUrlImage}" alt=""></a>
-                                                <a class="secondary_img" href="./productDetail"><img src="${accessory.productUrlImage}" alt=""></a>
+                                                <a class="primary_img" href="./productDetail?idProduct=${accessory.idProduct}"><img src="${accessory.productUrlImage}" alt=""></a>
+                                                <a class="secondary_img" href="./productDetail?idProduct=${accessory.idProduct}"><img src="${accessory.productUrlImage}" alt=""></a>
                                                 <div class="action_links">
                                                     <ul>
                                                         <li class="add_to_cart"><a href="./cart" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
@@ -97,13 +97,13 @@
                                                 </div>
                                             </div>
                                             <div class="product_content grid_content">
-                                                <h4 class="product_name"><a href="./productDetail">${accessory.productName}</a></h4>
+                                                <h4 class="product_name"><a href="./productDetail?idProduct=${accessory.idProduct}">${accessory.productName}</a></h4>
                                                 <div class="price_box"> 
                                                     <span class="current_price">${accessory.productPrice} VND</span>
                                                 </div>
                                             </div>
                                             <div class="product_content list_content">
-                                                <h4 class="product_name"><a href="./productDetail">${accessory.productName}</a></h4>
+                                                <h4 class="product_name"><a href="./productDetail?idProduct=${accessory.idProduct}">${accessory.productName}</a></h4>
                                                 <div class="price_box"> 
                                                     <span class="current_price">${accessory.productPrice} VND</span>
                                                 </div>

@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.mycompany.config.Utils"%>
+<%@page import="com.mycompany.database.DBQuery"%>
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -86,8 +88,8 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="./productDetail?id=${wig.idProduct}"><img src="${wig.productUrlImage}" alt=""></a>
-                                                <a class="secondary_img" href="./productDetail"><img src="${wig.productUrlImage}" alt=""></a>
+                                                <a class="primary_img" href="./productDetail?idProduct=${wig.idProduct}"><img src="${wig.productUrlImage}" alt=""></a>
+                                                <a class="secondary_img" href="./productDetail?idProduct=${wig.idProduct}"><img src="${wig.productUrlImage}" alt=""></a>
                                                 <div class="action_links">
                                                     <ul>
                                                         <li class="add_to_cart"><a href="./cart" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
@@ -97,13 +99,13 @@
                                                 </div>
                                             </div>
                                             <div class="product_content grid_content">
-                                                <h4 class="product_name"><a href="./productDetail">${wig.productName}</a></h4>
+                                                <h4 class="product_name"><a href="./productDetail?idProduct=${wig.idProduct}">${wig.productName}</a></h4>
                                                 <div class="price_box"> 
                                                     <span class="current_price">${wig.productPrice} VND</span>
                                                 </div>
                                             </div>
                                             <div class="product_content list_content">
-                                                <h4 class="product_name"><a href="./productDetail">${wig.productName}</a></h4>
+                                                <h4 class="product_name"><a href="./productDetail?idProduct=${wig.idProduct}">${wig.productName}</a></h4>
                                                 <div class="price_box"> 
                                                     <span class="current_price">${wig.productPrice} VND</span>
                                                 </div>

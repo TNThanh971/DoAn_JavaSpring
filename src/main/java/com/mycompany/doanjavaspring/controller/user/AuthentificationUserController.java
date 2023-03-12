@@ -32,7 +32,7 @@ public class AuthentificationUserController {
 
     @RequestMapping(value = "/signIn", method = RequestMethod.POST)
     public String SignInProcess(HttpSession session, @RequestParam(required = false) String url, @ModelAttribute() User user, Model model) {
-        if (dbq.Login(user.getEmail(), user.getPassword())) {
+        if (dbq.Login(user.getEmail(), user.getPassword())== true) {
             session.setAttribute("user", dbq.GetUserByEmail(user.getEmail()));
             if (url != null && !url.equals("")) {
                 return "redirect:" + Utils.URLDecode(url);

@@ -136,13 +136,13 @@
                                             <article class="single_product">
                                                 <figure>
                                                     <div class="product_thumb">
-                                                        <a class="primary_img" href="product-details.html"><img
+                                                        <a class="primary_img" href="./productDetail?idProduct=${product.idProduct}"><img
                                                                 src="${product.productUrlImage}" alt=""></a>
-                                                        <a class="secondary_img" href="product-details.html"><img
+                                                        <a class="secondary_img" href="./productDetail?idProduct=${product.idProduct}"><img
                                                                 src="${product.productUrlImage}" alt=""></a>  
                                                         <div class="action_links">
                                                             <ul>
-                                                                <li class="add_to_cart"><a href="cart.html"
+                                                                <li class="add_to_cart"><a href="./cart"
                                                                                            title="Add to cart"><i
                                                                             class="zmdi zmdi-shopping-cart"></i></a></li>
 
@@ -161,7 +161,7 @@
                                                         </div>
                                                     </div>
                                                     <figcaption class="product_content">
-                                                        <h4 class="product_name"><a href="product-details.html">${product.productName}</a></h4>
+                                                        <h4 class="product_name"><a href="./productDetail?idProduct=${product.idProduct}">${product.productName}</a></h4>
                                                         <div class="price_box">
                                                             <span class="current_price">${product.productPrice} VNĐ</span>
                                                         </div>

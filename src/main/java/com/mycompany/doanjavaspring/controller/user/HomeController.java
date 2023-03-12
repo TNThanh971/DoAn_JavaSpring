@@ -25,33 +25,9 @@ public class HomeController {
         } else System.out.println("failed");
         return "home";
     } 
-    @RequestMapping(value = "/cart")
-    public String cart(Model model) {
-        return "cart";
-    }
+    
     @RequestMapping(value = "/checkout")
     public String checkout(Model model) {
         return "checkout";
     }
-    
-    //    public String addUser(@RequestParam("firstName") String firstName, @RequestParam("email") String email) {
-//        User user = new User();
-//        user.setFirstName(firstName);
-//        user.setEmail(email);
-//        dbq.SignUpUser(user);
-//        return "redirect:/";
-//    }
-//
-//    @RequestMapping(value = "/loginLogout", method = RequestMethod.POST)
-//    public String SignUpProcess(@ModelAttribute("signUp") User user, Model model) {
-//
-//        boolean is_reg = dbq.SignUpUser(user);
-//        if (is_reg == true) {
-//
-//            return "loginLogout";
-//        }
-//        return "redirect:/";
-//        
-//    }
-    
 }
