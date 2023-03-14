@@ -5,6 +5,7 @@
 package com.mycompany.database;
 
 import com.mycompany.config.Utils;
+import com.mycompany.model.Admin;
 import com.mycompany.model.Cart;
 import com.mycompany.model.Invoice;
 import com.mycompany.model.InvoiceDetail;
@@ -46,7 +47,7 @@ public class DBQuery {
         System.out.println(password);
         ResultSet ls = db.Query("SELECT * FROM user WHERE email = ? AND password = ?", new String[]{email, password});
         if (ls != null) {
-            while (ls.next()){
+            while (ls.next()) {
                 System.out.println(ls.getString("email"));
                 System.out.println(ls.getString("password"));
                 return true;
@@ -328,7 +329,7 @@ public class DBQuery {
 
     //begin cart
     public List<Cart> GetCartByIdUser(String idUser) {
-        System.out.println("user has an id : "+idUser);
+        System.out.println("user has an id : " + idUser);
         ResultSet rs = db.Query("select p.productName, p.productUrlImage, p.productRentalPrice,c.productQuantity from cart c, product p where c.idProduct = p.idProduct and idUser = " + idUser);
         List<Cart> list = new ArrayList<>();
         if (rs != null) {
@@ -361,4 +362,42 @@ public class DBQuery {
         return 0;
     }
     //end cart
+
+    // admin login
+    public boolean AdminLogin(String username, String password) throws SQLException {
+        ResultSet ls = db.Query("SELECT * FROM admin WHERE username = ? AND password = ?", new String[]{username, password});
+        if (ls != null) {
+            while (ls.next()) {
+                Admin admin = new Admin();
+                admin.setId(ls.getInt("id"));
+                admin.setUsername(ls.getString("username"));
+                admin.setPassword(ls.getString("password"));
+                admin.setRole(ls.getString("role"));
+                System.out.println("Query: ");
+                System.out.println(ls.getString("username"));
+                System.out.println(ls.getString("password"));
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Admin GetAdminByUsername(String username) {
+        ResultSet rs = db.Query("SELECT * FROM admin WHERE username = ?", new String[]{username});
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    Admin a = new Admin();
+                    a.setId(rs.getInt("id"));
+                    a.setUsername(rs.getString("username"));
+                    a.setPassword(rs.getString("password"));
+                    a.setRole(rs.getString("role"));
+                    return a;
+                }
+            } catch (SQLException ex) {
+            }
+        }
+        return null;
+    }
+    // end admin login
 }

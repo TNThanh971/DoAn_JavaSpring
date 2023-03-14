@@ -4,10 +4,8 @@
  */
 package com.mycompany.doanjavaspring.controller.user;
 
-import com.mycompany.config.Utils;
 import com.mycompany.database.DBQuery;
 import com.mycompany.model.Cart;
-import com.mycompany.model.Product;
 import com.mycompany.model.User;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -15,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *

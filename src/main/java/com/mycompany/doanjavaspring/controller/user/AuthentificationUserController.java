@@ -7,6 +7,7 @@ package com.mycompany.doanjavaspring.controller.user;
 import com.mycompany.config.Utils;
 import com.mycompany.database.DBQuery;
 import com.mycompany.model.User;
+import java.sql.SQLException;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +32,7 @@ public class AuthentificationUserController {
     }
 
     @RequestMapping(value = "/signIn", method = RequestMethod.POST)
-    public String SignInProcess(HttpSession session, @RequestParam(required = false) String url, @ModelAttribute() User user, Model model) {
+    public String SignInProcess(HttpSession session, @RequestParam(required = false) String url, @ModelAttribute() User user, Model model) throws SQLException {
         if (dbq.Login(user.getEmail(), user.getPassword())== true) {
             session.setAttribute("user", dbq.GetUserByEmail(user.getEmail()));
             if (url != null && !url.equals("")) {
@@ -66,4 +67,10 @@ public class AuthentificationUserController {
         return "signUp";
     }
     //end sign up
+    
+    @RequestMapping(value = "/logout")
+    public String Logout(HttpSession session) {
+        session.removeAttribute("user");
+        return "redirect:/";
+    }
 }

@@ -63,7 +63,7 @@
                             <form action="" method="POST">
                                 <c:if test="${not empty msg}">
                                     <div class="form-group"><p>${msg}</p></div>
-                                </c:if>
+                                        </c:if>
                                 <label>Email <span>*</span></label>
                                 <div class="group input-group">
                                     <input type="email" name="email" placeholder="Email"  required>
