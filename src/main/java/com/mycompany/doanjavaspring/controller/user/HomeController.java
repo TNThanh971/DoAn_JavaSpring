@@ -1,7 +1,7 @@
 package com.mycompany.doanjavaspring.controller.user;
 
 import com.mycompany.config.Utils;
-import com.mycompany.database.DBQuery;
+import com.mycompany.database.DBProduct;
 import com.mycompany.model.Product;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HomeController {
 
-    private DBQuery dbq = new DBQuery();
+    private DBProduct dbq = new DBProduct();
 
     @RequestMapping(value = "/")
     public String home(HttpSession session, @RequestParam(required = false) String page, Model model) {

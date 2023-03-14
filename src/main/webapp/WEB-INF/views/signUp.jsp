@@ -61,7 +61,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="account_form register">
                             <h2>Register</h2>
-                            <form action="#" method="POST" name="signUp">
+                            <form action="" method="POST" name="signUp">
                                 <c:if test="${not empty msg}">
                                     <div class="form-group"><p>${msg}</p></div>
                                         </c:if>

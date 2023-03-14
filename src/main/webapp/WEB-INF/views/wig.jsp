@@ -124,13 +124,23 @@
 
                         <div class="shop_toolbar t_bottom">
                             <div class="pagination">
-                                <ul>
-                                    <li class="current">1</li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li class="next"><a href="#">next</a></li>
-                                    <li><a href="#">>></a></li>
-                                </ul>
+                                <!--                                <ul>
+                                                                    <li class="current">1</li>
+                                                                    <li><a href="#">2</a></li>
+                                                                    <li><a href="#">3</a></li>
+                                                                    <li class="next"><a href="#">next</a></li>
+                                                                    <li><a href="#">>></a></li>
+                                                                </ul>-->
+                                <%    DB dbFilm = new DBFilm();
+                                    int pg = Utils.Page(request.getParameter("page"));
+                                    int end_page = (int) Math.ceil((double) dbFilm.GetCountFilms() / Utils.LIMIT_ROWS);
+                                    for (int i = 1; i <= end_page; i++)
+                                        if (Math.abs(pg - i) <= 3 || i == 1 || i == end_page) {
+                                %>
+                                <a href="javascript:" onclick="pagination(<%= i%>)" class="<%= pg == i ? "active" : ""%>"><%= i%></a>
+                                <%
+                                    }
+                                %>
                             </div>
                         </div>
                         <!--shop toolbar end-->
@@ -201,33 +211,33 @@
                                 <div class="col-lg-7 col-md-7 col-sm-12">
                                     <div class="modal_right">
                                         <%--<c:forEach items="productsById" var="productById">--%>
-                                            <div class="modal_title mb-10">
-                                                <h2>${productById.productName}</h2> 
+                                        <div class="modal_title mb-10">
+                                            <h2>${productById.productName}</h2> 
+                                        </div>
+                                        <div class="modal_price mb-10">
+                                            <span class="new_price">$64.99</span>    
+                                        </div>
+                                        <div class="modal_description mb-15">
+                                            <p>${productById.productDescription} </p>    
+                                        </div> 
+                                        <div class="variants_selects">
+                                            <div class="variants_size">
+                                                <h2>size</h2>
+                                                <select class="select_option">
+                                                    <option selected value="1">S</option>
+                                                    <option value="1">M</option>
+                                                    <option value="1">L</option>
+                                                    <option value="1">XL</option>
+                                                    <option value="1">XXL</option>
+                                                </select>
                                             </div>
-                                            <div class="modal_price mb-10">
-                                                <span class="new_price">$64.99</span>    
-                                            </div>
-                                            <div class="modal_description mb-15">
-                                                <p>${productById.productDescription} </p>    
-                                            </div> 
-                                            <div class="variants_selects">
-                                                <div class="variants_size">
-                                                    <h2>size</h2>
-                                                    <select class="select_option">
-                                                        <option selected value="1">S</option>
-                                                        <option value="1">M</option>
-                                                        <option value="1">L</option>
-                                                        <option value="1">XL</option>
-                                                        <option value="1">XXL</option>
-                                                    </select>
-                                                </div>
-                                                <div class="modal_add_to_cart">
-                                                    <form action="#">
-                                                        <input min="1" max="100" step="2" value="1" type="number">
-                                                        <button type="submit">add to cart</button>
-                                                    </form>
-                                                </div>   
-                                            </div>    
+                                            <div class="modal_add_to_cart">
+                                                <form action="#">
+                                                    <input min="1" max="100" step="2" value="1" type="number">
+                                                    <button type="submit">add to cart</button>
+                                                </form>
+                                            </div>   
+                                        </div>    
                                         <%--</c:forEach>--%>
                                     </div>    
                                 </div>    

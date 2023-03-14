@@ -1,8 +1,3 @@
-<%-- 
-    Document   : footer
-    Created on : Mar 2, 2023, 6:06:40 PM
-    Author     : truongthanh
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>

@@ -4,7 +4,7 @@
  */
 package com.mycompany.doanjavaspring.controller.user;
 
-import com.mycompany.database.DBQuery;
+import com.mycompany.database.DBCart;
 import com.mycompany.model.Cart;
 import com.mycompany.model.User;
 import java.util.List;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CartController {
 
-    DBQuery dbq = new DBQuery();
+    DBCart dbq = new DBCart();
 
     @RequestMapping(value = "/cart")
     public String cart(HttpSession session, Model model, @ModelAttribute() User user) {

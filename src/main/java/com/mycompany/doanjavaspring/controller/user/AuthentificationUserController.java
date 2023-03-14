@@ -5,7 +5,7 @@
 package com.mycompany.doanjavaspring.controller.user;
 
 import com.mycompany.config.Utils;
-import com.mycompany.database.DBQuery;
+import com.mycompany.database.DBUser;
 import com.mycompany.model.User;
 import java.sql.SQLException;
 import javax.servlet.http.HttpSession;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AuthentificationUserController {
 
-    DBQuery dbq = new DBQuery();
+    DBUser dbq = new DBUser();
 
     // sign in
     @RequestMapping(value = "/signIn")

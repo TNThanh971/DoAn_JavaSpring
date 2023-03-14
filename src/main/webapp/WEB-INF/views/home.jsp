@@ -1,5 +1,5 @@
 <%@page import="com.mycompany.config.Utils"%>
-<%@page import="com.mycompany.database.DBQuery"%>
+<%@page import="com.mycompany.database.DBProduct"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html class="no-js" lang="en">

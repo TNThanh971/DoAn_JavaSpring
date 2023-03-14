@@ -4,7 +4,7 @@
  */
 package com.mycompany.doanjavaspring.controller.user;
 
-import com.mycompany.database.DBQuery;
+import com.mycompany.database.DBUser;
 import com.mycompany.model.User;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class UserController {
-    DBQuery dbq = new DBQuery();
+    DBUser dbq = new DBUser();
 
     @RequestMapping(value = "/profile")
     public String Profile(HttpSession session, Model model) {

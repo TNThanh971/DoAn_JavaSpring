@@ -5,7 +5,7 @@
 package com.mycompany.doanjavaspring.controller.user;
 
 import com.mycompany.config.Utils;
-import com.mycompany.database.DBQuery;
+import com.mycompany.database.DBProduct;
 import com.mycompany.model.Product;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ProductController {
     
-    private DBQuery dbq = new DBQuery();
+    private DBProduct dbq = new DBProduct();
     @RequestMapping(value = "/wig")
     public String wig(Model model,@RequestParam(required = false) String page, 
             @RequestParam(required = false) String id) {
