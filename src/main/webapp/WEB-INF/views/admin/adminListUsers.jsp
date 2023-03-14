@@ -177,7 +177,7 @@
                                                 <td>0123456789</td>
                                                 <td>a@gmail.com</td>   
                                                 <td>                                                                               
-                                                    <a class="ml-4" href="./detailsUser.html">
+                                                    <a class="ml-4" href="./adminDetailsUser">
                                                         <i class="text-xl m-r-10 mdi mdi-account-plus">
                                                         </i>
                                                     </a>
@@ -190,7 +190,7 @@
                                                 <td>0123456789</td>
                                                 <td>b@gmail.com</td>  
                                                 <td>                                
-                                                    <a class="ml-4" href="detailsUser.html">
+                                                    <a class="ml-4" href="./adminDetailsUser">
                                                         <i class="text-xl m-r-10 mdi mdi-account-plus">
                                                         </i>
                                                     </a>
@@ -203,7 +203,7 @@
                                                 <td>0123456789</td>
                                                 <td>c@gmail.com</td>    
                                                 <td>                                      
-                                                    <a class="ml-4" href="detailsUser.html">
+                                                    <a class="ml-4" href="./adminDetailsUser">
                                                         <i class="text-xl m-r-10 mdi mdi-account-plus">
                                                         </i>
                                                     </a>

@@ -3,7 +3,8 @@
     Created on : Mar 9, 2023, 2:07:34 AM
     Author     : truongthanh
 --%>
-
+<%@page import="com.mycompany.config.Utils"%>
+<%@page import="com.mycompany.database.DBProduct"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -163,190 +164,45 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 <div class="row justify-content-around">
-                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 mt-4">
-                                        <!-- .card -->                  
-                                        <div class="card card-figure row m-0">
-                                            <!-- .card-figure -->
-                                            <figure class="figure ">
-                                                <!-- .figure-img -->
-                                                <div class="figure-img">
-                                                    <img class="img-fluid" src="https://cf.shopee.vn/file/8f1fb439c31af2464f67b2e6a80715d3" alt="Card image cap">
-                                                    <div class="figure-tools">
-                                                        <a href="#" class="tile tile-circle tile-sm mr-auto">
-                                                            <span class="oi-data-transfer-download"></span></a>
-                                                        <span class="badge badge-danger">Wig</span>
+                                    <c:forEach items="${products}" var="product">
+                                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 mt-4">
+                                            <!-- .card -->  
+                                            <div class="card card-figure row m-0">
+                                                <!-- .card-figure -->
+                                                <figure class="figure ">
+                                                    <!-- .figure-img -->
+                                                    <div class="figure-img">
+                                                        <img class="img-fluid" src="${product.productUrlImage}" alt="Card image cap">
+                                                        <div class="figure-tools">
+                                                            <a href="#" class="tile tile-circle tile-sm mr-auto">
+                                                                <span class="oi-data-transfer-download"></span></a>
+                                                            <span class="badge badge-danger">Wig</span>
+                                                        </div>
+                                                        <div class="figure-action">
+                                                            <a href="" class="btn btn-block btn-sm btn-primary">Xem chi tiết</a>
+                                                        </div>
                                                     </div>
-                                                    <div class="figure-action">
-                                                        <a href="#" class="btn btn-block btn-sm btn-primary">Xem chi tiết</a>
-                                                    </div>
-                                                </div>
-                                                <!-- /.figure-img -->
-                                                <!-- .figure-caption -->
-                                                <figcaption class="figure-caption">
-                                                    <h3 class="figure-title text-center btn-light"><a href="#">Áo SakaGe</a></h3>
-                                                    <div class="divPriceProduct mt-3 text-right text-dark">
-                                                        <p class="d-inline text-dark" >
-                                                        <h4 class=" mt-3 d-inline text-dark">100.000</h4> 
-                                                        vnđ </p>
-                                                    </div>
+                                                    <!-- /.figure-img -->
+                                                    <!-- .figure-caption -->
+                                                    <figcaption class="figure-caption">
+                                                        <h3 class="figure-title text-center btn-light"><a href="#">${product.productName}</a></h3>
+                                                        <div class="divPriceProduct mt-3 text-right text-dark">
+                                                            <p class="d-inline text-dark" >
+                                                            <h4 class=" mt-3 d-inline text-dark">${product.productPrice}</h4> 
+                                                            vnđ 
+                                                        </div>
 
-                                                </figcaption>
-                                                <!-- /.figure-caption -->
-                                            </figure>
-                                            <!-- /.card-figure -->
+                                                    </figcaption>
+                                                    <!-- /.figure-caption -->
+                                                </figure>
+                                                <!-- /.card-figure -->
+                                            </div>
+                                            <!-- /.card -->
                                         </div>
-
-
-                                        <!-- /.card -->
-                                    </div>
-                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 mt-4 ">
-                                        <!-- .card -->                  
-                                        <div class="card card-figure row m-0">
-                                            <!-- .card-figure -->
-                                            <figure class="figure ">
-                                                <!-- .figure-img -->
-                                                <div class="figure-img">
-                                                    <img class="img-fluid" src="https://cf.shopee.vn/file/cdda8f1d40c2308dc7081c45ff167cf7" alt="Card image cap">
-                                                    <div class="figure-tools">
-                                                        <a href="#" class="tile tile-circle tile-sm mr-auto">
-                                                            <span class="oi-data-transfer-download"></span></a>
-                                                        <span class="badge badge-danger">Wig</span>
-                                                    </div>
-                                                    <div class="figure-action">
-                                                        <a href="#" class="btn btn-block btn-sm btn-primary">Xem chi tiết</a>
-                                                    </div>
-                                                </div>
-                                                <!-- /.figure-img -->
-                                                <!-- .figure-caption -->
-                                                <figcaption class="figure-caption">
-                                                    <h3 class="figure-title text-center btn-light"><a href="#">Áo SakaGe</a></h3>
-                                                    <div class="divPriceProduct mt-3 text-right text-dark">
-                                                        <p class="d-inline text-dark" >
-                                                        <h4 class=" mt-3 d-inline text-dark">100.000</h4> 
-                                                        vnđ </p>
-                                                    </div>
-
-                                                </figcaption>
-                                                <!-- /.figure-caption -->
-                                            </figure>
-                                            <!-- /.card-figure -->
-                                        </div>
-
-
-                                        <!-- /.card -->
-                                    </div>
-                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 mt-4 ">
-                                        <!-- .card -->                  
-                                        <div class="card card-figure row m-0">
-                                            <!-- .card-figure -->
-                                            <figure class="figure ">
-                                                <!-- .figure-img -->
-                                                <div class="figure-img">
-                                                    <img class="img-fluid" src="https://cf.shopee.vn/file/8f1fb439c31af2464f67b2e6a80715d3" alt="Card image cap">
-                                                    <div class="figure-tools">
-                                                        <a href="#" class="tile tile-circle tile-sm mr-auto">
-                                                            <span class="oi-data-transfer-download"></span></a>
-                                                        <span class="badge badge-danger">Wig</span>
-                                                    </div>
-                                                    <div class="figure-action">
-                                                        <a href="#" class="btn btn-block btn-sm btn-primary">Xem chi tiết</a>
-                                                    </div>
-                                                </div>
-                                                <!-- /.figure-img -->
-                                                <!-- .figure-caption -->
-                                                <figcaption class="figure-caption">
-                                                    <h3 class="figure-title text-center btn-light"><a href="#">Áo SakaGe</a></h3>
-                                                    <div class="divPriceProduct mt-3 text-right text-dark">
-                                                        <p class="d-inline text-dark" >
-                                                        <h4 class=" mt-3 d-inline text-dark">100.000</h4> 
-                                                        vnđ </p>
-                                                    </div>
-
-                                                </figcaption>
-                                                <!-- /.figure-caption -->
-                                            </figure>
-                                            <!-- /.card-figure -->
-                                        </div>
-
-
-                                        <!-- /.card -->
-                                    </div>
-                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 mt-4 ">
-                                        <!-- .card -->                  
-                                        <div class="card card-figure row m-0">
-                                            <!-- .card-figure -->
-                                            <figure class="figure ">
-                                                <!-- .figure-img -->
-                                                <div class="figure-img">
-                                                    <img class="img-fluid" src="https://cf.shopee.vn/file/8ecc6e188e54765d6cde5434f415a97f_tn" alt="Card image cap">
-                                                    <div class="figure-tools">
-                                                        <a href="#" class="tile tile-circle tile-sm mr-auto">
-                                                            <span class="oi-data-transfer-download"></span></a>
-                                                        <span class="badge badge-danger">Wig</span>
-                                                    </div>
-                                                    <div class="figure-action">
-                                                        <a href="#" class="btn btn-block btn-sm btn-primary">Xem chi tiết</a>
-                                                    </div>
-                                                </div>
-                                                <!-- /.figure-img -->
-                                                <!-- .figure-caption -->
-                                                <figcaption class="figure-caption">
-                                                    <h3 class="figure-title text-center btn-light"><a href="#">Shinobu Kochou</a></h3>
-                                                    <div class="divPriceProduct mt-3 text-right text-dark">
-                                                        <p class="d-inline text-dark" >
-                                                        <h4 class=" mt-3 d-inline text-dark">100.000</h4> 
-                                                        vnđ </p>
-                                                    </div>
-
-                                                </figcaption>
-                                                <!-- /.figure-caption -->
-                                            </figure>
-                                            <!-- /.card-figure -->
-                                        </div>
-
-
-                                        <!-- /.card -->
-                                    </div>
-                                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 mt-4 ">
-                                        <!-- .card -->                  
-                                        <div class="card card-figure row m-0">
-                                            <!-- .card-figure -->
-                                            <figure class="figure ">
-                                                <!-- .figure-img -->
-                                                <div class="figure-img">
-                                                    <img class="img-fluid" src="https://ae01.alicdn.com/kf/Hed5ef96829b5453ba094238219974dbfS/2017-Anime-M-i-Th-y-Th-M-t-Tr-ng-Trang-Ph-c-H-a.jpg_Q90.jpg_.webp" alt="Card image cap">
-                                                    <div class="figure-tools">
-                                                        <a href="#" class="tile tile-circle tile-sm mr-auto">
-                                                            <span class="oi-data-transfer-download"></span></a>
-                                                        <span class="badge badge-danger">Wig</span>
-                                                    </div>
-                                                    <div class="figure-action">
-                                                        <a href="#" class="btn btn-block btn-sm btn-primary">Xem chi tiết</a>
-                                                    </div>
-                                                </div>
-                                                <!-- /.figure-img -->
-                                                <!-- .figure-caption -->
-                                                <figcaption class="figure-caption">
-                                                    <h3 class="figure-title text-center btn-light"><a href="#">Áo SakaGe</a></h3>
-                                                    <div class="divPriceProduct mt-3 text-right text-dark">
-                                                        <p class="d-inline text-dark" >
-                                                        <h4 class=" mt-3 d-inline text-dark">100.000</h4> 
-                                                        vnđ </p>
-                                                    </div>
-
-                                                </figcaption>
-                                                <!-- /.figure-caption -->
-                                            </figure>
-                                            <!-- /.card-figure -->
-                                        </div>
-
-
-                                        <!-- /.card -->
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- ============================================================== -->
                     <!-- footer -->

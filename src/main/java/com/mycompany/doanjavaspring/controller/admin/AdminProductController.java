@@ -4,6 +4,7 @@
  */
 package com.mycompany.doanjavaspring.controller.admin;
 
+import com.mycompany.config.Utils;
 import com.mycompany.database.DBProduct;
 import com.mycompany.model.Admin;
 import com.mycompany.model.Product;
@@ -85,7 +86,7 @@ public class AdminProductController {
     //end admin adding product page
     // admin product list
     @RequestMapping(value = "/admin/adminListProduct")
-    public String adminListProduct(HttpSession session, @ModelAttribute() Admin admin, Model model) {
+    public String adminListProduct(HttpSession session, @ModelAttribute() Admin admin,@RequestParam(required = false) String page, Model model) {
         if (session.getAttribute("admin") == null) {
             return "redirect:/admin/adminLogin";
         }
@@ -95,65 +96,14 @@ public class AdminProductController {
         admin.setPassword(a.getPassword());
         admin.setRole(a.getRole());
         session.setAttribute("admin", admin);
+        
+        int page_id = Utils.Page(page);
+        List<Product> products;
+        if (dbq.GetProductList(page_id) != null) {
+            products = dbq.GetProductList(page_id);
+            model.addAttribute("products",products);
+        } else System.out.println("failed");
         return "admin/adminListProduct";
     }
     // end admin product list
-    @RequestMapping(value = "/admin/adminDetailsInvoices")
-    public String adminDetailsInvoices(HttpSession session, @ModelAttribute() Admin admin, Model model) {
-        if (session.getAttribute("admin") == null) {
-            return "redirect:/admin/adminLogin";
-        }
-        Admin a = (Admin) session.getAttribute("admin");
-        admin.setId(a.getId());
-        admin.setUsername(a.getUsername());
-        admin.setPassword(a.getPassword());
-        admin.setRole(a.getRole());
-        session.setAttribute("admin", admin);
-        return "admin/adminDetailsInvoices";
-    }
-
-    @RequestMapping(value = "/admin/adminDetailsUser")
-    public String adminDetailsUser(HttpSession session, @ModelAttribute() Admin admin, Model model) {
-        if (session.getAttribute("admin") == null) {
-            return "redirect:/admin/adminLogin";
-        }
-        Admin a = (Admin) session.getAttribute("admin");
-        admin.setId(a.getId());
-        admin.setUsername(a.getUsername());
-        admin.setPassword(a.getPassword());
-        admin.setRole(a.getRole());
-        session.setAttribute("admin", admin);
-        return "admin/adminDetailsUser";
-    }
-
-    @RequestMapping(value = "/admin/adminListInvoices")
-    public String adminListInvoices(HttpSession session, @ModelAttribute() Admin admin, Model model) {
-        if (session.getAttribute("admin") == null) {
-            return "redirect:/admin/adminLogin";
-        }
-        Admin a = (Admin) session.getAttribute("admin");
-        admin.setId(a.getId());
-        admin.setUsername(a.getUsername());
-        admin.setPassword(a.getPassword());
-        admin.setRole(a.getRole());
-        session.setAttribute("admin", admin);
-        return "admin/adminListInvoices";
-    }
-
-    
-
-    @RequestMapping(value = "/admin/adminListUsers")
-    public String adminListUsers(HttpSession session, @ModelAttribute() Admin admin, Model model) {
-        if (session.getAttribute("admin") == null) {
-            return "redirect:/admin/adminLogin";
-        }
-        Admin a = (Admin) session.getAttribute("admin");
-        admin.setId(a.getId());
-        admin.setUsername(a.getUsername());
-        admin.setPassword(a.getPassword());
-        admin.setRole(a.getRole());
-        session.setAttribute("admin", admin);
-        return "admin/adminListUsers";
-    }
-
 }

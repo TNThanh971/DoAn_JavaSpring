@@ -59,13 +59,13 @@
                                     class="badge badge-secondary">New</span></a>
                         </li>
                         <%}%>
-                        <%if (admin.getRole().contains("boss") ||(admin.getRole().contains("admin"))){%>
+                        <%if (admin.getRole().contains("boss") ){%>
                         <li class="nav-item">
                             <a class="nav-link" href="./adminListInvoices">Danh sách đơn hàng <span
                                     class="badge badge-secondary">New</span></a>
                         </li>
                         <%}%>
-                        <%if (admin.getRole().contains("boss")){%>
+                        <%if (admin.getRole().contains("boss")||(admin.getRole().contains("admin"))){%>
                         <li class="nav-item">
                             <a class="nav-link" href="./adminListUsers">Danh sách khách hàng <span
                                     class="badge badge-secondary">New</span></a>
