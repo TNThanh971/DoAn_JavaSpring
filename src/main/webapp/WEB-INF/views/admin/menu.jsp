@@ -41,7 +41,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                <a class="nav-link" href="" data-toggle="collapse" aria-expanded="false"
                    data-target="#submenu-2" aria-controls="submenu-2"><i
                         class="fa fa-fw fa-rocket"></i>Gì vậy </a>
                 <div id="submenu-2" class="collapse submenu" style="">

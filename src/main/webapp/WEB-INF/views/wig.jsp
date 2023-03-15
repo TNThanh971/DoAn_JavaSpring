@@ -1,8 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.mycompany.config.Utils"%>
-<%@page import="com.mycompany.database.DBQuery"%>
-
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -124,23 +122,14 @@
 
                         <div class="shop_toolbar t_bottom">
                             <div class="pagination">
-                                <!--                                <ul>
-                                                                    <li class="current">1</li>
-                                                                    <li><a href="#">2</a></li>
-                                                                    <li><a href="#">3</a></li>
-                                                                    <li class="next"><a href="#">next</a></li>
-                                                                    <li><a href="#">>></a></li>
-                                                                </ul>-->
-                                <%    DB dbFilm = new DBFilm();
-                                    int pg = Utils.Page(request.getParameter("page"));
-                                    int end_page = (int) Math.ceil((double) dbFilm.GetCountFilms() / Utils.LIMIT_ROWS);
-                                    for (int i = 1; i <= end_page; i++)
-                                        if (Math.abs(pg - i) <= 3 || i == 1 || i == end_page) {
-                                %>
-                                <a href="javascript:" onclick="pagination(<%= i%>)" class="<%= pg == i ? "active" : ""%>"><%= i%></a>
-                                <%
-                                    }
-                                %>
+                                <ul>
+                                    <li class="current">1</li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li class="next"><a href="#">next</a></li>
+                                    <li><a href="#">>></a></li>
+                                </ul>
+                                
                             </div>
                         </div>
                         <!--shop toolbar end-->

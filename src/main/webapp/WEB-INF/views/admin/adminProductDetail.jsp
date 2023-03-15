@@ -3,7 +3,10 @@
     Created on : Mar 9, 2023, 2:05:45 AM
     Author     : truongthanh
 --%>
-
+<%--<%@page import="com.mycompany.model.Product"%>
+<%
+    Product product = (Product) session.getAttribute("adminProduct");
+%>--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -100,7 +103,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Sản phẩm </h2>
+                                <h2 class="pageheader-title">Sản phẩm  </h2>
                                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
@@ -122,7 +125,7 @@
                         <!-- ============================================================== -->
                         <!-- validation form -->
                         <!-- ============================================================== -->
-                        <form method="POST" name="adminAddProduct">
+                            <form method="POST" name="product">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="card">
                                     <h5 class="card-header">Nhập thông tin <br/> </h5>

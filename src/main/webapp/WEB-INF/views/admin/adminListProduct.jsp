@@ -179,13 +179,13 @@
                                                             <span class="badge badge-danger">Wig</span>
                                                         </div>
                                                         <div class="figure-action">
-                                                            <a href="" class="btn btn-block btn-sm btn-primary">Xem chi tiết</a>
+                                                            <a href="./adminProductDetail?idProduct=${product.idProduct}" class="btn btn-block btn-sm btn-primary">Xem chi tiết</a>
                                                         </div>
                                                     </div>
                                                     <!-- /.figure-img -->
                                                     <!-- .figure-caption -->
                                                     <figcaption class="figure-caption">
-                                                        <h3 class="figure-title text-center btn-light"><a href="#">${product.productName}</a></h3>
+                                                        <h3 class="figure-title text-center btn-light"><a href="">${product.productName}</a></h3>
                                                         <div class="divPriceProduct mt-3 text-right text-dark">
                                                             <p class="d-inline text-dark" >
                                                             <h4 class=" mt-3 d-inline text-dark">${product.productPrice}</h4> 

@@ -17,7 +17,9 @@ import java.util.List;
  * @author truongthanh
  */
 public class DBProduct {
+
     DB db = new DB();
+
     // begin product
     public List<Product> GetProductList(int page) {
         ResultSet rs = db.Query("select * from product " + Utils.Offset(page));
@@ -88,10 +90,12 @@ public class DBProduct {
             if (db.Update("insert into product"
                     + "(productName, productQuantity, productUrlImage, idProductType, productSize, productRentalPrice, productDescription, productPrice, productWeight) "
                     + "values(?,?,?,?,?,?,?,?,?)", params) > 0) {
+                System.out.println("Product ID 1: " + product.getIdProduct());
                 return true;
             }
         } else {
             if (db.Query("update product set productName=?,productQuantity=?, productUrlImage=?,idProductType=?, productSize=?, productRentalPrice=?, productDescription=?,productPrice=?,productWeight=?", params) != null) {
+                System.out.println("Product ID 2: " + product.getIdProduct());
                 return true;
             }
         }
@@ -137,62 +141,4 @@ public class DBProduct {
     }
 
     //end products
-    //begin get product type
-    public ProductType GetIdTypeByTypeName(String typeName) {
-        ResultSet rs = db.Query("SELECT * FROM product_type WHERE typeName = ?", new String[]{typeName});
-        if (rs != null) {
-            try {
-                while (rs.next()) {
-                    ProductType pt = new ProductType();
-                    pt.setIdType(rs.getInt("idProductType"));
-                    pt.setTypeName(rs.getString("typeName"));
-                    return pt;
-                }
-            } catch (SQLException ex) {
-                System.err.println(ex);
-            }
-        }
-        return null;
-    }
-
-    public ProductType GetTypeNameByIdType(String idType) {
-        ResultSet rs = db.Query("SELECT * FROM product_type WHERE idProductType = ?", new String[]{idType});
-        if (rs != null) {
-            try {
-                while (rs.next()) {
-                    ProductType pt = new ProductType();
-                    pt.setIdType(rs.getInt("idProductType"));
-                    pt.setTypeName(rs.getString("typeName"));
-                    return pt;
-                }
-            } catch (SQLException ex) {
-                System.err.println(ex);
-            }
-        }
-        return null;
-    }
-
-    public List<ProductType> GetProductTypeList() {
-        ResultSet rs = db.Query("select * from product_type");
-        List<ProductType> lst = new ArrayList<ProductType>();
-        if (rs != null) {
-            try {
-                while (rs.next()) {
-                    ProductType pt = new ProductType();
-                    pt.setIdType(rs.getInt("idProductType"));
-                    pt.setTypeName(rs.getString("typeName"));
-                    System.out.println(pt.getIdType());
-                    System.out.println(pt.getTypeName());
-                    
-                    lst.add(pt);
-                }
-                System.out.println("insert dropdown list from db successfully");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return lst;
-    }
-
-    //end get product type
 }
