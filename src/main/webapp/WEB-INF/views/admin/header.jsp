@@ -1,5 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="com.mycompany.model.Admin"%>
+<%
+    Admin admin = (Admin) session.getAttribute("admin");
+
+%>
 <!doctype html>
 <html lang="en">
 
@@ -164,22 +169,30 @@
                                             class="fa fa-fw fa-rocket"></i>Gì vậy ?</a>
                                     <div id="submenu-2" class="collapse submenu" style="">
                                         <ul class="nav flex-column">
+                                            <% if (admin.getRole().contains("boss")){%>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="./adminAddProduct">Thêm sản phẩm <span
                                                         class="badge badge-secondary">New</span></a>
                                             </li>
+                                            <%}%>
+                                            <% if (admin.getRole().contains("admin")){%>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="listProduct.html">Danh sách sản phẩm <span
+                                                <a class="nav-link" href="./adminListProduct">Danh sách sản phẩm <span
                                                         class="badge badge-secondary">New</span></a>
                                             </li>
+                                            <%}%>
+                                            <% if (admin.getRole().contains("admin")){%>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="listInvoices.html">Danh sách đơn hàng <span
+                                                <a class="nav-link" href="./adminListInvoices">Danh sách đơn hàng <span
                                                         class="badge badge-secondary">New</span></a>
                                             </li>
+                                            <%}%>
+                                            <% if (admin.getRole().contains("admin")){%>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="listUsers.html">Danh sách khách hàng <span
+                                                <a class="nav-link" href="./adminListUsers">Danh sách khách hàng <span
                                                         class="badge badge-secondary">New</span></a>
                                             </li>
+                                            <%}%>
                                         </ul>
                                     </div>
                                 </li>

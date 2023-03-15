@@ -6,39 +6,15 @@
 <%@page import="com.mycompany.config.Utils"%>
 <%@page import="com.mycompany.database.DBProduct"%>
 <%@include file="header.jsp" %>
-<!-- ============================================================== -->
-<!-- end navbar -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- left sidebar -->
-<!-- ============================================================== -->
-<div class="nav-left-sidebar sidebar-dark">
-    <div class="menu-list">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <%@include file ="menu.jsp"%> 
-        </nav>
-    </div>
-</div>
-<!-- ============================================================== -->
-<!-- end left sidebar -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- wrapper  -->
-<!-- ============================================================== -->\
-<div class="dashboard-wrapper">
-    <div class="container-fluid  dashboard-content py-0">
+<div class="dashboard-wrapper" style="min-height:0 !important;">
+    <div class="container-fluid  dashboard-content " style="padding-bottom:0 !important;">
         <!-- ============================================================== -->
         <!-- pageheader -->
         <!-- ============================================================== -->
-        <!-- <div class="row">
+         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Form Validations </h2>
+                    <h2 class="pageheader-title">Danh sách sản phẩm </h2>
                     <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
@@ -51,7 +27,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div> 
         <!-- ============================================================== -->
         <!-- end pageheader -->
         <!-- ============================================================== -->

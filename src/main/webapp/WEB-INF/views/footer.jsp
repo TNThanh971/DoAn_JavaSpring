@@ -66,3 +66,8 @@
         </div>
     </div>
 </footer>
+<script src="./assets/user/js/plugins.js"></script>
+<script src="./assets/user/js/main.js"></script>
+</body>
+
+</html>

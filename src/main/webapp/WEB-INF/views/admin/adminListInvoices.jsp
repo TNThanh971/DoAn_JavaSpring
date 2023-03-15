@@ -5,12 +5,6 @@
 --%>
 
 <%@include file="header.jsp" %>
-<!-- ============================================================== -->
-<!-- end left sidebar -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- wrapper  -->
-<!-- ============================================================== -->\
 <div class="dashboard-wrapper" style="min-height:0 !important;">
     <div class="container-fluid  dashboard-content " style="padding-bottom:0 !important;">
         <!-- ============================================================== -->
@@ -155,38 +149,4 @@
                 </div>
             </div>
         </div>
-
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <div class="footer" style="margin-top:0px;">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        . All rights reserved. Dashboard by Wibu
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="text-md-right footer-links d-none d-sm-block">
-                            <a href="javascript: void(0);">About</a>
-                            <a href="javascript: void(0);">Support</a>
-                            <a href="javascript: void(0);">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end footer -->
-        <!-- ============================================================== -->
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- end wrapper  -->
-    <!-- ============================================================== -->
-</div>
-<!-- ============================================================== -->
-<!-- end main wrapper  -->
-<!-- ============================================================== -->
-<!-- Optional JavaScript -->
-<!-- jquery 3.3.1 -->
 <%@include file="footer.jsp" %>
