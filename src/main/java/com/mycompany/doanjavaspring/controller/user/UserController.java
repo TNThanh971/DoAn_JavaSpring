@@ -31,7 +31,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
-    public String UpdateProfile(HttpSession session, @ModelAttribute() User user, Model model, @RequestParam("password2") String pass) {
+    public String UpdateProfile(HttpSession session, @ModelAttribute() User user, Model model) {
         if (session.getAttribute("user") == null) {
             return "redirect:/";
         }

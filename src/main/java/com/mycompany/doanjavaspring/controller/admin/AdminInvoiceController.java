@@ -19,19 +19,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminInvoiceController {
     DBInvoice dpq = new DBInvoice();
-    @RequestMapping(value = "/admin/adminDetailsInvoices")
-    public String adminDetailsInvoices(HttpSession session, @ModelAttribute() Admin admin, Model model) {
-        if (session.getAttribute("admin") == null) {
-            return "redirect:/admin/adminLogin";
-        }
-        Admin a = (Admin) session.getAttribute("admin");
-        admin.setId(a.getId());
-        admin.setUsername(a.getUsername());
-        admin.setPassword(a.getPassword());
-        admin.setRole(a.getRole());
-        session.setAttribute("admin", admin);
-        return "admin/adminDetailsInvoices";
-    }
+//    @RequestMapping(value = "/admin/adminDetailsInvoices")
+//    public String adminDetailsInvoices(HttpSession session, @ModelAttribute() Admin admin, Model model) {
+//        if (session.getAttribute("admin") == null) {
+//            return "redirect:/admin/adminLogin";
+//        }
+//        Admin a = (Admin) session.getAttribute("admin");
+//        admin.setId(a.getId());
+//        admin.setUsername(a.getUsername());
+//        admin.setPassword(a.getPassword());
+//        admin.setRole(a.getRole());
+//        session.setAttribute("admin", admin);
+//        return "admin/adminDetailsInvoices";
+//    }
 
     
 

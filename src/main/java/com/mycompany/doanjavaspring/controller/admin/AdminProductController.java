@@ -120,36 +120,22 @@ public class AdminProductController {
             if (session.getAttribute("admin") == null) {
                 return "redirect:/admin/adminLogin";
             }
-            Admin a = (Admin) session.getAttribute("admin");
-            admin.setId(a.getId());
-            admin.setUsername(a.getUsername());
-            admin.setPassword(a.getPassword());
-            admin.setRole(a.getRole());
-            session.setAttribute("admin", admin);
-
             int product_id = Integer.parseInt(idProduct);
             Product f = dbq.GetProductByIdProduct(product_id);
-            p.setIdProduct(product_id);
-            p.setProductDescription(f.getProductDescription());
-            p.setProductQuantity(f.getProductQuantity());
-            p.setProductName(f.getProductName());
-            p.setProductUrlImage(f.getProductUrlImage());
-            p.setProductRentalPrice(f.getProductRentalPrice());
-            p.setProductPrice(f.getProductPrice());
-            p.setProductWeight(f.getProductWeight());
-            model.addAttribute("adminProduct", p);
+
+            
             if (f == null) {
                 return "redirect:/admin/adminListProduct";
             } else {
                 System.out.println("Product ID is not null " + idProduct);
-                System.out.println(p.getProductName());
-                System.out.println(p.getProductUrlImage());
-                System.out.println(p.getProductPrice());
-                System.out.println(p.getProductWeight());
+                System.out.println(f.getProductName());
+                System.out.println(f.getProductUrlImage());
+                System.out.println(f.getProductPrice());
+                System.out.println(f.getProductWeight());
 //                if (dbq.addProduct(p)){
 //                    return "redirect:/admin/adminListProduct";
 //                }
-                //model.addAttribute("adminProduct", p);
+                model.addAttribute("proDetail", f);
                 return "/admin/adminProductDetail";
             }
 

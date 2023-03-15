@@ -23,7 +23,7 @@ public class DB {
     private Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String URL = "jdbc:mysql://localhost/cosplaymobile?user=root&useUnicode=true&characterEncoding=UTF-8";
+            String URL = "jdbc:mysql://localhost/phatdevx_thue_do_cosplay?user=root&useUnicode=true&characterEncoding=UTF-8";
             Connection conn = DriverManager.getConnection(URL);
             return conn;
         } catch (ClassNotFoundException | SQLException ex) {
