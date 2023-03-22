@@ -31,20 +31,14 @@ public class UserController {
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
     public String UpdateProfile(HttpSession session, @ModelAttribute() User user, Model model) {
-        if (session.getAttribute("user") == null) {
-            return "redirect:/";
-        }
         User u = (User) session.getAttribute("user");
         user.setIdUser(u.getIdUser());
         user.setEmail(u.getEmail());
+        //System.out.println("email: "+user.getEmail());
         if (dbq.UpdateUserInfor(user)) {
             session.setAttribute("user", user);
             return "profile";
         }
-//        if (pass!=null){
-//            dbq.UpdateUserPassword(pass, user);
-//            return "profile";
-//        }
         return "profile";
     }
 }

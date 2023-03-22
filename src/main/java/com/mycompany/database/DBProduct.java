@@ -45,6 +45,7 @@ public class DBProduct {
         }
         return lst;
     }
+
     public List<Product> SearchProductList(String name) {
         ResultSet rs = db.Query("select * from product where productName like ?", new String[]{name});
         List<Product> lst = new ArrayList<Product>();
@@ -109,19 +110,33 @@ public class DBProduct {
             product.getProductDescription(),
             Float.toString(product.getProductPrice()),
             Float.toString(product.getProductWeight())};
-
-        if (GetProductByIdProduct(product.getIdProduct()) == null) {
-            if (db.Update("insert into product"
-                    + "(productName, productQuantity, productUrlImage, idProductType, productSize, productRentalPrice, productDescription, productPrice, productWeight) "
-                    + "values(?,?,?,?,?,?,?,?,?)", params) > 0) {
-                System.out.println("Product ID 1: " + product.getIdProduct());
-                return true;
+        String[] updateParams = new String[]{
+            product.getProductName(),
+            Integer.toString(product.getProductQuantity()),
+            product.getProductUrlImage(),
+            product.getProductSize(),
+            Float.toString(product.getProductRentalPrice()),
+            product.getProductDescription(),
+            Float.toString(product.getProductPrice()),
+            Float.toString(product.getProductWeight()),
+            Integer.toString(product.getIdProduct())};
+        try {
+            if (GetProductByIdProduct(product.getIdProduct()) == null) {
+                if (db.Query("insert into product"
+                        + "(productName, productQuantity, productUrlImage, idProductType, productSize, productRentalPrice, productDescription, productPrice, productWeight) "
+                        + "values(?,?,?,?,?,?,?,?)", params) != null) {
+                    //System.out.println("Product ID 1: " + product.getIdProduct());
+                    System.out.println("create successfully");
+                    return true;
+                }
+            } else {
+                if (db.Query("update product set productName=?,productQuantity=?, productUrlImage=?, productSize=?, productRentalPrice=?, productDescription=?,productPrice=?,productWeight=? where idProduct = ?", updateParams) != null) {
+                    System.out.println("update successfully");
+                    return true;
+                }
             }
-        } else {
-            if (db.Query("update product set productName=?,productQuantity=?, productUrlImage=?,idProductType=?, productSize=?, productRentalPrice=?, productDescription=?,productPrice=?,productWeight=?", params) != null) {
-                System.out.println("Product ID 2: " + product.getIdProduct());
-                return true;
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return false;
@@ -165,4 +180,5 @@ public class DBProduct {
         return 0;
     }
     //end products
+
 }

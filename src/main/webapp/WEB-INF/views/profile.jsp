@@ -1,7 +1,8 @@
 <%@page import="com.mycompany.model.User"%>
 <%
-    User user = (User) request.getAttribute("user");
+    User user1 = (User) session.getAttribute("user");
 %>
+
 <jsp:include page="header.jsp" />
 <div class="breadcrumbs_area">
     <div class="container">   
@@ -9,7 +10,7 @@
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="index.html">Trang Chủ</a></li>
+                        <li><a href="./">Trang Chủ</a></li>
                         <li>My account</li>
                     </ul>
                 </div>
@@ -31,7 +32,7 @@
                             <li><a href="#dashboard" data-bs-toggle="tab" class="nav-link active">Tổng Quan</a></li>
                             <li> <a href="#orders" data-bs-toggle="tab" class="nav-link">Đơn Hàng</a></li>
                             <li><a href="#account-details" data-bs-toggle="tab" class="nav-link">Thông Tin Tài Khoản</a></li>
-                            <li><a href="./loginLogout" class="nav-link">logout</a></li>
+                            <li><a href="./logout" class="nav-link">logout</a></li>
                         </ul>
                     </div>    
                 </div>
@@ -63,14 +64,7 @@
                                             <td>May 10, 2018</td>
                                             <td><span class="success">Completed</span></td>
                                             <td>$25.00 for 1 item </td>
-                                            <td><a href="./chi-tiet-don-hang.html" class="view">Xem Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>May 10, 2018</td>
-                                            <td>Processing</td>
-                                            <td>$17.00 for 1 item </td>
-                                            <td><a href="./chi-tiet-don-hang.html" class="view">Xem Chi Tiết</a></td>
+                                            <td><a href="./invoiceDetail" class="view">Xem Chi Tiết</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -83,18 +77,18 @@
                                     <div class="account_login_form">
                                         <form method="POST" action="">
                                             <label>Họ tên *</label>
-                                            <input type="text" name="firstName" id="user_fullname" value="<%= user.getFirstName()%>" required="">
+                                            <input type="text" name="firstName"  value="<%= user1.getFirstName()%>" required="">
                                             <label>Địa chỉ Email *</label>
-                                            <input type="email" name="email" id="user_email" value="<%= user.getEmail()%>" required="">
+                                            <input type="email" name="email"  value="<%= user1.getEmail()%>" required="">
                                             <label>Số điện thoại *</label>
-                                            <input type="text" name="phoneNumber" id="user_phone_number" pattern="(84|0[3|5|7|8|9])+([0-9]{8})" value="<%= user.getPhoneNumber()%>" required="">
+                                            <input type="text" name="phoneNumber"  pattern="(84|0[3|5|7|8|9])+([0-9]{8})" value="<%= user1.getPhoneNumber()%>" required="">
                                             <label>Địa chỉ giao hàng mặc định *</label>
-                                            <input type="text" name="address" id="user_address" value="<%= user.getAddress()%>" required="">
+                                            <input type="text" name="address"  value="<%= user1.getAddress()%>" required="">
                                             <p>Thông tin ngân hàng được dùng để HOÀN LẠI phí đảm bảo tài sản:</p>
                                             <label>Số tài khoản ngân hàng *</label>
-                                            <input type="text" name="bankAccountNumber" id="user_bank_account_number" value="<%= user.getBankAccountNumber()%>" >
+                                            <input type="text" name="bankAccountNumber"  value="<%= user1.getBankAccountNumber()%>" >
                                             <label>Tên ngân hàng *</label>
-                                            <input type="text" name="bankName" id="user_bank_name" value="<%= user.getBankName()%>" >
+                                            <input type="text" name="bankName"  value="<%= user1.getBankName()%>" >
                                             <div class="save_button primary_btn default_button">
                                                 <button type="submit" name="submit" value="update_info">Lưu</button>
                                             </div>
@@ -104,7 +98,7 @@
                                     <!--                                            <div class="account_login_form">
                                                                                     <form method="POST" action="">
                                                                                         <label>Mật khẩu mới</label>
-                                                                                        <input type="password" name="password" value="<%= user.getPassword()%>" minlength="6" required="">
+                                                                                        <input type="password" name="password" value="<%= user1.getPassword()%>" minlength="6" required="">
                                                                                         <label>Nhập lại mật khẩu mới</label>
                                                                                         <input type="password" name="password2" minlength="6" required="">
                                                                                         <div class="save_button primary_btn default_button">

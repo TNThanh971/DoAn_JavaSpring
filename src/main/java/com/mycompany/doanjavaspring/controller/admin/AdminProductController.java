@@ -93,7 +93,8 @@ public class AdminProductController {
     // end admin product list
     // admin  Product detail
     @RequestMapping(value = "/admin/adminProductDetail")
-    public String adminProductDetail(HttpSession session, @ModelAttribute() Admin admin, @RequestParam(required = false) String idProduct, Model model) {
+    public String adminProductDetail(HttpSession session, @ModelAttribute() Admin admin, 
+            @RequestParam(required = false) String idProduct, Model model) {
         try {
             if (session.getAttribute("admin") == null) {
                 return "redirect:/admin/adminLogin";
@@ -103,12 +104,7 @@ public class AdminProductController {
             if (f == null) {
                 return "redirect:/admin/adminListProduct";
             } else {
-//                if (dbq.addProduct(p)){
-//                    return "redirect:/admin/adminListProduct";
-//                }
-                System.out.println(f.getProductSize());
                 model.addAttribute("proDetail", f);
-
                 return "/admin/adminProductDetail";
             }
 
@@ -118,4 +114,13 @@ public class AdminProductController {
         }
     }
     // end admin product detail 
+    // update product detail
+    @RequestMapping(value = "/admin/adminProductDetail", method = RequestMethod.POST)
+    public String UpdateProductDetail(HttpSession session, Product proDetail, Model model) {
+        if (dbq.addProduct(proDetail)) {
+            return "/admin/adminListProduct";
+        }
+        model.addAttribute("msgUpdateProduct", "Lỗi!");
+        return "/admin/adminProductDetail";
+    }
 }

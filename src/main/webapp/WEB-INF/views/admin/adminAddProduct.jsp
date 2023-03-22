@@ -123,19 +123,6 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                            <label class="form-check-label" for="invalidCheck">
-                                                Agree to terms and conditions
-                                            </label>
-                                            <div class="invalid-feedback">
-                                                You must agree before submitting.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
                                 <div class="mt-5 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-right">
                                     <button class="badge badge-info border-0 " style="width: 125px; height:30px" type="submit">Hoàn tất <i class="ml-2 icon-paper-plane"></i></button>
 

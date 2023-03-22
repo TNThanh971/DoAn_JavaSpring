@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="index.html">Trang Chủ</a></li>
+                        <li><a href="./">Trang Chủ</a></li>
                         <li>Chi Tiết Đơn Hàng</li>
                     </ul>
                 </div>

@@ -10,11 +10,13 @@ com\mycompany\doanjavaspring\controller\admin\AdminProductController.class
 com\mycompany\model\User.class
 com\mycompany\model\Invoice.class
 com\mycompany\model\Product.class
+com\mycompany\model\InvoiceType.class
 com\mycompany\config\DispatcherServletInitializer.class
 com\mycompany\doanjavaspring\controller\admin\AdminInvoiceController.class
 com\mycompany\doanjavaspring\controller\user\CartController.class
 com\mycompany\database\DBAdmin.class
 com\mycompany\config\WebApplicationContextConfig.class
+com\mycompany\database\DBInvoiceType.class
 com\mycompany\doanjavaspring\controller\user\InvoiceController.class
 com\mycompany\doanjavaspring\controller\user\ProductController.class
 com\mycompany\model\ProductType.class

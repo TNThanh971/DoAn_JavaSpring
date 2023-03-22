@@ -2,6 +2,9 @@
 <%@page import="com.mycompany.database.DBProduct"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.mycompany.model.User"%>
+<%
+    User user = (User) session.getAttribute("user");
+%>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -49,7 +52,7 @@
                                         <li class="top_links"><a href="#"> Tài Khoản</a></li>
                                             <%
                                             } else {
-                                                User user = (User) session.getAttribute("user");
+                                                user = (User) session.getAttribute("user");
                                             %>
                                         <li class="top_links"><a href="#"> Xin chào <%= user.getFirstName()%></a></li>
                                             <%
@@ -86,7 +89,7 @@
                                                 <li><a class="active" href="./">Trang Chủ</a></li>
 
 
-                                                <li><a href="#">Sản Phẩm <i class="fa fa-angle-down"></i></a>
+                                                <li><a href="">Sản Phẩm <i class="fa fa-angle-down"></i></a>
                                                     <ul class="sub_menu pages">
                                                         <li><a href="./wig">Wig</a></li>
                                                         <li><a href="./accessory">Phụ Kiện</a></li>
@@ -100,7 +103,7 @@
                                                     <a href="./signIn">Đăng nhập</a>
                                                     <%
                                                     } else {
-                                                        User user = (User) session.getAttribute("user");
+                                                        user = (User) session.getAttribute("user");
                                                     %>
                                                     <a href="#">Tài khoản <i class="fa fa-angle-down"></i></a>
                                                     <ul class="sub_menu pages">

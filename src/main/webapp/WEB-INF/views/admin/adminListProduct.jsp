@@ -68,7 +68,6 @@
                     <div class="row justify-content-around">
                         <c:forEach items="${products}" var="product">
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 mt-4">
-                                <!-- .card -->  
                                 <div class="card card-figure row m-0">
                                     <figure class="figure ">
                                         <div class="figure-img">
@@ -88,7 +87,7 @@
                                             </div>
                                         </div>
                                         <figcaption class="figure-caption">
-                                            <!--<h3 class="figure-title text-center btn-light"><a href="">${product.productName}</a></h3>-->
+                                            <h3 class="figure-title text-center btn-light"><a href="">${product.productName}</a></h3>
                                             <div class="divPriceProduct mt-3 text-right text-dark">
                                                 <p class="d-inline text-dark" >
                                                 <h4 class=" mt-3 d-inline text-dark">${product.productPrice}</h4> vnđ 

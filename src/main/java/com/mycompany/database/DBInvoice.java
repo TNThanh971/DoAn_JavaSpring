@@ -50,23 +50,7 @@ public class DBInvoice {
         return null;
     }
 
-    public InvoiceDetail getInvoiceDetailByIdInvoice(String idInvoice) {
-        ResultSet rs = db.Query("select * from invoice_detail where invoice_id=?", new String[]{idInvoice});
-        if (rs != null) {
-            try {
-                while (rs.next()) {
-                    InvoiceDetail id = new InvoiceDetail();
-                    id.setIdProduct(rs.getInt("product_id"));
-                    id.setQuantity(rs.getInt("invd_product_quantity"));
-                    id.setIdInvoice(rs.getInt("invoice_id"));
-                    id.setProductRentalPrice(rs.getFloat("invd_product_rental_price"));
-                    return id;
-                }
-            } catch (Exception e) {
-            }
-        }
-        return null;
-    }
+   
     //update Invoice
     public boolean InsertInvoice(Invoice invoice) {
         String[] params = new String[]{Float.toString(invoice.getIdUser()),
@@ -212,5 +196,24 @@ public class DBInvoice {
             System.out.println("error get count users: " + ex.toString());
         }
         return -1;
+    }
+    
+    // starting invoice đetail
+     public InvoiceDetail getInvoiceDetailByIdInvoice(String idInvoice) {
+        ResultSet rs = db.Query("select * from invoice_detail where invoice_id=?", new String[]{idInvoice});
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    InvoiceDetail id = new InvoiceDetail();
+                    id.setIdProduct(rs.getInt("product_id"));
+                    id.setQuantity(rs.getInt("invd_product_quantity"));
+                    id.setIdInvoice(rs.getInt("invoice_id"));
+                    id.setProductRentalPrice(rs.getFloat("invd_product_rental_price"));
+                    return id;
+                }
+            } catch (Exception e) {
+            }
+        }
+        return null;
     }
 }

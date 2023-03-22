@@ -1,9 +1,6 @@
 <%@page import="java.util.List"%>
 <%@page import="com.mycompany.model.ProductType"%>
 <%@page import="com.mycompany.model.Product"%>
-<%
-    Product product = (Product) request.getAttribute("proDetail");
-%>
 <%@include file="header.jsp" %>
 <div class="dashboard-wrapper">
     <div class="container-fluid  dashboard-content py-0">
@@ -41,10 +38,11 @@
 
                         <div class="card-body">
                             <form class="needs-validation" novalidate>
+                                <p>${msgUpdateProduct}</p>
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                         <label for="validationCustom01">Tên sản phẩm</label>
-                                        <input name="productName" type="text" class="form-control" id="validationCustom04" placeholder="..." value="<%= product.getProductName()%>" required>
+                                        <input name="productName" type="text" class="form-control" id="validationCustom04" placeholder="..." value="${proDetail.productName}" required>
                                         <div class="valid-feedback">
                                             Looks good!
                                         </div>
@@ -53,18 +51,18 @@
                                 <div class="form-row">
                                     <div class="card-body border-top">
                                         <h5 class="card-title">Kích cỡ ban đầu*</h5>
-                                        <textarea name="productSize" rows="1"  disabled > <%= product.getProductSize()%></textarea>
+                                        <textarea name="productSize" rows="1"  disabled >${proDetail.productSize} </textarea>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                         <label for="validationCustom04">Giá mua gốc *</label>
-                                        <input name="productPrice" min = "1" type="number" class="form-control" id="validationCustom04" placeholder="..." value="<%= product.getProductPrice()%>" required>
+                                        <input name="productPrice" min = "1" type="number" class="form-control" id="validationCustom04" placeholder="..." value="${proDetail.productPrice}" required>
                                         <div class="invalid-feedback">
                                             Please provide a valid state.
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                         <label for="validationCustom05">Giá thuê *</label>
-                                        <input name="productRentalPrice"  min = "1" type="number" class="form-control" id="validationCustom05" placeholder="..." value="<%= product.getProductRentalPrice()%>" required>
+                                        <input name="productRentalPrice"  min = "1" type="number" class="form-control" id="validationCustom05" placeholder="..." value="${proDetail.productRentalPrice}" required>
                                         <div class="invalid-feedback">
                                             Please provide a valid zip.
                                         </div>
@@ -82,7 +80,7 @@
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                         <label for="validationCustom05">Số lượng *</label>
-                                        <input name="productQuantity"  min = "1" type="number" class="form-control" id="validationCustom06" placeholder="..." value="<%= product.getProductQuantity()%>" required>
+                                        <input name="productQuantity"  min = "1" type="number" class="form-control" id="validationCustom06" placeholder="..." value="${proDetail.productQuantity}" required>
                                         <div class="invalid-feedback">
                                             Please provide a valid zip.
                                         </div>
@@ -90,7 +88,7 @@
 
                                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
                                         <label for="validationCustom05">Khối lượng / Cân nặng (đơn vị: gram) *</label>
-                                        <input name="productWeight"  min = "0" type="number" class="form-control" id="validationCustom07" placeholder="..." value="<%= product.getProductWeight()%>" >
+                                        <input name="productWeight"  min = "0" type="number" class="form-control" id="validationCustom07" placeholder="..." value="${proDetail.productWeight}" >
                                         <div class="invalid-feedback">
                                             Please provide a valid zip.
                                         </div>
@@ -99,7 +97,7 @@
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                         <label for="validationCustom01">Link ảnh</label>
-                                        <input name="productUrlImage" type="text" class="form-control" id="validationCustom08" placeholder="..." value="<%= product.getProductUrlImage()%>" required>
+                                        <input name="productUrlImage" type="text" class="form-control" id="validationCustom08" placeholder="..." value="${proDetail.productUrlImage}" required>
                                         <div class="valid-feedback">
                                             Looks good!
                                         </div>
@@ -110,7 +108,7 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                         <label class=""> Nội dung / Mô tả (có thể Enter xuống hàng) *</label>
                                         <div class="">
-                                            <textarea name="productDescription" required="" class="form-control h-100" ><%= product.getProductDescription()%></textarea>
+                                            <textarea name="productDescription" required="" class="form-control h-100" >${proDetail.productDescription} </textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -125,11 +123,6 @@
                     </div>
                 </div>
             </form>
-            <!-- ============================================================== -->
-            <!-- end validation form -->
-            <!-- ============================================================== -->
-
-
         </div>
 
         <%@include file="footer.jsp" %>
