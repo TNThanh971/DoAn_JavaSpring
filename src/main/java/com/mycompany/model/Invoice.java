@@ -13,17 +13,34 @@ public class Invoice {
     private int idInvoice;
     private float totalPrice;
     private int idInvoiceStatus;
-    private String day;
     private int idUser;
     private String userFullName;
     private String phoneNumber;
     private String userAddress;
     private String invoiceNote;
-    private String invoiceNote_admin;
+    private String invoiceNoteAdmin;
     private int invoiceFeeTransport;
     private int invoiceFeePond;
     private int amountOfDay;
     private String email;
+    private String note;
+    private String createAt;
+
+    public String getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(String createAt) {
+        this.createAt = createAt;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 
     public int getIdInvoice() {
         return idInvoice;
@@ -47,14 +64,6 @@ public class Invoice {
 
     public void setIdInvoiceStatus(int idInvoiceStatus) {
         this.idInvoiceStatus = idInvoiceStatus;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
     }
 
     public int getIdUser() {
@@ -97,12 +106,12 @@ public class Invoice {
         this.invoiceNote = invoiceNote;
     }
 
-    public String getInvoiceNote_admin() {
-        return invoiceNote_admin;
+    public String getInvoiceNoteAdmin() {
+        return invoiceNoteAdmin;
     }
 
-    public void setInvoiceNote_admin(String invoiceNote_admin) {
-        this.invoiceNote_admin = invoiceNote_admin;
+    public void setInvoiceNoteAdmin(String invoiceNoteAdmin) {
+        this.invoiceNoteAdmin = invoiceNoteAdmin;
     }
 
     public int getInvoiceFeeTransport() {

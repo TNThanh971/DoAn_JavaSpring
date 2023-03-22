@@ -1,8 +1,4 @@
-<%@page import="com.mycompany.model.User"%>
-<%
-    User user = (User) session.getAttribute("user");
-%>
-
+    
 <jsp:include page="header.jsp" />
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="breadcrumbs_area">
@@ -41,14 +37,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${carts}" var="cart">
+                                    <c:forEach items="${userCarts}" var="userCart">
                                         <tr>
                                             <td class="product_remove"><a href=""><i class="fa fa-trash-o"></i></a></td>
-                                            <td class="product_thumb"><a href=""><img src="${cart.image}" alt=""></a></td>
-                                            <td class="product_name"><a href="">${cart.productName}</a></td>
-                                            <td class="product-price">${cart.price}</td>
-                                            <td class="product_quantity"><label>${cart.cartProductQuantity}</label> <input min="0" max="100" value="1" type="number"></td>
-                                            <td class="product_total">${cart.price}*${cart.cartProductQuantity}</td>
+                                            <td class="product_thumb"><a href=""><img src="${userCart.image}" alt=""></a></td>
+                                            <td class="product_name"><a href="">${userCart.productName}</a></td>
+                                            <td class="product-price">${userCart.price}</td>
+                                            <td class="product_quantity"><label></label><input min="0" max="100" value="${userCart.cartProductQuantity}" type="number" /></td>
+                                            <td class="product_total">${userCart.price*userCart.cartProductQuantity}</td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

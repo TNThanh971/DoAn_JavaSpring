@@ -10,7 +10,6 @@ import com.mycompany.database.DBProductType;
 import com.mycompany.model.Admin;
 import com.mycompany.model.Product;
 import com.mycompany.model.ProductType;
-import com.mycompany.model.User;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -36,12 +35,6 @@ public class AdminProductController {
         if (session.getAttribute("admin") == null) {
             return "redirect:/admin/adminLogin";
         }
-        Admin a = (Admin) session.getAttribute("admin");
-        admin.setId(a.getId());
-        admin.setUsername(a.getUsername());
-        admin.setPassword(a.getPassword());
-        admin.setRole(a.getRole());
-        session.setAttribute("admin", admin);
         return "/admin/adminIndex";
     }
     // end admin homepage
@@ -52,16 +45,9 @@ public class AdminProductController {
         if (session.getAttribute("admin") == null) {
             return "redirect:/admin/adminLogin";
         }
-        Admin a = (Admin) session.getAttribute("admin");
-        admin.setId(a.getId());
-        admin.setUsername(a.getUsername());
-        admin.setPassword(a.getPassword());
-        admin.setRole(a.getRole());
-        session.setAttribute("admin", admin);
         // transfer data from db to dropdown list in view
         List<ProductType> producttypes = db.GetProductTypeList();
         if (producttypes != null) {
-            System.out.println("type is not null");
             model.addAttribute("producttypes", producttypes);
         } else {
             System.out.println("type is null");
@@ -72,10 +58,7 @@ public class AdminProductController {
     @RequestMapping(value = "/admin/adminAddProduct", method = RequestMethod.POST)
     public String adminAddProduct(HttpSession session, @ModelAttribute() Product product,
             @RequestParam("ProductType") String productType, Model model) {
-
         //lay gia tri cua value trong dropdown list
-        System.out.println(productType);
-        System.out.println(product.getIdProductType());
         product.setIdProductType(Integer.parseInt(productType));
         boolean is_reg = dbq.addProduct(product);
 
@@ -94,17 +77,12 @@ public class AdminProductController {
         if (session.getAttribute("admin") == null) {
             return "redirect:/admin/adminLogin";
         }
-        Admin a = (Admin) session.getAttribute("admin");
-        admin.setId(a.getId());
-        admin.setUsername(a.getUsername());
-        admin.setPassword(a.getPassword());
-        admin.setRole(a.getRole());
-        session.setAttribute("admin", admin);
-
         int page_id = Utils.Page(page);
-        List<Product> products;
-        if (dbq.GetProductList(page_id) != null) {
+        List<Product> products = dbq.GetProductList(page_id);
+        List<ProductType> producttypes = db.GetProductTypeList();
+        if ( products != null) {
             products = dbq.GetProductList(page_id);
+            model.addAttribute("producttypes", producttypes);
             model.addAttribute("products", products);
         } else {
             System.out.println("failed");
@@ -114,28 +92,23 @@ public class AdminProductController {
 
     // end admin product list
     // admin  Product detail
-    @RequestMapping(value = "/admin/adminProductDetail", method = RequestMethod.GET)
-    public String adminProductDetail(HttpSession session, @ModelAttribute() Admin admin, @ModelAttribute("product") Product p, @RequestParam(required = false) String idProduct, Model model) {
+    @RequestMapping(value = "/admin/adminProductDetail")
+    public String adminProductDetail(HttpSession session, @ModelAttribute() Admin admin, @RequestParam(required = false) String idProduct, Model model) {
         try {
             if (session.getAttribute("admin") == null) {
                 return "redirect:/admin/adminLogin";
             }
             int product_id = Integer.parseInt(idProduct);
             Product f = dbq.GetProductByIdProduct(product_id);
-
-            
             if (f == null) {
                 return "redirect:/admin/adminListProduct";
             } else {
-                System.out.println("Product ID is not null " + idProduct);
-                System.out.println(f.getProductName());
-                System.out.println(f.getProductUrlImage());
-                System.out.println(f.getProductPrice());
-                System.out.println(f.getProductWeight());
 //                if (dbq.addProduct(p)){
 //                    return "redirect:/admin/adminListProduct";
 //                }
+                System.out.println(f.getProductSize());
                 model.addAttribute("proDetail", f);
+
                 return "/admin/adminProductDetail";
             }
 

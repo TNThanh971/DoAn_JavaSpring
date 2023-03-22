@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
  * @author truongthanh
  */
 public class Utils {
-    public static int LIMIT_ROWS = 10;
+    public static int LIMIT_ROWS = 12;
     public static String DB_MYSQL;
 
     public static int Page(String page) {

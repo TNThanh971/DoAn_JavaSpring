@@ -18,7 +18,15 @@ public class User {
     private String address;
     private String bankAccountNumber;
     private String bankName;
+    private String createAt;
 
+    public String getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(String createAt) {
+        this.createAt = createAt;
+    }
     
 
     public String getBankName() {

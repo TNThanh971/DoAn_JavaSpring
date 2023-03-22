@@ -140,7 +140,7 @@
                                                 <div class="mini_cart">
                                                     <div class="mini_cart_footer">
                                                         <div class="cart_button">
-                                                            <a href="./cart">View cart</a>
+                                                            <a href="./cart?idUser=${user.idUser}">View cart</a>
                                                         </div>
                                                         <div class="cart_button">
                                                             <a href="./checkout"> Checkout</a>

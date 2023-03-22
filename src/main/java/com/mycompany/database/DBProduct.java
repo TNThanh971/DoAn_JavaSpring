@@ -6,7 +6,6 @@ package com.mycompany.database;
 
 import com.mycompany.config.Utils;
 import com.mycompany.model.Product;
-import com.mycompany.model.ProductType;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -23,6 +22,31 @@ public class DBProduct {
     // begin product
     public List<Product> GetProductList(int page) {
         ResultSet rs = db.Query("select * from product " + Utils.Offset(page));
+        List<Product> lst = new ArrayList<Product>();
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    Product p = new Product();
+                    p.setIdProduct(rs.getInt("idProduct"));
+                    p.setProductName(rs.getString("productName"));
+                    p.setProductQuantity(rs.getInt("productQuantity"));
+                    p.setProductUrlImage(rs.getString("productUrlImage"));
+                    p.setIdProductType(rs.getInt("idProductType"));
+                    p.setProductSize(rs.getString("productSize"));
+                    p.setProductRentalPrice(rs.getFloat("productRentalPrice"));
+                    p.setProductDescription(rs.getString("productDescription"));
+                    p.setProductPrice(rs.getFloat("productPrice"));
+                    p.setProductWeight(rs.getFloat("productWeight"));
+                    lst.add(p);
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        return lst;
+    }
+    public List<Product> SearchProductList(String name) {
+        ResultSet rs = db.Query("select * from product where productName like ?", new String[]{name});
         List<Product> lst = new ArrayList<Product>();
         if (rs != null) {
             try {
@@ -116,6 +140,7 @@ public class DBProduct {
                     p.setProductUrlImage(rs.getString("productUrlImage"));
                     p.setProductRentalPrice(rs.getFloat("productRentalPrice"));
                     p.setProductPrice(rs.getFloat("productPrice"));
+                    p.setProductSize(rs.getString("productSize"));
                     p.setProductWeight(rs.getFloat("productWeight"));
                     return p;
                 }
@@ -139,6 +164,5 @@ public class DBProduct {
         }
         return 0;
     }
-
     //end products
 }

@@ -1,4 +1,5 @@
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\doanjavaspring\controller\user\HomeController.java
+C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\model\InvoiceType.java
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\database\DBProductType.java
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\doanjavaspring\controller\admin\AdminInvoiceController.java
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\model\Product.java
@@ -18,6 +19,7 @@ C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\database\DBInvoice.java
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\database\DBProduct.java
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\model\Invoice.java
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\model\InvoiceDetail.java
+C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\database\DBInvoiceType.java
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\config\WebApplicationContextConfig.java
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\database\DB.java
 C:\Github\DoAn_JavaSpring\src\main\java\com\mycompany\model\ProductType.java

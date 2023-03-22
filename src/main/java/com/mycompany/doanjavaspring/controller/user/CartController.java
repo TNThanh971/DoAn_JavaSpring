@@ -5,6 +5,7 @@
 package com.mycompany.doanjavaspring.controller.user;
 
 import com.mycompany.database.DBCart;
+import com.mycompany.database.DBUser;
 import com.mycompany.model.Cart;
 import com.mycompany.model.User;
 import java.util.List;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -24,20 +26,24 @@ public class CartController {
     DBCart dbq = new DBCart();
 
     @RequestMapping(value = "/cart")
-    public String cart(HttpSession session, Model model, @ModelAttribute() User user) {
+    public String cart(HttpSession session, Model model, @RequestParam(required = false) String idUser) {
         if (session.getAttribute("user") == null) {
-            return "/signIn";
+            return "/";
         }
         try {
-            List<Cart> f = dbq.GetCartByIdUser(Integer.toString(user.getIdUser()));
-            if (f == null) {
+            List<Cart> f;
+            if (dbq.GetCartByIdUser(idUser) != null) {
+                f = dbq.GetCartByIdUser(idUser);
+                model.addAttribute("userCarts", f);
+            } else {
+                System.out.println("failed");
                 return "redirect:/";
             }
-            model.addAttribute("cart", f);
+
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
             return "/signIn";
         }
-        return "cart";
+        return "/cart";
     }
 }

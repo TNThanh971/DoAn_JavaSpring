@@ -1,6 +1,6 @@
 <%@page import="com.mycompany.model.User"%>
 <%
-    User user = (User) session.getAttribute("user");
+    User user = (User) request.getAttribute("user");
 %>
 <jsp:include page="header.jsp" />
 <div class="breadcrumbs_area">

@@ -73,51 +73,24 @@
                                     <th>Tên khách hàng</th>
                                     <th>Số điện thoại</th>
                                     <th>Email</th>
-
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="mt-5">
-                                    <td>NV-01</td>
-                                    <td>Nguyễn Văn A</td>
-                                    <td>0123456789</td>
-                                    <td>a@gmail.com</td>   
-                                    <td>                                                                               
-                                        <a class="ml-4" href="./adminDetailsUser">
-                                            <i class="text-xl m-r-10 mdi mdi-account-plus">
-                                            </i>
-                                        </a>
-
-                                    </td>
-                                </tr>
-                                <tr class="mt-5">
-                                    <td>NV-02</td>
-                                    <td>Nguyễn Văn B</td>
-                                    <td>0123456789</td>
-                                    <td>b@gmail.com</td>  
-                                    <td>                                
-                                        <a class="ml-4" href="./adminDetailsUser">
-                                            <i class="text-xl m-r-10 mdi mdi-account-plus">
-                                            </i>
-                                        </a>
-
-                                    </td>
-                                </tr>
-                                <tr class="mt-5">
-                                    <td>NV-03</td>
-                                    <td>Nguyễn Văn C</td>
-                                    <td>0123456789</td>
-                                    <td>c@gmail.com</td>    
-                                    <td>                                      
-                                        <a class="ml-4" href="./adminDetailsUser">
-                                            <i class="text-xl m-r-10 mdi mdi-account-plus">
-                                            </i>
-                                        </a>
-
-                                    </td>
-                                </tr>
-
+                                <c:forEach items="${adminUserLists}" var="adminUserList">
+                                    <tr class="mt-5">
+                                        <td>${adminUserList.idUser}</td>
+                                        <td>${adminUserList.firstName}</td>
+                                        <td>${adminUserList.phoneNumber}</td>
+                                        <td>${adminUserList.email}</td>   
+                                        <td>                                                                               
+                                            <a class="ml-4" href="./adminUserDetail?idUser=${adminUserList.idUser}">
+                                                <i class="text-xl m-r-10 mdi mdi-account-plus">
+                                                </i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>    
                             </tbody>
 
                         </table>
@@ -127,4 +100,4 @@
         </div>
     </div>
 
-<%@include file="footer.jsp" %>
+    <%@include file="footer.jsp" %>

@@ -60,12 +60,8 @@ public class DBProductType {
                     ProductType pt = new ProductType();
                     pt.setIdType(rs.getInt("idProductType"));
                     pt.setTypeName(rs.getString("typeName"));
-                    System.out.println(pt.getIdType());
-                    System.out.println(pt.getTypeName());
-                    
                     lst.add(pt);
                 }
-                System.out.println("insert dropdown list from db successfully");
             } catch (Exception e) {
                 e.printStackTrace();
             }

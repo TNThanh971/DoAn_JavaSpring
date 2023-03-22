@@ -1,6 +1,7 @@
 com\mycompany\config\Utils.class
 com\mycompany\model\Cart.class
 com\mycompany\doanjavaspring\controller\user\AuthentificationUserController.class
+com\mycompany\database\DBCart.class
 com\mycompany\doanjavaspring\controller\admin\AuthentificationAdminController.class
 com\mycompany\model\Admin.class
 com\mycompany\doanjavaspring\controller\user\UserController.class
@@ -10,11 +11,19 @@ com\mycompany\model\User.class
 com\mycompany\model\Invoice.class
 com\mycompany\model\Product.class
 com\mycompany\config\DispatcherServletInitializer.class
+com\mycompany\doanjavaspring\controller\admin\AdminInvoiceController.class
 com\mycompany\doanjavaspring\controller\user\CartController.class
+com\mycompany\database\DBAdmin.class
 com\mycompany\config\WebApplicationContextConfig.class
 com\mycompany\doanjavaspring\controller\user\InvoiceController.class
 com\mycompany\doanjavaspring\controller\user\ProductController.class
 com\mycompany\model\ProductType.class
+com\mycompany\database\DBUser.class
 com\mycompany\model\InvoiceDetail.class
+com\mycompany\database\DBProductType.class
+com\mycompany\doanjavaspring\controller\user\AboutUsController.class
+com\mycompany\doanjavaspring\controller\admin\AdminUserController.class
 com\mycompany\database\Transaction.class
+com\mycompany\database\DBInvoice.class
+com\mycompany\database\DBProduct.class
 com\mycompany\database\DB.class

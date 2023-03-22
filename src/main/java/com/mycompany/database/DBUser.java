@@ -16,15 +16,49 @@ import java.util.List;
  * @author truongthanh
  */
 public class DBUser {
+
     DB db = new DB();
 
-    public List<User> GetUser() {
-        ResultSet rs = db.Query("select * from user");
+    public List<User> GetUser(int page) {
+        ResultSet rs = db.Query("select * from user" + Utils.Offset(page));
         List<User> list = new ArrayList<>();
         if (rs != null) {
             try {
                 while (rs.next()) {
                     User f = new User();
+                    f.setIdUser(rs.getInt("idUser"));
+                    f.setFirstName(rs.getString("firstName"));
+                    f.setEmail(rs.getString("email"));
+                    f.setPassword(rs.getString("password"));
+                    f.setPhoneNumber(rs.getString("phoneNumber"));
+                    f.setAddress(rs.getString("address"));
+                    f.setBankAccountNumber(rs.getString("bankAccountNumber"));
+                    f.setBankName(rs.getString("bankName"));
+                    f.setCreateAt(rs.getString("user_created_at"));
+                    list.add(f);
+                }
+            } catch (SQLException ex) {
+                System.out.println("error: " + ex.toString());
+            }
+        }
+        return list;
+    }
+    public List<User> SearchUser(String phoneNumber) {
+        ResultSet rs = db.Query("select * from user where phoneNumber like " + phoneNumber );
+        List<User> list = new ArrayList<>();
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    User f = new User();
+                    f.setIdUser(rs.getInt("idUser"));
+                    f.setFirstName(rs.getString("firstName"));
+                    f.setEmail(rs.getString("email"));
+                    f.setPassword(rs.getString("password"));
+                    f.setPhoneNumber(rs.getString("phoneNumber"));
+                    f.setAddress(rs.getString("address"));
+                    f.setBankAccountNumber(rs.getString("bankAccountNumber"));
+                    f.setBankName(rs.getString("bankName"));
+                    f.setCreateAt(rs.getString("user_created_at"));
                     list.add(f);
                 }
             } catch (SQLException ex) {
@@ -59,6 +93,28 @@ public class DBUser {
 
     public User GetUserByEmail(String email) {
         ResultSet rs = db.Query("SELECT * FROM user WHERE email = ?", new String[]{email});
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    User u = new User();
+                    u.setIdUser(rs.getInt("idUser"));
+                    u.setFirstName(rs.getString("firstName"));
+                    u.setEmail(rs.getString("email"));
+                    u.setAddress(rs.getString("address"));
+                    u.setPhoneNumber(rs.getString("phoneNumber"));
+                    u.setBankAccountNumber(rs.getString("bankAccountNumber"));
+                    u.setBankName(rs.getString("bankName"));
+                    u.setPassword(rs.getString("password"));
+                    return u;
+                }
+            } catch (SQLException ex) {
+            }
+        }
+        return null;
+    }
+    
+     public User GetUserById(String idUser) {
+        ResultSet rs = db.Query("SELECT * FROM user WHERE idUser  = ?", new String[]{idUser});
         if (rs != null) {
             try {
                 while (rs.next()) {

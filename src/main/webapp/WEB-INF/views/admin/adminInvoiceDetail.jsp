@@ -1,8 +1,3 @@
-<%-- 
-    Document   : adminDetailsInvoices
-    Created on : Mar 9, 2023, 2:06:13 AM
-    Author     : truongthanh
---%>
 
 <%@include file="header.jsp" %>
 <div class="dashboard-wrapper">
@@ -34,14 +29,14 @@
         <!-- ============================================================== -->
 
         <div class="row" style="">
-            <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 position-relative" style="margin-left: 325px;">
-                <div class="card " style="margin-left: 70px;">
+            <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 position-relative" style="margin-left: 225px;">
+                <div class="card " style="margin-left: 50px;">
                     <div class="card-header p-4">
                         <h2 class="pt-2 d-inline-block">Hóa đơn</h2>
 
                         <div class="float-right">
-                            <h3 class="mb-0">Mã #1</h3>
-                            <span>Ngày: 16/02/2003</span>
+                            <h3 class="mb-0">Mã ${invDetail.idInvoice}</h3>
+                            <span>Ngày: ${invDetail.createAt}</span>
                         </div>
                     </div>
                     <div class="card-body">
@@ -57,11 +52,11 @@
                             </div>
                             <div class="col-sm-6">
                                 <h5 class="mb-3">Đến:</h5>
-                                <h3 class="text-dark mb-1">Nguyễn Văn A</h3>
-                                <div>Nguyễn Thị Định, quận 2, thành phố Hồ Chí Minh</div>
+                                <h3 class="text-dark mb-1">${invDetail.userFullName}</h3>
+                                <div>${invDetail.userAddress}</div>
 
-                                <div>Email: a@gmail.com</div>
-                                <div>Phone: 01230912309</div>
+                                <div>Email: ${invDetail.email}</div>
+                                <div>Phone: ${invDetail.phoneNumber}</div>
                             </div>
                         </div>
                         <div class="table-responsive-sm">
@@ -111,26 +106,20 @@
                         <div class="row">
                             <div class="col-lg-4 col-sm-5">
                             </div>
-                            <div class="col-lg-4 col-sm-5 ml-auto mt-5" style="margin-right: 60px;">
+                            <div class="col-lg-4 col-sm-5 ml-auto mt-5" style="margin-right: 20px;">
                                 <table class="table table-clear">
                                     <tbody>
                                         <tr>
                                             <td class="left">
-                                                <strong class="text-dark">Tạm tính:</strong>
-                                            </td>
-                                            <td class="right">60.000</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="left">
                                                 <strong class="text-dark">Phí giao hàng</strong>
                                             </td>
-                                            <td class="right">20.000</td>
+                                            <td class="right">${invDetail.invoiceFeeTransport}</td>
                                         </tr>
                                         <tr>
                                             <td class="left ">
                                                 <strong class="text-dark">Phí đảm bảo tài sản (20%)</strong>
                                             </td>
-                                            <td class="right">10.000</td>
+                                            <td class="right">${invDetail.invoiceFeePond}</td>
                                         </tr>
                                         <tr>
                                             <td class="left" style="">
@@ -138,7 +127,7 @@
                                             </td>
                                             <td class="right">
                                                 <strong class="text-dark "> <span
-                                                        class="d-inline position-relative mr-2">2.000.000</span>
+                                                        class="d-inline position-relative mr-2">${invDetail.totalPrice}</span>
                                                     <span class="position-absolute">vnđ</span> </strong>
 
                                             </td>
@@ -184,39 +173,4 @@
 
             </div>
         </div>
-
-
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <div class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        . All rights reserved. Dashboard by Wibu
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="text-md-right footer-links d-none d-sm-block">
-                            <a href="javascript: void(0);">About</a>
-                            <a href="javascript: void(0);">Support</a>
-                            <a href="javascript: void(0);">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end footer -->
-        <!-- ============================================================== -->
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- end wrapper  -->
-    <!-- ============================================================== -->
-</div>
-<!-- ============================================================== -->
-<!-- end main wrapper  -->
-<!-- ============================================================== -->
-<!-- Optional JavaScript -->
-<!-- jquery 3.3.1 -->
-<%@include file="footer.jsp" %>
+        <%@include file="footer.jsp" %>
