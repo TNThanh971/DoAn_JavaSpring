@@ -68,6 +68,17 @@
 </footer>
 <script src="./assets/user/js/plugins.js"></script>
 <script src="./assets/user/js/main.js"></script>
+<script>
+    function redirectParams(name, value) {
+        var url = new URL(window.location.href);
+        url.searchParams.set(name, value);
+        window.location.href = url.href;
+    }
+
+    function pagination(num) {
+        redirectParams('page', num);
+    }
+</script>
 </body>
 
 </html>

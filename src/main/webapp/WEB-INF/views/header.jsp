@@ -141,6 +141,14 @@
                                                         class="item_count">2</span></a>
                                                 <!--mini cart-->
                                                 <div class="mini_cart">
+                                                    <%if (session.getAttribute("user") == null) {%>
+                                                    <div class="cart_button">
+                                                        <a href="./signIn"> Đăng nhập</a>
+                                                    </div>
+                                                    <%
+                                                    } else {
+                                                        user = (User) session.getAttribute("user");
+                                                    %>
                                                     <div class="mini_cart_footer">
                                                         <div class="cart_button">
                                                             <a href="./cart?idUser=${user.idUser}">View cart</a>
@@ -151,6 +159,9 @@
 
                                                     </div>
                                                 </div>
+                                                <%
+                                                    }
+                                                %>
                                                 <!--mini cart end-->
                                             </li>
                                         </ul>

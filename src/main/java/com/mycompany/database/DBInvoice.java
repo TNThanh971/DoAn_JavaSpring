@@ -123,15 +123,14 @@ public class DBInvoice {
                     p.setInvoiceFeePond(rs.getInt("invoiceFeePond"));
                     p.setIdInvoiceStatus(rs.getInt("invoiceStatusId"));
                     p.setCreateAt(rs.getString("invoiceCreatedAt"));
-                    System.out.println(p.getIdInvoice());
-                    System.out.println(p.getUserFullName());
                     lst.add(p);
                 }
+                return lst;
             } catch (Exception e) {
                 System.out.println(e);
             }
         }
-        return lst;
+        return null;
     }
     public List<Invoice> SearchInvoiceList(String idInvoice) {
         ResultSet rs = db.Query("select * from invoice where idInvoice= " +idInvoice);
@@ -215,5 +214,19 @@ public class DBInvoice {
             }
         }
         return null;
+    }
+     public int getCountInvoice() {
+        ResultSet rs = db.Query("SELECT COUNT(idInvoice) AS total FROM invoice");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    System.out.println(rs.getInt("total"));
+                    return rs.getInt("total");
+                }
+            } catch (SQLException ex) {
+                System.out.println("error get count product: " + ex.toString());
+            }
+        }
+        return 0;
     }
 }

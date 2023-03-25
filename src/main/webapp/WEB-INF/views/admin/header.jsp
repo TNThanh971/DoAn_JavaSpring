@@ -26,6 +26,8 @@
         <link rel="stylesheet" href="<c:url value="/assets/admin/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css"/>"/>
         <link rel="stylesheet" href="<c:url value="/assets/admin/vendor/charts/c3charts/c3.css"/>"/>
         <link rel="stylesheet" href="<c:url value="/assets/admin/vendor/fonts/flag-icon-css/flag-icon.min.css"/>"/>
+        
+        <link rel="stylesheet" href="<c:url value="/assets/admin/libs/css/phantrang.css"/>"/>
     </head>
 
     <body>

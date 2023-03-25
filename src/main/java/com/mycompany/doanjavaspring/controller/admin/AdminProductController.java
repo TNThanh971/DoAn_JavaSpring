@@ -107,7 +107,6 @@ public class AdminProductController {
                 model.addAttribute("proDetail", f);
                 return "/admin/adminProductDetail";
             }
-
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
             return "redirect:/admin/adminListProduct";
@@ -118,9 +117,9 @@ public class AdminProductController {
     @RequestMapping(value = "/admin/adminProductDetail", method = RequestMethod.POST)
     public String UpdateProductDetail(HttpSession session, Product proDetail, Model model) {
         if (dbq.addProduct(proDetail)) {
-            return "/admin/adminListProduct";
+            return "redirect:/admin/adminListProduct";
         }
         model.addAttribute("msgUpdateProduct", "Lỗi!");
-        return "/admin/adminProductDetail";
+        return "redirect:/admin/adminProductDetail";
     }
 }

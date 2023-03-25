@@ -69,6 +69,5 @@ public class AdminInvoiceController {
             ex.printStackTrace();
             return "redirect:/admin/adminListProduct";
         }
-        
     }
 }

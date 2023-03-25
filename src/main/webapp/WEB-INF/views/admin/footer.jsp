@@ -29,8 +29,6 @@
 <!-- ============================================================== -->
 <!-- Optional JavaScript -->
 <!-- jquery 3.3.1 -->
-
-
 <script src="<c:url value="/assets/admin/vendor/jquery/jquery-3.3.1.min.js"/>"></script>
 <!-- bootstap bundle js -->
 <script src="<c:url value="/assets/admin/vendor/bootstrap/js/bootstrap.bundle.js"/>"></script>
@@ -52,6 +50,18 @@
 <script src="<c:url value="/assets/admin/libs/js/dashboard-ecommerce.js"/>"></script>
 
 <script src="<c:url value="/assets/admin/vendor/bootstrap-select/js/bootstrap-select.js"/>"></script>
+<script>
+    function redirectParams(name, value) {
+        var url = new URL(window.location.href);
+        url.searchParams.set(name, value);
+        window.location.href = url.href;
+    }
+
+    function pagination(num) {
+        redirectParams('page', num);
+    }
+</script>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </html>

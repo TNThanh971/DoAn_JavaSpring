@@ -1,10 +1,7 @@
-<%-- 
-    Document   : adminListInvoices
-    Created on : Mar 9, 2023, 2:07:17 AM
-    Author     : truongthanh
---%>
+<%@page import="com.mycompany.database.DBInvoice"%>
 <%@page import="com.mycompany.config.Utils"%>
 <%@include file="header.jsp" %>
+
 <div class="dashboard-wrapper" style="min-height:0 !important;">
     <div class="container-fluid  dashboard-content " style="padding-bottom:0 !important;">
         <!-- ============================================================== -->
@@ -55,7 +52,7 @@
                                 <select name="InvoiceType" class="selectpicker">
                                     <option data-content="<span class='badge badge-dark'>Tất cả</span>">Tất cả</option>
                                     <c:forEach items="${invoicetypes}" var="invoicetype">
-                                            <option value="${invoicetype.invoiceStatusId}">${invoicetype.invoiceStatusName}</option>
+                                        <option value="${invoicetype.invoiceStatusId}">${invoicetype.invoiceStatusName}</option>
                                     </c:forEach>
                                     <!--<option value="1">Wig</option>-->
                                 </select>
@@ -93,7 +90,7 @@
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${adminInvoices}" var="adminInvoice">
-                                        <tr class="mt-5">   
+                                        <tr class="invoice_Item">   
                                             <td>${adminInvoice.idInvoice}</td>
                                             <td>${adminInvoice.userFullName}</td>
                                             <td>${adminInvoice.phoneNumber}</td>
@@ -116,6 +113,7 @@
                                             </td>
                                         </tr>
                                     </c:forEach>
+
                                 </tbody>
 
                             </table>
@@ -123,5 +121,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="pagination"class="pagination">
+            <ul>
+                <%                            DBInvoice dbInovoice = new DBInvoice();
+                    int pg = Utils.Page(request.getParameter("page"));
+                    int end_page = (int) Math.ceil((double) dbInovoice.getCountInvoice() / Utils.LIMIT_ROWS);
+                    for (int i = 1; i <= end_page; i++)
+                        if (Math.abs(pg - i) <= 3 || i == 1 || i == end_page) {
+                %>
+                <li><a href="javascript:" onclick="pagination(<%= i%>)" class="<%= pg == i ? "active" : ""%>"><%= i%></a>
+                    <%
+                        }
+                    %>
+            </ul>
         </div>
         <%@include file="footer.jsp" %>

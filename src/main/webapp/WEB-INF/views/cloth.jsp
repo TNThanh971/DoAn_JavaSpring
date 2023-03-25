@@ -91,11 +91,16 @@
                 <div class="shop_toolbar t_bottom">
                     <div class="pagination">
                         <ul>
-                            <li class="current">1</li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li class="next"><a href="#">next</a></li>
-                            <li><a href="#">>></a></li>
+                            <%                            DBProduct dbProduct = new DBProduct();
+                                int pg = Utils.Page(request.getParameter("page"));
+                                int end_page = (int) Math.ceil((double) dbProduct.getCountProductsById3() / Utils.LIMIT_ROWS);
+                                for (int i = 1; i <= end_page; i++)
+                                    if (Math.abs(pg - i) <= 3 || i == 1 || i == end_page) {
+                            %>
+                            <li><a href="javascript:" onclick="pagination(<%= i%>)" class="<%= pg == i ? "active" : ""%>"><%= i%></a>
+                                <%
+                                    }
+                                %>
                         </ul>
                     </div>
                 </div>
@@ -110,95 +115,3 @@
 <!--footer area start-->
 <%@include file="footer.jsp"%>
 <!--footer area end-->
-
-<!-- modal area start-->
-<div class="modal fade" id="modal_box" tabindex="-1" role="dialog"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <div class="modal_body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-12">
-                            <div class="modal_tab">  
-                                <div class="tab-content product-details-large">
-                                    <div class="tab-pane fade show active" id="tab1" role="tabpanel" >
-                                        <div class="modal_tab_img">
-                                            <a href="#"><img src="./assets/user/img/product/productbig6.webp" alt=""></a>    
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="tab2" role="tabpanel">
-                                        <div class="modal_tab_img">
-                                            <a href="#"><img src="./assets/user/img/product/productbig7.webp" alt=""></a>    
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="tab3" role="tabpanel">
-                                        <div class="modal_tab_img">
-                                            <a href="#"><img src="./assets/user/img/product/productbig8.webp" alt=""></a>    
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="tab4" role="tabpanel">
-                                        <div class="modal_tab_img">
-                                            <a href="#"><img src="./assets/user/img/product/productbig9.webp" alt=""></a>    
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal_tab_button">    
-                                    <ul class="nav product_navactive owl-carousel" role="tablist">
-                                        <li >
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="./assets/user/img/product/product1.webp" alt=""></a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="./assets/user/img/product/product3.webp" alt=""></a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link button_three" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="./assets/user/img/product/product7.webp" alt=""></a>
-                                        </li>
-                                        <li>
-                                            <a class="nav-link" data-bs-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="./assets/user/img/product/product10.webp" alt=""></a>
-                                        </li>
-
-                                    </ul>
-                                </div>    
-                            </div>  
-                        </div> 
-                        <div class="col-lg-7 col-md-7 col-sm-12">
-                            <div class="modal_right">
-                                <div class="modal_title mb-10">
-                                    <h2>Donec Ac Tempus</h2> 
-                                </div>
-                                <div class="modal_price mb-10">
-                                    <span class="new_price">$64.99</span>    
-                                </div>
-                                <div class="modal_description mb-15">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>    
-                                </div> 
-                                <div class="variants_selects">
-                                    <div class="variants_size">
-                                        <h2>size</h2>
-                                        <select class="select_option">
-                                            <option selected value="1">S</option>
-                                            <option value="1">M</option>
-                                            <option value="1">L</option>
-                                            <option value="1">XL</option>
-                                            <option value="1">XXL</option>
-                                        </select>
-                                    </div>
-                                    <div class="modal_add_to_cart">
-                                        <form action="#">
-                                            <input min="1" max="100" step="2" value="1" type="number">
-                                            <button type="submit">add to cart</button>
-                                        </form>
-                                    </div>   
-                                </div>    
-                            </div>    
-                        </div>    
-                    </div>     
-                </div>
-            </div>    
-        </div>
-    </div>
-</div>
-<!-- modal area end-->

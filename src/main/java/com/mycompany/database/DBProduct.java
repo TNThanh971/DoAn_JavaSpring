@@ -130,7 +130,7 @@ public class DBProduct {
                     return true;
                 }
             } else {
-                if (db.Query("update product set productName=?,productQuantity=?, productUrlImage=?, productSize=?, productRentalPrice=?, productDescription=?,productPrice=?,productWeight=? where idProduct = ?", updateParams) != null) {
+                if (db.Update("update product set productName=?,productQuantity=?, productUrlImage=?, productSize=?, productRentalPrice=?, productDescription=?,productPrice=?,productWeight=? where idProduct = ?", updateParams) >0) {
                     System.out.println("update successfully");
                     return true;
                 }
@@ -167,10 +167,53 @@ public class DBProduct {
     }
 
     public int getCountProducts() {
-        ResultSet rs = db.Query("SELECT COUNT(id) AS total FROM product");
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product");
         if (rs != null) {
             try {
                 while (rs.next()) {
+                    System.out.println(rs.getInt("total"));
+                    return rs.getInt("total");
+                }
+            } catch (SQLException ex) {
+                System.out.println("error get count product: " + ex.toString());
+            }
+        }
+        return 0;
+    }
+    public int getCountProductsById1() {
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 1);
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    System.out.println(rs.getInt("total"));
+                    return rs.getInt("total");
+                }
+            } catch (SQLException ex) {
+                System.out.println("error get count product: " + ex.toString());
+            }
+        }
+        return 0;
+    }
+    public int getCountProductsById2() {
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 2);
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    System.out.println(rs.getInt("total"));
+                    return rs.getInt("total");
+                }
+            } catch (SQLException ex) {
+                System.out.println("error get count product: " + ex.toString());
+            }
+        }
+        return 0;
+    }
+    public int getCountProductsById3() {
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 3);
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    System.out.println(rs.getInt("total"));
                     return rs.getInt("total");
                 }
             } catch (SQLException ex) {
@@ -180,5 +223,4 @@ public class DBProduct {
         return 0;
     }
     //end products
-
 }
