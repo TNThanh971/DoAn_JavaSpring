@@ -42,9 +42,9 @@
                                     <ul>
                                         <li class="language"><a href="#"><img src="assets/user/img/icon/vietnam.png" alt=""> VN
                                                 <i class="zmdi zmdi-chevron-down zmdi-hc-fw"></i></a>
-                                            <ul class="dropdown_language">
+<!--                                            <ul class="dropdown_language">
                                                 <li><a href="#">English</a></li>
-                                            </ul>
+                                            </ul>-->
                                         </li>
                                         <%
                                             if (session.getAttribute("user") == null) {
@@ -118,7 +118,7 @@
                                                     %>
                                                 </li>
                                                 <li><a href="./aboutUs">Giới Thiệu</a></li>
-                                                <li><a href="contact.html">Liên Hệ</a></li>
+                                                <li><a href="./faq">Liên Hệ</a></li>
                                             </ul>
                                         </nav>
                                     </div>
