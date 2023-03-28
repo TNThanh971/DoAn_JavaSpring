@@ -1,5 +1,6 @@
 
 <%@include file="header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--header area end-->
 
 <!--slider area start-->
@@ -14,7 +15,7 @@
                             <h2>50% off</h2>
                             <p> Look good with fall's fresh take on white shirts with cool blue swaters </p>
 
-                            <a class="button" href="shop.html">shop Now <i
+                            <a class="button" href="">shop Now <i
                                     class="zmdi zmdi-long-arrow-right"></i></a>
                         </div>
                     </div>
@@ -30,7 +31,7 @@
                             <h1> fashion sale preview</h1>
                             <h2>50% off</h2>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                            <a class="button" href="shop.html">shop Now <i
+                            <a class="button" href="">shop Now <i
                                     class="zmdi zmdi-long-arrow-right"></i></a>
                         </div>
                     </div>
@@ -48,7 +49,7 @@
             <div class="col-lg-4 col-md-4">
                 <figure class="single_banner">
                     <div class="banner_thumb">
-                        <a href="shop.html"><img src="assets/user/img/bg/banner1.webp" alt=""></a>
+                        <a href=""><img src="assets/user/img/bg/banner1.webp" alt=""></a>
                         <div class="banner_conent">
                             <h3>sale up to</h3>
                             <h2>50%</h2>
@@ -60,7 +61,7 @@
             <div class="col-lg-4 col-md-4">
                 <figure class="single_banner">
                     <div class="banner_thumb">
-                        <a href="shop.html"><img src="assets/user/img/bg/banner2.webp" alt=""></a>
+                        <a href=""><img src="assets/user/img/bg/banner2.webp" alt=""></a>
                         <div class="banner_conent">
                             <h3>sale up to</h3>
                             <h2>70%</h2>
@@ -72,7 +73,7 @@
             <div class="col-lg-4 col-md-4">
                 <figure class="single_banner">
                     <div class="banner_thumb">
-                        <a href="shop.html"><img src="assets/user/img/bg/banner3.webp" alt=""></a>
+                        <a href=""><img src="assets/user/img/bg/banner3.webp" alt=""></a>
                         <div class="banner_conent">
                             <h3>model & Trending</h3>
                             <h2>2021</h2>
@@ -114,18 +115,22 @@
                                                         src="${product.productUrlImage}" alt=""></a>  
                                                 <div class="action_links">
                                                     <ul>
-                                                        <li class="add_to_cart"><a href="./cart"
-                                                                                   title="Add to cart"><i
-                                                                    class="zmdi zmdi-shopping-cart"></i></a></li>
+                                                        <%if (session.getAttribute("user") != null) {%>
+                                                        <li class="add_to_cart">
+                                                            <a href="javascript:" onclick="redirectAddToCart(${user.idUser},${product.idProduct}, 1)" title="Add to cart">
+                                                                <i class="zmdi zmdi-shopping-cart"></i>
+                                                            </a>
+                                                        </li>
+                                                        <%}%>
+                                                        <li class="wishlist"><a href="" title="Add to Wishlist">
+                                                                <i class="zmdi zmdi-favorite-outline"></i>
+                                                            </a>
+                                                        </li>
 
-                                                        <li class="wishlist"><a href="wishlist.html"
-                                                                                title="Add to Wishlist"><i
-                                                                    class="zmdi zmdi-favorite-outline"></i></a></li>
-
-                                                        <li class="compare"><a href="#" title="Add to Compare"><i
+                                                        <li class="compare"><a href="" title="Add to Compare"><i
                                                                     class="zmdi zmdi-shuffle"></i></a></li>
 
-                                                        <li class="quick_button"><a href="#" data-bs-toggle="modal"
+                                                        <li class="quick_button"><a href="" data-bs-toggle="modal"
                                                                                     data-bs-target="#modal_box" title="quick view"> <i
                                                                     class="zmdi zmdi-eye"></i></a>
                                                         </li>
@@ -156,3 +161,4 @@
 <!--footer area start-->
 <%@include file ="footer.jsp"%>
 <!--footer area end-->
+

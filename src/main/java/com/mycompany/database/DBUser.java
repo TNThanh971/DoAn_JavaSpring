@@ -141,7 +141,6 @@ public class DBUser {
     }
 
     public boolean UpdateUserPassword(String pass, User user) {
-
         String[] params = new String[]{Utils.SHA1(pass), String.valueOf(user.getIdUser())};
         return db.Update("UPDATE user SET  password = ? WHERE idUser = ?", params) > 0;
     }

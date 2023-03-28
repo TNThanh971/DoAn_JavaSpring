@@ -1,24 +1,4 @@
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Wibu Shop</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/user/img/favicon.ico">
-
-    <!-- CSS 
-    ========================= -->
-
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" href="./assets/user/css/plugins.css">
-
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="./assets/user/css/styleHome.css">
-</head>
-
 <footer class="footer_widgets">
     <div class="footer_top">
         <div class="container">
@@ -77,6 +57,20 @@
 
     function pagination(num) {
         redirectParams('page', num);
+    }
+    function redirectAddToCart(idUser, idProduct, quantity) {
+        window.location.href = './addProductToCart?idUser=' + idUser + '&idProduct=' + idProduct + '&quantity=' + quantity;
+    }
+    function redirectRemoveFromCart(idUser, idProduct) {
+        window.location.href = './removeProductFromCart?idUser=' + idUser + '&idProduct=' + idProduct;
+    }
+    
+    const quantityInputElement = document.getElementById("productDetailQuantity");
+
+    function addProductsToCart(idUser, idProduct) {
+        const inputValue = quantityInputElement.value;
+        window.location.href= './addProductToCart?idUser=' + idUser + '&idProduct=' + idProduct + '&quantity=' + quantityInputElement.value;
+        window.location.href= './cart?idUser='+ idUser;
     }
 </script>
 </body>

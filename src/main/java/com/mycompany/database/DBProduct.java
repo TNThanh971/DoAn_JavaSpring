@@ -171,7 +171,6 @@ public class DBProduct {
         if (rs != null) {
             try {
                 while (rs.next()) {
-                    System.out.println(rs.getInt("total"));
                     return rs.getInt("total");
                 }
             } catch (SQLException ex) {
@@ -185,7 +184,6 @@ public class DBProduct {
         if (rs != null) {
             try {
                 while (rs.next()) {
-                    System.out.println(rs.getInt("total"));
                     return rs.getInt("total");
                 }
             } catch (SQLException ex) {
@@ -199,7 +197,6 @@ public class DBProduct {
         if (rs != null) {
             try {
                 while (rs.next()) {
-                    System.out.println(rs.getInt("total"));
                     return rs.getInt("total");
                 }
             } catch (SQLException ex) {
@@ -213,7 +210,6 @@ public class DBProduct {
         if (rs != null) {
             try {
                 while (rs.next()) {
-                    System.out.println(rs.getInt("total"));
                     return rs.getInt("total");
                 }
             } catch (SQLException ex) {

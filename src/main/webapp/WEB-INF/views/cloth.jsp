@@ -58,7 +58,13 @@
                                         <a class="secondary_img" href="./productDetail?idProduct=${cloth.idProduct}"><img src="${cloth.productUrlImage}" alt=""></a>
                                         <div class="action_links">
                                             <ul>
-                                                <li class="add_to_cart"><a href="./cart" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>
+                                                <%if (session.getAttribute("user") != null) {%>
+                                                <li class="add_to_cart">
+                                                    <a href="javascript:" onclick="redirectAddToCart(${user.idUser},${cloth.idProduct}, 1)" title="Add to cart">
+                                                        <i class="zmdi zmdi-shopping-cart"></i>
+                                                    </a>
+                                                </li>
+                                                <%}%>
                                                 <li class="quick_button"><a href="" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>
 
                                             </ul>

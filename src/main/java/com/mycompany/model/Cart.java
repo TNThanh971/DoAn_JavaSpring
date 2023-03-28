@@ -9,9 +9,11 @@ package com.mycompany.model;
  * @author truongthanh
  */
 public class Cart {
+
     private int idUser;
     private int idProduct;
     private int cartProductQuantity;
+    private int cartProductWeight;
     private String image;
     private String productName;
     private float price;
@@ -63,5 +65,12 @@ public class Cart {
     public void setCartProductQuantity(int cartProductQuantity) {
         this.cartProductQuantity = cartProductQuantity;
     }
-   
+
+    public int getCartProductWeight() {
+        return cartProductWeight;
+    }
+
+    public void setCartProductWeight(int cartProductWeight) {
+        this.cartProductWeight = cartProductWeight;
+    }
 }

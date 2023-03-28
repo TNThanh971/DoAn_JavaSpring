@@ -28,4 +28,5 @@ com\mycompany\doanjavaspring\controller\admin\AdminUserController.class
 com\mycompany\database\Transaction.class
 com\mycompany\database\DBInvoice.class
 com\mycompany\database\DBProduct.class
+com\mycompany\doanjavaspring\controller\user\FAQController.class
 com\mycompany\database\DB.class

@@ -42,9 +42,9 @@
                                     <ul>
                                         <li class="language"><a href="#"><img src="assets/user/img/icon/vietnam.png" alt=""> VN
                                                 <i class="zmdi zmdi-chevron-down zmdi-hc-fw"></i></a>
-<!--                                            <ul class="dropdown_language">
-                                                <li><a href="#">English</a></li>
-                                            </ul>-->
+                                            <!--                                            <ul class="dropdown_language">
+                                                                                            <li><a href="#">English</a></li>
+                                                                                        </ul>-->
                                         </li>
                                         <%
                                             if (session.getAttribute("user") == null) {
@@ -118,7 +118,7 @@
                                                     %>
                                                 </li>
                                                 <li><a href="./aboutUs">Giới Thiệu</a></li>
-                                                <li><a href="./faq">Liên Hệ</a></li>
+                                                <li><a href="./faq">FAQ</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -136,9 +136,11 @@
                                                 </div>
                                             </li>
 
-                                            <li class="mini_cart_wrapper"><a href="javascript:void(0)"><i
-                                                        class="zmdi zmdi-shopping-cart zmdi-hc-fw"></i> <span
-                                                        class="item_count">2</span></a>
+                                            <li class="mini_cart_wrapper">
+                                                <a href="javascript:void(0)">
+                                                    <i class="zmdi zmdi-shopping-cart zmdi-hc-fw"></i> 
+<!--                                                    <span class="item_count"></span>-->
+                                                </a>
                                                 <!--mini cart-->
                                                 <div class="mini_cart">
                                                     <%if (session.getAttribute("user") == null) {%>

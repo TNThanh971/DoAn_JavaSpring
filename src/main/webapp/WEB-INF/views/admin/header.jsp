@@ -171,7 +171,7 @@
                                             class="fa fa-fw fa-rocket"></i>Gì vậy ?</a>
                                     <div id="submenu-2" class="collapse submenu" style="">
                                         <ul class="nav flex-column">
-                                            <% if (admin.getRole().contains("admin")){%>
+                                            <% if (admin.getRole().contains("boss")){%>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="./adminAddProduct">Thêm sản phẩm <span
                                                         class="badge badge-secondary">New</span></a>

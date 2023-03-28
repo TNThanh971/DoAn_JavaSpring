@@ -39,7 +39,7 @@
                                 <tbody>
                                     <c:forEach items="${userCarts}" var="userCart">
                                         <tr>
-                                            <td class="product_remove"><a href=""><i class="fa fa-trash-o"></i></a></td>
+                                            <td class="product_remove"><a href="javascript:" onclick="redirectRemoveFromCart(${user.idUser}, ${userCart.idProduct})"><i class="fa fa-trash-o"></i></a></td>
                                             <td class="product_thumb"><a href=""><img src="${userCart.image}" alt=""></a></td>
                                             <td class="product_name"><a href="">${userCart.productName}</a></td>
                                             <td class="product-price">${userCart.price}</td>
@@ -75,17 +75,19 @@
                             <div class="coupon_inner">
                                 <div class="cart_subtotal">
                                     <p>Subtotal</p>
-                                    <p class="cart_amount">£215.00</p>
+                                    <p class="cart_amount">${subtotalInvoice} VNĐ</p>
+                                </div>
+                                <div class="cart_subtotal">
+                                    <p>Weight</p>
+                                    <p class="cart_amount">${weightOfCart} KG </p>
                                 </div>
                                 <div class="cart_subtotal ">
                                     <p>Shipping</p>
-                                    <p class="cart_amount"><span>Flat Rate:</span> £255.00</p>
+                                    <p class="cart_amount"> ${shipFee} VNĐ</p>
                                 </div>
-                                <a href="#">Calculate shipping</a>
-
                                 <div class="cart_subtotal">
                                     <p>Total</p>
-                                    <p class="cart_amount">£215.00</p>
+                                    <p class="cart_amount">${total} VNĐ</p>
                                 </div>
                                 <div class="checkout_btn">
                                     <a href="./checkout.html">Proceed to Checkout</a>
