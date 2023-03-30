@@ -127,7 +127,6 @@ public class PurchaseController {
             System.out.println("create invoice successfully");
             //create detail invoice after inserting the invoice
             if (dbqCart.GetCartByIdUser(Integer.toString(user.getIdUser())) != null) {
-                //f = dbqCart.GetCartByIdUser(Integer.toString(user.getIdUser()));
                 model.addAttribute("userCarts", f);
                 for (Cart var : f) {
                     if (dbqInvoice.InsertInvoiceDetail(var,
@@ -159,8 +158,7 @@ public class PurchaseController {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("failed");
-            return "redirect:/wig";
         }
-        return "redirect:/accessory";
+        return "redirect:/";
     }
 }

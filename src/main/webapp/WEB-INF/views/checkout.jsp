@@ -97,11 +97,13 @@
                                 </tfoot>
                             </table>     
                         </div>
-                        <div class="payment_method">
-                            <div class="order_button">
-                                <a type="submit" href="javascript:" onclick="redirectCheckout(<%= user.getIdUser()%>)">Thanh Toán</a> 
-                            </div>    
-                        </div> 
+                        <c:if test="${not empty userCarts}">
+                            <div class="payment_method">
+                                <div class="order_button">
+                                    <a type="submit" href="javascript:" onclick="redirectCheckout(<%= user.getIdUser()%>)">Thanh Toán</a> 
+                                </div>    
+                            </div> 
+                        </c:if> 
                     </form>         
                 </div>
             </div> 

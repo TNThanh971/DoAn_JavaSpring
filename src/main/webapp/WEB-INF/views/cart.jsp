@@ -91,9 +91,11 @@
                                     <p>Tổng</p>
                                     <p class="cart_amount">${total} VNĐ</p>
                                 </div>
-                                <div class="checkout_btn">
-                                    <a href="./checkout?idUser=${user.idUser}">Thanh Toán</a>
-                                </div>
+                                <c:if test="${not empty userCarts}">
+                                    <div class="checkout_btn">
+                                        <a href="./checkout?idUser=${user.idUser}">Thanh Toán</a>
+                                    </div>
+                                </c:if>
                             </div>
                         </div>
                     </div>
