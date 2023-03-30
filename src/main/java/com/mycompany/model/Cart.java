@@ -16,7 +16,16 @@ public class Cart {
     private int cartProductWeight;
     private String image;
     private String productName;
-    private float price;
+    private float rentalPrice;
+    private float productPrice;
+
+    public float getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(float productPrice) {
+        this.productPrice = productPrice;
+    }
 
     public String getImage() {
         return image;
@@ -34,12 +43,12 @@ public class Cart {
         this.productName = productName;
     }
 
-    public float getPrice() {
-        return price;
+    public float getRentalPrice() {
+        return rentalPrice;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setRentalPrice(float rentalPrice) {
+        this.rentalPrice = rentalPrice;
     }
 
     public int getIdUser() {

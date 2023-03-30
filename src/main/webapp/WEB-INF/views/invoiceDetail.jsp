@@ -136,7 +136,7 @@
                                     <p>Phí đảm bảo tài sản</p>
                                     <p class="cart_amount">500.000đ</p>
                                 </div>
-                                <a target="_blank" href="faq.html">Ấn vào đây để xem Câu hỏi thường gặp!</a>
+                                <a target="_blank" href="./faq">Ấn vào đây để xem Câu hỏi thường gặp!</a>
                                 <div class="cart_subtotal">
                                     <p>Tổng cộng</p>
                                     <p class="cart_amount" id="cart_subtotal">683.000đ</p>

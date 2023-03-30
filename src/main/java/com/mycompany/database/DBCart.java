@@ -5,7 +5,6 @@
 package com.mycompany.database;
 
 import com.mycompany.model.Cart;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class DBCart {
     //begin cart
     // list product by idUser
     public List<Cart> GetCartByIdUser(String idUser) {
-        ResultSet rs = db.Query("select idProduct, productName, productUrlImage, productRentalPrice, productWeight, cart_product_quantity from cart, product where product_id = idProduct and user_id = " + idUser);
+        ResultSet rs = db.Query("select idProduct, productName, productUrlImage, productRentalPrice, productWeight, cart_product_quantity, productPrice from cart, product where product_id = idProduct and user_id = " + idUser);
         List<Cart> list = new ArrayList<>();
         if (rs != null) {
             try {
@@ -31,10 +30,10 @@ public class DBCart {
                     c.setIdProduct(rs.getInt("idProduct"));
                     c.setProductName(rs.getString("productName"));
                     c.setImage(rs.getString("productUrlImage"));
-                    c.setPrice(rs.getFloat("productRentalPrice"));
+                    c.setRentalPrice(rs.getFloat("productRentalPrice"));
                     c.setCartProductWeight(rs.getInt("productWeight"));
-                    System.out.println(c.getCartProductWeight());
                     c.setCartProductQuantity(rs.getInt("cart_product_quantity"));
+                    c.setProductPrice(rs.getFloat("productPrice"));
                     list.add(c);
                 }
             } catch (SQLException ex) {
@@ -50,7 +49,6 @@ public class DBCart {
         try {
             if (CheckProductExistInCart(idUser, idProduct) != null) {
                 if (UpdateProductToCart(idUser, idProduct, quantity) > 0) {
-                    System.out.println("Cap nhat thanh cong o db");
                     return true;
                 } else {
                     return false;
@@ -61,13 +59,8 @@ public class DBCart {
                         + "values(?,?,?)", params);
                 try {
                     if (rs > 0) {
-                        System.out.println("Them thanh cong o db");
                         return true;
                     } else {
-                        System.out.println("user id o db: " + idUser);
-                        System.out.println("product id o db: " + idProduct);
-                        System.out.println("quantity o db: " + quantity);
-                        System.out.println("Them that bai o db");
                         return false;
                     }
                 } catch (Exception e) {
@@ -93,8 +86,6 @@ public class DBCart {
     // delete products from cart
     public int UpdateProductToCart(String idUser, String idProduct, String quantity) {
         int new_quantity = GetProductQuantityFromCart(idUser, idProduct) + Integer.parseInt(quantity);
-        System.out.println("so luong trong cart:" + GetProductQuantityFromCart(idUser, idProduct));
-        System.out.println("so luong sau khi them:" + new_quantity);
         String[] params = new String[]{Integer.toString(new_quantity), idUser, idProduct};
         int rs = db.Update("UPDATE cart SET cart_product_quantity=? WHERE user_id=? and product_id =?", params);
         if (rs > 0) {
@@ -130,7 +121,6 @@ public class DBCart {
                 int quantity = 0;
                 while (rs.next()) {
                     quantity = rs.getInt("cart_product_quantity");
-                    System.out.println("cart_product_quantity" + quantity);
                 }
                 return quantity;
             }
@@ -138,5 +128,14 @@ public class DBCart {
             e.printStackTrace();
         }
         return -1;
+    }
+    //delete cart
+    public int DelCart(String idUser) {
+        String[] params = new String[]{idUser};
+        int rs = db.Update("DELETE FROM cart WHERE user_id=?", params);
+        if (rs > 0) {
+            return 1;
+        }
+        return 0;
     }
 }

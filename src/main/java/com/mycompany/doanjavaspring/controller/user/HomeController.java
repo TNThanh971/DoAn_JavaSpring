@@ -25,9 +25,4 @@ public class HomeController {
         } else System.out.println("failed");
         return "home";
     } 
-    
-    @RequestMapping(value = "/checkout")
-    public String checkout(Model model) {
-        return "checkout";
-    }
 }

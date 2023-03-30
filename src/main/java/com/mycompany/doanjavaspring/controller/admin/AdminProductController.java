@@ -78,10 +78,10 @@ public class AdminProductController {
             return "redirect:/admin/adminLogin";
         }
         int page_id = Utils.Page(page);
-        List<Product> products = dbq.GetProductList(page_id);
+        List<Product> products = dbq.GetProductListAdmin(page_id);
         List<ProductType> producttypes = db.GetProductTypeList();
         if ( products != null) {
-            products = dbq.GetProductList(page_id);
+            products = dbq.GetProductListAdmin(page_id);
             model.addAttribute("producttypes", producttypes);
             model.addAttribute("products", products);
         } else {

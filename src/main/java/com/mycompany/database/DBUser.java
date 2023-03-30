@@ -163,4 +163,17 @@ public class DBUser {
         }
         return null;
     }
+    public int getCountUsers() {
+        ResultSet rs = db.Query("SELECT COUNT(idUser) AS total FROM user ");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    return rs.getInt("total");
+                }
+            } catch (SQLException ex) {
+                System.out.println("error get count product: " + ex.toString());
+            }
+        }
+        return 0;
+    }
 }

@@ -3,6 +3,7 @@
     Created on : Mar 9, 2023, 2:07:34 AM
     Author     : truongthanh
 --%>
+<%@page import="com.mycompany.database.DBProduct"%>
 <%@page import="com.mycompany.model.Product"%>
 <%@page import="com.mycompany.config.Utils"%>
 <%@include file="header.jsp" %>
@@ -100,5 +101,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="pagination"class="pagination">
+            <ul>
+                <%                            DBProduct dbProduct = new DBProduct();
+                    int pg = Utils.Page(request.getParameter("page"));
+                    int end_page = (int) Math.ceil((double) dbProduct.getCountProductsAdmin()/ Utils.LIMIT_ROWS);
+                    for (int i = 1; i <= end_page; i++)
+                        if (Math.abs(pg - i) <= 3 || i == 1 || i == end_page) {
+                %>
+                <li><a href="javascript:" onclick="pagination(<%= i%>)" class="<%= pg == i ? "active" : ""%>"><%= i%></a>
+                    <%
+                        }
+                    %>
+            </ul>
         </div>
         <%@include file="footer.jsp" %>

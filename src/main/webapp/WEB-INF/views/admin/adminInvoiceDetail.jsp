@@ -14,9 +14,9 @@
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a>
+                                <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Dashboard</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
+                                <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Forms</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Form Validations</li>
                             </ol>
                         </nav>
@@ -57,49 +57,31 @@
 
                                 <div>Email: ${invDetail.email}</div>
                                 <div>Phone: ${invDetail.phoneNumber}</div>
+                                <div>Trạng thái: ${invDetail.idInvoiceStatus}</div>
                             </div>
                         </div>
                         <div class="table-responsive-sm">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th class="center">#</th>
+                                        <th class="center">Mã SP</th>
                                         <th>Sản phẩm</th>
-                                        <th>Đơn giá</th>
+                                        <th>Giá thuê</th>
                                         <th class="right">Số lượng</th>
                                         <th class="center">Số tiền</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="center">1</td>
-                                        <td class="left strong">Phi tiêu Naruto</td>
-                                        <td class="left">20.000</td>
-                                        <td class="right">3</td>
-                                        <td class="right">150.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="center">2</td>
-                                        <td class="left">Phi tiêu Naruto</td>
-                                        <td class="left">20.000</td>
-                                        <td class="right">2</td>
-                                        <td class="right">150.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="center">3</td>
-                                        <td class="left">Áo chùng Harry Potter</td>
-                                        <td class="left">60.000</td>
-                                        <td class="right">23</td>
-                                        <td class="right">150.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="center">4</td>
-                                        <td class="left">Áo chùng Harry Potter</td>
-                                        <td class="left">80.000</td>
-                                        <td class="right">2</td>
-                                        <td class="right">200.000</td>
-                                    </tr>
+                                    <c:forEach items="${lstProductsOfInvoiceDetail}" var="lstProductInvDetail">
+                                        <tr>
+                                            <td class="center">${lstProductInvDetail.idProduct}</td>
+                                            <td class="left strong">${lstProductInvDetail.productName}</td>
+                                            <td class="left">${lstProductInvDetail.productRentalPrice}</td>
+                                            <td class="right">${lstProductInvDetail.quantity}</td>
+                                            <td class="right">${lstProductInvDetail.quantity*lstProductInvDetail.productRentalPrice}</td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -127,7 +109,7 @@
                                             </td>
                                             <td class="right">
                                                 <strong class="text-dark "> <span
-                                                        class="d-inline position-relative mr-2">${invDetail.totalPrice}</span>
+                                                        class="d-inline position-relative mr-2">${invDetail.totalPrice+invDetail.invoiceFeePond+invDetail.invoiceFeeTransport}</span>
                                                     <span class="position-absolute">vnđ</span> </strong>
 
                                             </td>
@@ -142,26 +124,21 @@
                 <div class="card position-absolute" style="top: 0px;
                      width: 35%;
                      left: -210px;">
-                    <h5 class="card-header">Horizontal Form</h5>
+                    <h5 class="card-header">Trạng thái</h5>
                     <div class="card-body" style="width: 200%;">
                         <form id="form" data-parsley-validate="" novalidate="">
                             <div class="col-sm-6 pl-0">
                                 <p class="text-right d-flex flex-xl-column">
-                                    <button type="submit" class="btn btn-space btn-dark mt-3">In đơn</button>
-                                    <button class="btn btn-space btn-secondary mt-3 mdi mdi-check"> Đánh dấu
-                                        chưa thanh toán</button>
-                                    <button class="btn btn-space btn-secondary mt-3 mdi mdi-check"> Đánh dấu đã
-                                        trả hàng</button>
-                                    <button class="btn btn-space btn-secondary mt-3 mdi mdi mdi-check"> Đánh dấu
-                                        đã thanh toán</button>
-                                    <button type="submit"
-                                            class="btn btn-outline-dark btn-primary mt-3 mdi mdi-checkbox-marked-circle ">
-                                        Hủy đơn</button>
-
-
+                                    <button class="btn btn-space btn-dark mt-3">In đơn</button>
+                                    <button  class="btn btn-space btn-secondary mt-3 mdi mdi-check" 
+                                             href="javascript:" onclick="updateStatusInvoice(2, ${invDetail.idInvoice})"> Đánh dấu chưa thanh toán</button>
+                                    <button class="btn btn-space btn-secondary mt-3 mdi mdi-check"
+                                            href="javascript:" onclick="updateStatusInvoice(4, ${invDetail.idInvoice})"> Đánh dấu đã trả hàng</button>
+                                    <button  class="btn btn-space btn-secondary mt-3 mdi mdi mdi-check"
+                                             href="javascript:" onclick="updateStatusInvoice(3, ${invDetail.idInvoice})"> Đánh dấu đã thanh toán</button>
+                                    <button class="btn btn-outline-dark btn-primary mt-3 mdi mdi-checkbox-marked-circle"
+                                            href="javascript:" onclick="updateStatusInvoice(1, ${invDetail.idInvoice})">Hủy đơn</button>
                                 </p>
-                                <p>Khi chọn Huỷ đơn hàng, sẽ không thể đổi trạng thái đơn hàng được nữa (Chỉnh
-                                    sửa tại CSDL).</p>
                             </div>
                         </form>
                     </div>

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -16,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class InvoiceController {
     @RequestMapping(value = "/invoiceDetail")
-    public String accessory(HttpSession session, Model model) {
+    public String invoiceDetail(HttpSession session, Model model,
+            @RequestParam() String idInvoice) {
         if (session.getAttribute("user") == null) {
             return "redirect:/";
         }

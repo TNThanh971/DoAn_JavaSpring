@@ -42,18 +42,4 @@ public class UserController {
         }
         return "profile";
     }
-//    @RequestMapping(value = "/profile", method = RequestMethod.POST)
-//    public String UpdateSecurity(HttpSession session, 
-//            @RequestParam() String password2,
-//            @ModelAttribute() User user, Model model) {
-//        User u = (User) session.getAttribute("user");
-//        user.setIdUser(u.getIdUser());
-//        user.setEmail(u.getEmail());
-//        //System.out.println("email: "+user.getEmail());
-//        if (dbq.UpdateUserPassword(password2,user)) {
-//            session.setAttribute("user", user);
-//            return "profile";
-//        }
-//        return "profile";
-//    }
 }

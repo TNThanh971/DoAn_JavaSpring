@@ -9,6 +9,7 @@ import com.mycompany.database.DBInvoice;
 import com.mycompany.database.DBInvoiceType;
 import com.mycompany.model.Admin;
 import com.mycompany.model.Invoice;
+import com.mycompany.model.InvoiceDetail;
 import com.mycompany.model.InvoiceType;
 import java.sql.SQLException;
 import java.util.List;
@@ -39,8 +40,6 @@ public class AdminInvoiceController {
         List<Invoice> invoice;
         if (dbq.GetInvoiceList(page_id) != null) {
             invoice = dbq.GetInvoiceList(page_id);
-            
-            System.out.println("get data successfully");
             model.addAttribute("invoicetypes", invoicetypes);
             model.addAttribute("adminInvoices",invoice);
         } else System.out.println("failed");
@@ -53,14 +52,12 @@ public class AdminInvoiceController {
             if (session.getAttribute("admin") == null) {
                 return "redirect:/admin/adminLogin";
             }
-            int invoice_id = Integer.parseInt(idInvoice);
-            Invoice f = dbq.GetInvoiceByIdInvoice(invoice_id);
-            
+            Invoice f = dbq.GetInvoiceByIdInvoice(idInvoice);
+            List<InvoiceDetail> lstIdDetails= dbq.getListInvoiceDetailByIdInvoice(idInvoice);
             if (f == null) {
                 return "redirect:/admin/adminListInvoices";
             } else {
-                System.out.println("Product ID is not null " + idInvoice);
-                System.out.println(f.getUserFullName());
+                model.addAttribute("lstProductsOfInvoiceDetail",lstIdDetails);
                 model.addAttribute("invDetail", f);
                 return "/admin/adminInvoiceDetail";
             }
@@ -69,5 +66,20 @@ public class AdminInvoiceController {
             ex.printStackTrace();
             return "redirect:/admin/adminListProduct";
         }
+    }
+    @RequestMapping(value ="/admin/updateInvoiceStatus")
+    public String adminUpdateInvoiceStatus(HttpSession session, @RequestParam String idStatus,
+            @RequestParam String idInvoice){
+        System.out.println(idStatus+" and "+idInvoice);
+        try {
+            if (session.getAttribute("admin")==null){
+                return "redirect:/admin/adminLogin";
+            }
+            if (dbq.updateInvoiceStatus(idStatus,idInvoice)){
+                return "/admin/adminListInvoice";
+            }
+        } catch (Exception e) {
+        }
+        return "/admin/adminListInvoice";
     }
 }

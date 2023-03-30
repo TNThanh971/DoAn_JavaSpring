@@ -41,9 +41,34 @@ public class InvoiceDetail {
     public void setProductRentalPrice(float productRentalPrice) {
         this.productRentalPrice = productRentalPrice;
     }
+    public String getImage() {
+        return image;
+    }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public float getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(float productPrice) {
+        this.productPrice = productPrice;
+    }
     private int idProduct;
     private int quantity;
     private int idInvoice;
     private float productRentalPrice;
+    private String image;
+    private String productName;
+    private float productPrice;
 }

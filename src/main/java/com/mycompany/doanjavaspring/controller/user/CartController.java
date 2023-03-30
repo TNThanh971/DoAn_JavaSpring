@@ -25,9 +25,7 @@ public class CartController {
 
     @RequestMapping(value = "/cart", method = {RequestMethod.POST, RequestMethod.GET})
     public String GetListProductInCart(HttpSession session,
-            @RequestParam(required = false) String idUser,
-            @RequestParam(required = false) String idProduct,
-            @RequestParam(required = false) String quantity, Model model) {
+            @RequestParam(required = false) String idUser, Model model) {
         if (session.getAttribute("user") == null) {
             return "redirect:/signIn";
         }
@@ -40,11 +38,9 @@ public class CartController {
             float weight = 0;
             int shipFee = 0;
             for (Cart var : f) {
-                subtotal += (var.getCartProductQuantity() * var.getPrice());
+                subtotal += (var.getCartProductQuantity() * var.getRentalPrice());
                 weight += (1.0 * var.getCartProductWeight() * var.getCartProductQuantity() / 1000);
-                System.out.println(weight);
             }
-            System.out.println(weight);
             model.addAttribute("subtotalInvoice", subtotal);
             if (weight < 1) {
                 shipFee = 15000;
@@ -58,6 +54,9 @@ public class CartController {
             }
             model.addAttribute("weightOfCart", weight);
             model.addAttribute("total", subtotal + shipFee);
+        }
+        else{
+            model.addAttribute("userCarts", null);
         }
         return "/cart";
     }
@@ -90,11 +89,9 @@ public class CartController {
             int shipFee = 0;
             weight = 0;
             for (Cart var : f) {
-                subtotal += (var.getCartProductQuantity() * var.getPrice());
+                subtotal += (var.getCartProductQuantity() * var.getRentalPrice());
                 weight += (1.0 * var.getCartProductWeight() * var.getCartProductQuantity() / 1000);
-                System.out.println(weight);
             }
-            System.out.println(weight);
             model.addAttribute("subtotalInvoice", subtotal);
             if (weight < 1) {
                 shipFee = 15000;
@@ -139,11 +136,9 @@ public class CartController {
             float weight = 0;
             int shipFee = 0;
             for (Cart var : f) {
-                subtotal += (var.getCartProductQuantity() * var.getPrice());
+                subtotal += (var.getCartProductQuantity() * var.getRentalPrice());
                 weight += (1.0 * var.getCartProductWeight() * var.getCartProductQuantity() / 1000);
-                System.out.println(weight);
             }
-            System.out.println(weight);
             model.addAttribute("subtotalInvoice", subtotal);
             if (weight < 1) {
                 shipFee = 15000;

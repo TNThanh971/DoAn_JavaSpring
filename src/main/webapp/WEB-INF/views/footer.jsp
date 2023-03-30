@@ -66,11 +66,15 @@
     }
     
     const quantityInputElement = document.getElementById("productDetailQuantity");
-
     function addProductsToCart(idUser, idProduct) {
         const inputValue = quantityInputElement.value;
         window.location.href= './addProductToCart?idUser=' + idUser + '&idProduct=' + idProduct + '&quantity=' + quantityInputElement.value;
-        window.location.href= './cart?idUser='+ idUser;
+    }
+    
+    const rentalDaysInputElement = document.getElementById("rentalDays");
+    const invNoteInputElement = document.getElementById("order_note");
+    function redirectCheckout(idUser) {
+        window.location.href = './createInvoice?idUser='+idUser+'&rentalDays=' +rentalDaysInputElement.value+'&invNote='+invNoteInputElement.value;
     }
 </script>
 </body>

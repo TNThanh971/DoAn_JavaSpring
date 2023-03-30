@@ -107,7 +107,7 @@
                                                     %>
                                                     <a href="#">Tài khoản <i class="fa fa-angle-down"></i></a>
                                                     <ul class="sub_menu pages">
-                                                        <li><a href="./checkout">Thanh toán </a></li>
+                                                        <li><a href="./checkout?idUser=${user.idUser}">Thanh toán </a></li>
                                                         <li><a href="./profile">Thông tin tài khoản</a></li>
                                                         <li><a href="./cart?idUser=${user.idUser}">Giỏ hàng</a></li>
                                                         <li><a href="./logout">Đăng xuất</a></li>
@@ -156,9 +156,8 @@
                                                             <a href="./cart?idUser=${user.idUser}">View cart</a>
                                                         </div>
                                                         <div class="cart_button">
-                                                            <a href="./checkout"> Checkout</a>
+                                                            <a href="./checkout?idUser=${user.idUser}"> Checkout</a>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                                 <%

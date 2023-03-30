@@ -60,6 +60,9 @@
     function pagination(num) {
         redirectParams('page', num);
     }
+    function updateStatusInvoice(idStatus, idInvoice) {
+        window.location.href = './updateInvoiceStatus?idStatus=' + idStatus + '&idInvoice=' + idInvoice;
+    }
 </script>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

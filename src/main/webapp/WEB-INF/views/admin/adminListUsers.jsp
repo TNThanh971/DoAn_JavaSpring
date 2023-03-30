@@ -1,4 +1,5 @@
-
+<%@page import="com.mycompany.database.DBUser"%>
+<%@page import="com.mycompany.config.Utils"%>
 <%@include file="header.jsp" %> 
 <div class="dashboard-wrapper" style="min-height:0 !important;">
     <div class="container-fluid  dashboard-content " style="padding-bottom:0 !important;">
@@ -99,5 +100,18 @@
             </div>
         </div>
     </div>
-
+    <div class="pagination"class="pagination">
+            <ul>
+                <%                            DBUser dbInovoice = new DBUser();
+                    int pg = Utils.Page(request.getParameter("page"));
+                    int end_page = (int) Math.ceil((double) dbInovoice.getCountUsers() / Utils.LIMIT_ROWS);
+                    for (int i = 1; i <= end_page; i++)
+                        if (Math.abs(pg - i) <= 3 || i == 1 || i == end_page) {
+                %>
+                <li><a href="javascript:" onclick="pagination(<%= i%>)" class="<%= pg == i ? "active" : ""%>"><%= i%></a>
+                    <%
+                        }
+                    %>
+            </ul>
+        </div>
     <%@include file="footer.jsp" %>

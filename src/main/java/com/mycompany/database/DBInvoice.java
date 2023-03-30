@@ -5,6 +5,7 @@
 package com.mycompany.database;
 
 import com.mycompany.config.Utils;
+import com.mycompany.model.Cart;
 import com.mycompany.model.Invoice;
 import com.mycompany.model.InvoiceDetail;
 import java.sql.ResultSet;
@@ -41,8 +42,6 @@ public class DBInvoice {
                     p.setInvoiceFeePond(rs.getInt("invoiceFeePond"));
                     p.setIdInvoiceStatus(rs.getInt("invoiceStatusId"));
                     p.setCreateAt(rs.getString("invoiceCreatedAt"));
-                    System.out.println(p.getIdInvoice());
-                    System.out.println(p.getUserFullName());
                 }
             } catch (Exception e) {
             }
@@ -50,10 +49,10 @@ public class DBInvoice {
         return null;
     }
 
-   
-    //update Invoice
+    //insert Invoice
     public boolean InsertInvoice(Invoice invoice) {
-        String[] params = new String[]{Float.toString(invoice.getIdUser()),
+        String[] params = new String[]{Float.toString(
+            invoice.getIdUser()),
             invoice.getUserFullName(), invoice.getPhoneNumber(),
             invoice.getEmail(), invoice.getUserAddress(),
             Integer.toString(invoice.getAmountOfDay()), invoice.getInvoiceNote(),
@@ -62,17 +61,21 @@ public class DBInvoice {
             Integer.toString(invoice.getInvoiceFeePond()),
             Integer.toString(invoice.getIdInvoiceStatus()),
             Utils.StrDate()};
-
-        if (db.Update("insert into invoice(idUser ,invoiceUserFullName, invoiceUserPhoneNumber, invoiceUserEmail, invoiceUserAddress,invoiceNumRentalDays, invoiceNote, invoiceTotal, invoiceFeeTransport, invoiceFeePond, invoiceStatusId, invoiceCreatedAt) "
-                + "values(?,?,?,?,?,?,?,?,?,?,?,?,?)", params) > 0) {
+        System.out.println(params);
+        if (db.Update("insert into invoice(idUser ,invoiceUserFullName, "
+                + "invoiceUserPhoneNumber, invoiceUserEmail, invoiceUserAddress,"
+                + "invoiceNumRentalDays, invoiceNote, invoiceTotal, invoiceFeeTransport, "
+                + "invoiceFeePond, invoiceStatusId, invoiceCreatedAt) "
+                + "values(?,?,?,?,?,?,?,?,?,?,?,?)", params) > 0) {
             return true;
         }
 
         return false;
     }
 
-    public Invoice GetInvoiceByIdInvoice(int idInvoice) {
-        ResultSet rs = db.Query("select * from invoice where idInvoice=?", new String[]{Integer.toString(idInvoice)});
+    //get invoice by its id
+    public Invoice GetInvoiceByIdInvoice(String idInvoice) {
+        ResultSet rs = db.Query("select * from invoice where idInvoice=?", new String[]{idInvoice});
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -91,8 +94,6 @@ public class DBInvoice {
                     p.setInvoiceFeePond(rs.getInt("invoiceFeePond"));
                     p.setIdInvoiceStatus(rs.getInt("invoiceStatusId"));
                     p.setCreateAt(rs.getString("invoiceCreatedAt"));
-                    System.out.println(p.getIdInvoice());
-                    System.out.println(p.getUserFullName());
                     return p;
                 }
             } catch (Exception e) {
@@ -132,8 +133,9 @@ public class DBInvoice {
         }
         return null;
     }
+
     public List<Invoice> SearchInvoiceList(String idInvoice) {
-        ResultSet rs = db.Query("select * from invoice where idInvoice= " +idInvoice);
+        ResultSet rs = db.Query("select * from invoice where idInvoice= " + idInvoice);
         List<Invoice> lst = new ArrayList<Invoice>();
         if (rs != null) {
             try {
@@ -153,8 +155,6 @@ public class DBInvoice {
                     p.setInvoiceFeePond(rs.getInt("invoiceFeePond"));
                     p.setIdInvoiceStatus(rs.getInt("invoiceStatusId"));
                     p.setCreateAt(rs.getString("invoiceCreatedAt"));
-                    System.out.println(p.getIdInvoice());
-                    System.out.println(p.getUserFullName());
                     lst.add(p);
                 }
             } catch (Exception e) {
@@ -163,14 +163,16 @@ public class DBInvoice {
         }
         return lst;
     }
+
     //end invoice
+    // get count
     public int getInvoiceCountByIdUser(String idUser) throws SQLException {
-        ResultSet ls = db.Query("SELECT idUser FROM invoice where idUser = "+idUser);
-        try {    
-            int count =0;
-            if (ls!=null){
-                while (ls.next()){
-                    count ++;
+        ResultSet ls = db.Query("SELECT idUser FROM invoice where idUser = " + idUser);
+        try {
+            int count = 0;
+            if (ls != null) {
+                while (ls.next()) {
+                    count++;
                 }
             }
             return count;
@@ -180,13 +182,14 @@ public class DBInvoice {
         }
         return -1;
     }
+
     public int getInvoiceCancelCountByIdUser(String idUser) throws SQLException {
-        ResultSet ls = db.Query("SELECT idUser FROM invoice WHERE invoiceStatusId =1 AND idUser = "+idUser);
-        try {    
-            int count =0;
-            if (ls!=null){
-                while (ls.next()){
-                    count ++;
+        ResultSet ls = db.Query("SELECT idUser FROM invoice WHERE invoiceStatusId =1 AND idUser = " + idUser);
+        try {
+            int count = 0;
+            if (ls != null) {
+                while (ls.next()) {
+                    count++;
                 }
             }
             return count;
@@ -196,10 +199,12 @@ public class DBInvoice {
         }
         return -1;
     }
-    
+
+    //end get count
     // starting invoice đetail
-     public InvoiceDetail getInvoiceDetailByIdInvoice(String idInvoice) {
-        ResultSet rs = db.Query("select * from invoice_detail where invoice_id=?", new String[]{idInvoice});
+    public List<InvoiceDetail> getListInvoiceDetailByIdInvoice(String idInvoice) {
+        ResultSet rs = db.Query("select id.*, p.* from invoice_detail as id, product as p where invoice_id=? and product_id = idProduct ", new String[]{idInvoice});
+        List<InvoiceDetail> lst = new ArrayList<>();
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -208,19 +213,22 @@ public class DBInvoice {
                     id.setQuantity(rs.getInt("invd_product_quantity"));
                     id.setIdInvoice(rs.getInt("invoice_id"));
                     id.setProductRentalPrice(rs.getFloat("invd_product_rental_price"));
-                    return id;
+                    id.setProductName(rs.getString("productName"));
+                    id.setProductPrice(rs.getFloat("productPrice"));
+                    lst.add(id);
                 }
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        return null;
+        return lst;
     }
-     public int getCountInvoice() {
+
+    public int getCountInvoice() {
         ResultSet rs = db.Query("SELECT COUNT(idInvoice) AS total FROM invoice");
         if (rs != null) {
             try {
                 while (rs.next()) {
-                    System.out.println(rs.getInt("total"));
                     return rs.getInt("total");
                 }
             } catch (SQLException ex) {
@@ -229,4 +237,45 @@ public class DBInvoice {
         }
         return 0;
     }
+    //update invoice status 
+
+    public boolean updateInvoiceStatus(String idStatus, String idInvoice) {
+        if (db.Update("update invoice set invoiceStatusId =? where idInvoice=? ",
+                new String[]{idStatus, idInvoice}) > 0) {
+            System.out.println("succeed in posting params");
+            return true;
+        }
+        return false;
+    }
+    //end update invoice status 
+
+    //get latest invoice
+    public String getLatestInvoiceId(String idUser) throws Exception {
+        ResultSet rs = db.Query("SELECT MAX(idInvoice) as biggest FROM invoice where idUser=" + idUser);
+        if (rs != null) {
+            return rs.getString("biggest");
+        }
+        return null;
+    }
+    //end getting latest invoice
+
+    // creating invoice detail after inserting
+    public boolean InsertInvoiceDetail(Cart cart, String idUser, String quantity) {
+        try {
+            String latestIdInvoiceString = getLatestInvoiceId(idUser);
+            String[] params = new String[]{
+                latestIdInvoiceString, Integer.toString(cart.getIdProduct()), quantity, Float.toString(cart.getRentalPrice()) 
+            };
+
+            if (db.Update("insert into invoice_detail(invoice_id  ,product_id , invd_product_quantity  , invd_product_rental_price) "
+                    + "values(?,?,?,?)", params) > 0) {
+                System.out.println("insert invoice detail successfully");
+                return true;
+            }
+        } catch (Exception e) {
+        }
+
+        return false;
+    }
+    // end create invoice detail
 }

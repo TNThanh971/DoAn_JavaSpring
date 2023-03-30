@@ -21,6 +21,31 @@ public class DBProduct {
 
     // begin product
     public List<Product> GetProductList(int page) {
+        ResultSet rs = db.Query("select * from product where productQuantity>0" + Utils.Offset(page));
+        List<Product> lst = new ArrayList<Product>();
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    Product p = new Product();
+                    p.setIdProduct(rs.getInt("idProduct"));
+                    p.setProductName(rs.getString("productName"));
+                    p.setProductQuantity(rs.getInt("productQuantity"));
+                    p.setProductUrlImage(rs.getString("productUrlImage"));
+                    p.setIdProductType(rs.getInt("idProductType"));
+                    p.setProductSize(rs.getString("productSize"));
+                    p.setProductRentalPrice(rs.getFloat("productRentalPrice"));
+                    p.setProductDescription(rs.getString("productDescription"));
+                    p.setProductPrice(rs.getFloat("productPrice"));
+                    p.setProductWeight(rs.getFloat("productWeight"));
+                    lst.add(p);
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        return lst;
+    }
+    public List<Product> GetProductListAdmin(int page) {
         ResultSet rs = db.Query("select * from product " + Utils.Offset(page));
         List<Product> lst = new ArrayList<Product>();
         if (rs != null) {
@@ -45,7 +70,7 @@ public class DBProduct {
         }
         return lst;
     }
-
+    
     public List<Product> SearchProductList(String name) {
         ResultSet rs = db.Query("select * from product where productName like ?", new String[]{name});
         List<Product> lst = new ArrayList<Product>();
@@ -73,7 +98,7 @@ public class DBProduct {
     }
 
     public List<Product> GetProductListByType(int page, String name) {
-        ResultSet rs = db.Query("select * from product as p left outer join product_type as t on p.idProductType = t.idProductType where t.typeName = ?"
+        ResultSet rs = db.Query("select * from product as p left outer join product_type as t on p.idProductType = t.idProductType where t.typeName = ? and productQuantity>0"
                 + Utils.Offset(page), new String[]{name});
         List<Product> lst = new ArrayList<Product>();
         if (rs != null) {
@@ -165,8 +190,7 @@ public class DBProduct {
         }
         return null;
     }
-
-    public int getCountProducts() {
+    public int getCountProductsAdmin() {
         ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product");
         if (rs != null) {
             try {
@@ -179,8 +203,21 @@ public class DBProduct {
         }
         return 0;
     }
+    public int getCountProducts() {
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where productQuantity>0");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    return rs.getInt("total");
+                }
+            } catch (SQLException ex) {
+                System.out.println("error get count product: " + ex.toString());
+            }
+        }
+        return 0;
+    }
     public int getCountProductsById1() {
-        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 1);
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 1+ " and productQuantity>0");
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -193,7 +230,7 @@ public class DBProduct {
         return 0;
     }
     public int getCountProductsById2() {
-        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 2);
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 2+" and productQuantity>0");
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -206,7 +243,7 @@ public class DBProduct {
         return 0;
     }
     public int getCountProductsById3() {
-        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 3);
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 3+ " and productQuantity>0");
         if (rs != null) {
             try {
                 while (rs.next()) {

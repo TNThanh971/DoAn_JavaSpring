@@ -28,12 +28,13 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="product_remove">Delete</th>
-                                        <th class="product_thumb">Image</th>
-                                        <th class="product_name">Product</th>
-                                        <th class="product-price">Price</th>
-                                        <th class="product_quantity">Quantity</th>
-                                        <th class="product_total">Total</th>
+                                        <th class="product_remove">Xóa</th>
+                                        <th class="product_thumb">Hình ảnh</th>
+                                        <th class="product_name">Tên sản phẩm</th>
+                                        <th class="product-price">Giá thuê</th>
+                                        <th class="product-price">Giá gốc</th>
+                                        <th class="product_quantity">Số lượng</th>
+                                        <th class="product_total">Tổng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,6 +44,7 @@
                                             <td class="product_thumb"><a href=""><img src="${userCart.image}" alt=""></a></td>
                                             <td class="product_name"><a href="">${userCart.productName}</a></td>
                                             <td class="product-price">${userCart.price}</td>
+                                            <td class="product-price">${userCart.productPrice}</td>
                                             <td class="product_quantity"><label></label><input min="0" max="100" value="${userCart.cartProductQuantity}" type="number" /></td>
                                             <td class="product_total">${userCart.price*userCart.cartProductQuantity}</td>
                                         </tr>
@@ -51,7 +53,7 @@
                             </table>   
                         </div>  
                         <div class="cart_submit">
-                            <button type="submit">update cart</button>
+                            <button type="submit">cập nhật giỏ hàng</button>
                         </div>      
                     </div>
                 </div>
@@ -71,26 +73,26 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="coupon_code right">
-                            <h3>Cart Totals</h3>
+                            <h3>Tổng giỏ hàng</h3>
                             <div class="coupon_inner">
                                 <div class="cart_subtotal">
-                                    <p>Subtotal</p>
+                                    <p>Tổng giá thuê</p>
                                     <p class="cart_amount">${subtotalInvoice} VNĐ</p>
                                 </div>
                                 <div class="cart_subtotal">
-                                    <p>Weight</p>
+                                    <p>Cân nặng</p>
                                     <p class="cart_amount">${weightOfCart} KG </p>
                                 </div>
                                 <div class="cart_subtotal ">
-                                    <p>Shipping</p>
+                                    <p>Phí vận chuyển</p>
                                     <p class="cart_amount"> ${shipFee} VNĐ</p>
                                 </div>
                                 <div class="cart_subtotal">
-                                    <p>Total</p>
+                                    <p>Tổng</p>
                                     <p class="cart_amount">${total} VNĐ</p>
                                 </div>
                                 <div class="checkout_btn">
-                                    <a href="./checkout.html">Proceed to Checkout</a>
+                                    <a href="./checkout?idUser=${user.idUser}">Thanh Toán</a>
                                 </div>
                             </div>
                         </div>
