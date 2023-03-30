@@ -5,6 +5,7 @@
 package com.mycompany.database;
 
 import com.mycompany.config.Utils;
+import com.mycompany.model.Cart;
 import com.mycompany.model.Product;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,6 +46,7 @@ public class DBProduct {
         }
         return lst;
     }
+
     public List<Product> GetProductListAdmin(int page) {
         ResultSet rs = db.Query("select * from product " + Utils.Offset(page));
         List<Product> lst = new ArrayList<Product>();
@@ -70,7 +72,7 @@ public class DBProduct {
         }
         return lst;
     }
-    
+
     public List<Product> SearchProductList(String name) {
         ResultSet rs = db.Query("select * from product where productName like ?", new String[]{name});
         List<Product> lst = new ArrayList<Product>();
@@ -155,7 +157,7 @@ public class DBProduct {
                     return true;
                 }
             } else {
-                if (db.Update("update product set productName=?,productQuantity=?, productUrlImage=?, productSize=?, productRentalPrice=?, productDescription=?,productPrice=?,productWeight=? where idProduct = ?", updateParams) >0) {
+                if (db.Update("update product set productName=?,productQuantity=?, productUrlImage=?, productSize=?, productRentalPrice=?, productDescription=?,productPrice=?,productWeight=? where idProduct = ?", updateParams) > 0) {
                     System.out.println("update successfully");
                     return true;
                 }
@@ -190,6 +192,7 @@ public class DBProduct {
         }
         return null;
     }
+
     public int getCountProductsAdmin() {
         ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product");
         if (rs != null) {
@@ -203,6 +206,7 @@ public class DBProduct {
         }
         return 0;
     }
+
     public int getCountProducts() {
         ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where productQuantity>0");
         if (rs != null) {
@@ -216,8 +220,9 @@ public class DBProduct {
         }
         return 0;
     }
+
     public int getCountProductsById1() {
-        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 1+ " and productQuantity>0");
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = " + 1 + " and productQuantity>0");
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -229,8 +234,9 @@ public class DBProduct {
         }
         return 0;
     }
+
     public int getCountProductsById2() {
-        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 2+" and productQuantity>0");
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = " + 2 + " and productQuantity>0");
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -242,8 +248,9 @@ public class DBProduct {
         }
         return 0;
     }
+
     public int getCountProductsById3() {
-        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = "+ 3+ " and productQuantity>0");
+        ResultSet rs = db.Query("SELECT COUNT(idProduct) AS total FROM product where idProductType = " + 3 + " and productQuantity>0");
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -256,4 +263,56 @@ public class DBProduct {
         return 0;
     }
     //end products
+
+    // update quantity after purchase
+    public boolean updateProductAfterPurchase(Cart product, String quantity) {
+        Product p = GetProductByIdProduct(product.getIdProduct());
+        int new_quantity = p.getProductQuantity() - Integer.parseInt(quantity);
+        String[] updateParams = new String[]{
+            Integer.toString(new_quantity),
+            Integer.toString(product.getIdProduct())
+        };
+        try {
+            if (GetProductByIdProduct(product.getIdProduct()) == null) {
+                System.out.println("product does not exist");
+            } else {
+                if (db.Update("update product set productQuantity=? where idProduct = ?", updateParams) > 0) {
+                    System.out.println("update product quantity successfully");
+                    return true;
+                }
+                else{
+                    System.out.println("update product quantity unsuccessfully");
+                    return false;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public boolean updateProductAfterCancelingInvoice(Cart product, String quantity) {
+        Product p = GetProductByIdProduct(product.getIdProduct());
+        int new_quantity = p.getProductQuantity() + Integer.parseInt(quantity);
+        String[] updateParams = new String[]{
+            Integer.toString(new_quantity),
+            Integer.toString(product.getIdProduct())
+        };
+        try {
+            if (GetProductByIdProduct(product.getIdProduct()) == null) {
+                System.out.println("product does not exist");
+            } else {
+                if (db.Update("update product set productQuantity=? where idProduct = ?", updateParams) > 0) {
+                    System.out.println("update product quantity successfully");
+                    return true;
+                }
+                else{
+                    System.out.println("update product quantity unsuccessfully");
+                    return false;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

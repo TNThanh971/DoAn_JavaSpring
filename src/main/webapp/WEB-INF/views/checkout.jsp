@@ -73,7 +73,7 @@
                                     <c:forEach items="${userCarts}" var="userCart">
                                         <tr>
                                             <td> ${userCart.productName} <strong> × ${userCart.cartProductQuantity}</strong></td>
-                                            <td> ${userCart.price*userCart.cartProductQuantity}</td>
+                                            <td> ${userCart.rentalPrice*userCart.cartProductQuantity}</td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

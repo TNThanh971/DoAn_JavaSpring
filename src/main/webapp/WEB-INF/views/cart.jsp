@@ -43,10 +43,10 @@
                                             <td class="product_remove"><a href="javascript:" onclick="redirectRemoveFromCart(${user.idUser}, ${userCart.idProduct})"><i class="fa fa-trash-o"></i></a></td>
                                             <td class="product_thumb"><a href=""><img src="${userCart.image}" alt=""></a></td>
                                             <td class="product_name"><a href="">${userCart.productName}</a></td>
-                                            <td class="product-price">${userCart.price}</td>
+                                            <td class="product-price">${userCart.rentalPrice}</td>
                                             <td class="product-price">${userCart.productPrice}</td>
                                             <td class="product_quantity"><label></label><input min="0" max="100" value="${userCart.cartProductQuantity}" type="number" /></td>
-                                            <td class="product_total">${userCart.price*userCart.cartProductQuantity}</td>
+                                            <td class="product_total">${userCart.rentalPrice*userCart.cartProductQuantity}</td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

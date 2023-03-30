@@ -55,9 +55,6 @@ public class CartController {
             model.addAttribute("weightOfCart", weight);
             model.addAttribute("total", subtotal + shipFee);
         }
-        else{
-            model.addAttribute("userCarts", null);
-        }
         return "/cart";
     }
 

@@ -250,31 +250,45 @@ public class DBInvoice {
     //end update invoice status 
 
     //get latest invoice
-    public String getLatestInvoiceId(String idUser) throws Exception {
+    public int getLatestInvoiceId(String idUser) {
         ResultSet rs = db.Query("SELECT MAX(idInvoice) as biggest FROM invoice where idUser=" + idUser);
-        if (rs != null) {
-            return rs.getString("biggest");
+        int max = 0;
+        try {
+            if (rs != null) {
+                while (rs.next()) {
+                    max = rs.getInt("biggest");
+                }
+            }
+            return max;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return null;
+        return -1;
     }
     //end getting latest invoice
 
     // creating invoice detail after inserting
     public boolean InsertInvoiceDetail(Cart cart, String idUser, String quantity) {
+        System.out.println(cart.getIdProduct());
+        System.out.println(quantity);
+        System.out.println(cart.getRentalPrice());
         try {
-            String latestIdInvoiceString = getLatestInvoiceId(idUser);
+            String latestIdInvoiceString = Integer.toString(getLatestInvoiceId(idUser));
+            System.out.println(latestIdInvoiceString);
+
             String[] params = new String[]{
-                latestIdInvoiceString, Integer.toString(cart.getIdProduct()), quantity, Float.toString(cart.getRentalPrice()) 
+                latestIdInvoiceString, Integer.toString(cart.getIdProduct()), quantity, Float.toString(cart.getRentalPrice())
             };
 
-            if (db.Update("insert into invoice_detail(invoice_id  ,product_id , invd_product_quantity  , invd_product_rental_price) "
+            if (db.Update("insert into invoice_detail(invoice_id  ,product_id , "
+                    + "invd_product_quantity  , invd_product_rental_price) "
                     + "values(?,?,?,?)", params) > 0) {
                 System.out.println("insert invoice detail successfully");
                 return true;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
-
         return false;
     }
     // end create invoice detail

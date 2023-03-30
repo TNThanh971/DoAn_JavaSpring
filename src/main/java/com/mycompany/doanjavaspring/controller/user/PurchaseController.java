@@ -7,6 +7,7 @@ package com.mycompany.doanjavaspring.controller.user;
 import com.mycompany.config.Utils;
 import com.mycompany.database.DBCart;
 import com.mycompany.database.DBInvoice;
+import com.mycompany.database.DBProduct;
 import com.mycompany.model.Cart;
 import com.mycompany.model.Invoice;
 import com.mycompany.model.User;
@@ -28,6 +29,7 @@ public class PurchaseController {
 
     DBCart dbqCart = new DBCart();
     DBInvoice dbqInvoice = new DBInvoice();
+    DBProduct dbqProduct = new DBProduct();
 
     @RequestMapping(value = "/checkout", method = {RequestMethod.POST, RequestMethod.GET})
     public String checkout(HttpSession session, Model model,
@@ -120,12 +122,12 @@ public class PurchaseController {
         invoice.setInvoiceFeePond(pondFee);
         invoice.setIdInvoiceStatus(2);
         invoice.setCreateAt(Utils.StrDate());
-
+        f = dbqCart.GetCartByIdUser(Integer.toString(user.getIdUser()));
         if (dbqInvoice.InsertInvoice(invoice)) {
             System.out.println("create invoice successfully");
             //create detail invoice after inserting the invoice
             if (dbqCart.GetCartByIdUser(Integer.toString(user.getIdUser())) != null) {
-                f = dbqCart.GetCartByIdUser(Integer.toString(user.getIdUser()));
+                //f = dbqCart.GetCartByIdUser(Integer.toString(user.getIdUser()));
                 model.addAttribute("userCarts", f);
                 for (Cart var : f) {
                     if (dbqInvoice.InsertInvoiceDetail(var,
@@ -139,7 +141,15 @@ public class PurchaseController {
         } else {
             System.out.println("create Invoice unsuccesfully");
         }
-
+        // update quantity of cart
+        for(Cart var : f){
+            if(dbqProduct.updateProductAfterPurchase(var, Integer.toString(var.getCartProductQuantity()))){
+                System.out.println("update product quantity successfully");
+            }
+            else{
+                System.out.println("update product quantity unsuccessfully");
+            }
+        }
         // delete cart
         try {
             if (dbqCart.DelCart(Integer.toString(user.getIdUser())) == 1) {
