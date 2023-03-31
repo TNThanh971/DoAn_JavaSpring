@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.mysql.cj.util.Util"%>
 <%@page import="com.mycompany.config.Utils"%>
 <%@page import="com.mycompany.model.User"%>
@@ -61,13 +62,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>May 10, 2018</td>
-                                            <td><span class="success">Completed</span></td>
-                                            <td>$25.00 for 1 item </td>
-                                            <td><a href="./invoiceDetail" class="view">Xem Chi Tiết</a></td>
-                                        </tr>
+                                        <c:forEach items="${InvoiceList}" var="userInvoiceList">
+                                            <tr>
+                                                <td>${userInvoiceList.idInvoice}</td>
+                                                <td>${userInvoiceList.createAt}</td>
+                                                <c:forEach items="${invoicetypes}" var="invoicetype">
+                                                    <c:if test="${invoicetype.invoiceStatusId == userInvoiceList.idInvoiceStatus}">
+                                                        <td><span class="success">${invoicetype.invoiceStatusName}</span></td>
+                                                    </c:if>
+                                                </c:forEach>
+                                                
+                                                <td>${userInvoiceList.totalPrice} </td>
+                                                <td><a href="./invoiceDetail?idInvoice=${userInvoiceList.idInvoice}" class="view">Xem Chi Tiết</a></td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -97,17 +105,17 @@
                                         </form>
                                     </div>
                                     <hr style="background: #180000;">
-<!--                                    <div class="account_login_form">
-                                        <form method="POST" action="">
-                                            <label>Mật khẩu mới</label>
-                                            <input type="password" name="password" value="<%= Utils.SHA1(user1.getPassword()) %>" minlength="6" required="">
-                                            <label>Nhập lại mật khẩu mới</label>
-                                            <input type="password" name="password2" minlength="6" required="">
-                                            <div class="save_button primary_btn default_button">
-                                                <button type="submit" name="submit" value="change_pass">Đổi mật khẩu</button>
-                                            </div>
-                                        </form>
-                                    </div>-->
+                                    <!--                                    <div class="account_login_form">
+                                                                            <form method="POST" action="">
+                                                                                <label>Mật khẩu mới</label>
+                                                                                <input type="password" name="password" value="<%= Utils.SHA1(user1.getPassword())%>" minlength="6" required="">
+                                                                                <label>Nhập lại mật khẩu mới</label>
+                                                                                <input type="password" name="password2" minlength="6" required="">
+                                                                                <div class="save_button primary_btn default_button">
+                                                                                    <button type="submit" name="submit" value="change_pass">Đổi mật khẩu</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>-->
                                 </div>
                             </div>
                         </div>

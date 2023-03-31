@@ -1,4 +1,7 @@
-
+<%@page import="com.mycompany.model.Invoice"%>
+<%
+    Invoice invoiceUserInfo = (Invoice) request.getAttribute("invoiceUserInfo");
+%>
 <%@include file="header.jsp" %>
 <!--header area end-->
 
@@ -30,28 +33,28 @@
                         <div class="row">
                             <div class="col-lg-4 mb-20">
                                 <label>Họ tên</label>
-                                <input type="text" name="user_fullname" disabled="">
+                                <input type="text" name="user_fullname" value="${invoiceUserInfo.userFullName}" disabled="">
                             </div>
                             <div class="col-lg-4 mb-20">
                                 <label>SĐT</label>
-                                <input type="text" name="user_phone_number" pattern="(84|0[3|5|7|8|9])+([0-9]{8})" disabled="">
+                                <input type="text" name="user_phone_number" pattern="(84|0[3|5|7|8|9])+([0-9]{8})" value="${invoiceUserInfo.userFullName}" disabled="">
                             </div>
                             <div class="col-lg-4 mb-20">
                                 <label>Email</label>
-                                <input type="email" name="user_email" disabled="">
+                                <input type="email" name="user_email" value="${invoiceUserInfo.email}" disabled="">
                             </div>
                             <div class="col-8 mb-20">
                                 <label>Địa chỉ giao hàng</label>
-                                <input type="text" name="user_address" disabled="">
+                                <input type="text" name="user_address" value="${invoiceUserInfo.userAddress}" disabled="">
                             </div>
                             <div class="col-4 mb-20">
                                 <label>Số ngày thuê tối đa</label>
-                                <input type="number" name="invoice_num_rental_days" value="" min="3" max="10" disabled="">
+                                <input type="text   " name="invoice_num_rental_days" value="${invoiceUserInfo.amountOfDay}" disabled="">
                             </div>
                             <div class="col-12">
                                 <div class="order-notes">
                                     <label for="order_note">Ghi chú đơn hàng</label>
-                                    <textarea id="order_note" name="order_note" style="height: 100px;" disabled=""></textarea>
+                                    <textarea id="order_note" name="order_note" style="height: 100px;" value="${invoiceUserInfo.invoiceNote}" disabled=""></textarea>
                                 </div>
                             </div>
                         </div>
@@ -67,19 +70,24 @@
                                     <tr>
                                         <th class="product_thumb">Ảnh sản phẩm</th>
                                         <th class="product_name">Tên sản phẩm</th>
-                                        <th class="product-price">Đơn giá</th>
+                                        <th class="product-price">Giá thuê</th>
+                                        <th class="product-price">Giá gốc</th>
                                         <th class="product_quantity">Số lượng</th>
                                         <th class="product_total">Số tiền</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr id="product_12">
-                                        <td class="product_thumb"><a target="_blank" href="product-details.html?product_id=12"><img src="https://ae01.alicdn.com/kf/Hed5ef96829b5453ba094238219974dbfS/2017-Anime-M-i-Th-y-Th-M-t-Tr-ng-Trang-Ph-c-H-a.jpg_Q90.jpg_.webp" alt=""></a></td>
-                                        <td class="product_name"><a target="_blank" href="product-details.html?product_id=12"> Thủy Thủ Sao Thủy</a></td>
-                                        <td class="product-price product_price" id="product_price_12">56.000đ</td>
-                                        <td class="product_quantity">3</td>
-                                        <td class="product_total">168.000đ</td>
-                                    </tr>								</tbody>
+                                    <c:forEach items="${UserInvoiceDetail}" var="userInvoiceDetail">
+                                        <tr id="product_12">
+                                            <td class="product_thumb"><a target="_blank" href=""><img src="${userInvoiceDetail.image}" alt=""></a></td>
+                                            <td class="product_name"><a target="_blank" href=""> ${userInvoiceDetail.productName}</a></td>
+                                            <td class="product-price product_price" id="product_price_12">${userInvoiceDetail.productRentalPrice} VNĐ</td>
+                                            <td class="product-price product_price" id="product_price_12">${userInvoiceDetail.productPrice} VNĐ</td>
+                                            <td class="product_quantity">${userInvoiceDetail.quantity}</td>
+                                            <td class="product_total">${userInvoiceDetail.quantity*userInvoiceDetail.productRentalPrice} VNĐ</td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -126,24 +134,24 @@
                             <div class="coupon_inner">
                                 <div class="cart_subtotal">
                                     <p>Số tiền</p>
-                                    <p class="cart_amount">168.000đ</p>
+                                    <p class="cart_amount">${cartSum} VNĐ</p>
                                 </div>
                                 <div class="cart_subtotal">
                                     <p>Phí vận chuyển</p>
-                                    <p class="cart_amount">15.000đ</p>
+                                    <p class="cart_amount">${invoiceUserInfo.invoiceFeeTransport} VNĐ</p>
                                 </div>
                                 <div class="cart_subtotal">
                                     <p>Phí đảm bảo tài sản</p>
-                                    <p class="cart_amount">500.000đ</p>
+                                    <p class="cart_amount">${invoiceUserInfo.invoiceFeePond} VNĐ</p>
                                 </div>
                                 <a target="_blank" href="./faq">Ấn vào đây để xem Câu hỏi thường gặp!</a>
                                 <div class="cart_subtotal">
                                     <p>Tổng cộng</p>
-                                    <p class="cart_amount" id="cart_subtotal">683.000đ</p>
+                                    <p class="cart_amount" id="cart_subtotal">${invoiceUserInfo.totalPrice} VNĐ</p>
                                 </div>
                                 <div class="cart_subtotal">
                                     <p>Trạng thái đơn hàng</p>
-                                    <p class="cart_amount">Chờ thanh toán</p>
+                                    <p class="cart_amount">${invoiceUserInfo.idInvoiceStatus}</p>
                                 </div>
                             </div>
                         </div>

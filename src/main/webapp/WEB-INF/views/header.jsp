@@ -40,21 +40,21 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="header_account">
                                     <ul>
-                                        <li class="language"><a href="#"><img src="assets/user/img/icon/vietnam.png" alt=""> VN
+                                        <li class="language"><a href=""><img src="assets/user/img/icon/vietnam.png" alt=""> VN
                                                 <i class="zmdi zmdi-chevron-down zmdi-hc-fw"></i></a>
                                             <!--                                            <ul class="dropdown_language">
-                                                                                            <li><a href="#">English</a></li>
+                                                                                            <li><a href="">English</a></li>
                                                                                         </ul>-->
                                         </li>
                                         <%
                                             if (session.getAttribute("user") == null) {
                                         %>
-                                        <li class="top_links"><a href="#"> Tài Khoản</a></li>
+                                        <li class="top_links"><a href=""> Vui lòng đăng nhập để tận hưởng dịch vụ</a></li>
                                             <%
                                             } else {
                                                 user = (User) session.getAttribute("user");
                                             %>
-                                        <li class="top_links"><a href="#"> Xin chào <%= user.getFirstName()%></a></li>
+                                        <li class="top_links"><a href=""> Xin chào <%= user.getFirstName()%></a></li>
                                             <%
                                                 }
                                             %>
@@ -64,7 +64,7 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="header_social text-right">
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                        <li><a href=""><i class="fa fa-facebook-f"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                                                     } else {
                                                         user = (User) session.getAttribute("user");
                                                     %>
-                                                    <a href="#">Tài khoản <i class="fa fa-angle-down"></i></a>
+                                                    <a href="">Tài khoản <i class="fa fa-angle-down"></i></a>
                                                     <ul class="sub_menu pages">
                                                         <li><a href="./checkout?idUser=${user.idUser}">Thanh toán </a></li>
                                                         <li><a href="./profile">Thông tin tài khoản</a></li>
@@ -128,7 +128,7 @@
                                             <li class="search_box"><a href="javascript:void(0)"><i
                                                         class="zmdi zmdi-search zmdi-hc-fw"></i></a>
                                                 <div class="search_widget">
-                                                    <form action="#">
+                                                    <form action="">
                                                         <input placeholder="Search our catalog" type="text">
                                                         <button type="submit"><i
                                                                 class="zmdi zmdi-search zmdi-hc-fw"></i></button>

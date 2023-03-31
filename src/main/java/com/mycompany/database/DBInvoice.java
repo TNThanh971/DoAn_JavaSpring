@@ -22,8 +22,9 @@ public class DBInvoice {
     DB db = new DB();
 
     //begin invoice
-    public Invoice GetInvoiceByEmail(String email) {
-        ResultSet rs = db.Query("select * from invoice where invoiceEmail=?", new String[]{email});
+    public List<Invoice> GetInvoiceByEmail(String email) {
+        ResultSet rs = db.Query("select * from invoice where invoiceUserEmail=?", new String[]{email});
+        List<Invoice> lst = new ArrayList<>();
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -42,11 +43,12 @@ public class DBInvoice {
                     p.setInvoiceFeePond(rs.getInt("invoiceFeePond"));
                     p.setIdInvoiceStatus(rs.getInt("invoiceStatusId"));
                     p.setCreateAt(rs.getString("invoiceCreatedAt"));
+                    lst.add(p);
                 }
             } catch (Exception e) {
             }
         }
-        return null;
+        return lst;
     }
 
     //insert Invoice
@@ -101,7 +103,6 @@ public class DBInvoice {
         }
         return null;
     }
-
     // begin product
     public List<Invoice> GetInvoiceList(int page) {
         ResultSet rs = db.Query("select * from invoice " + Utils.Offset(page));
@@ -134,9 +135,8 @@ public class DBInvoice {
         return null;
     }
 
-    public List<Invoice> SearchInvoiceList(String idInvoice) {
+    public Invoice SearchInvoiceByIdInvoice(String idInvoice) {
         ResultSet rs = db.Query("select * from invoice where idInvoice= " + idInvoice);
-        List<Invoice> lst = new ArrayList<Invoice>();
         if (rs != null) {
             try {
                 while (rs.next()) {
@@ -155,13 +155,14 @@ public class DBInvoice {
                     p.setInvoiceFeePond(rs.getInt("invoiceFeePond"));
                     p.setIdInvoiceStatus(rs.getInt("invoiceStatusId"));
                     p.setCreateAt(rs.getString("invoiceCreatedAt"));
-                    lst.add(p);
+                    System.out.println(p.getAmountOfDay());
+                    return p;
                 }
             } catch (Exception e) {
                 System.out.println(e);
             }
         }
-        return lst;
+        return null;
     }
 
     //end invoice
@@ -202,7 +203,7 @@ public class DBInvoice {
 
     //end get count
     // starting invoice đetail
-    public List<InvoiceDetail> getListInvoiceDetailByIdInvoice(String idInvoice) {
+    public List<InvoiceDetail> getListProductDetailByIdInvoice(String idInvoice) {
         ResultSet rs = db.Query("select id.*, p.* from invoice_detail as id, product as p where invoice_id=? and product_id = idProduct ", new String[]{idInvoice});
         List<InvoiceDetail> lst = new ArrayList<>();
         if (rs != null) {
@@ -215,7 +216,9 @@ public class DBInvoice {
                     id.setProductRentalPrice(rs.getFloat("invd_product_rental_price"));
                     id.setProductName(rs.getString("productName"));
                     id.setProductPrice(rs.getFloat("productPrice"));
+                    id.setImage(rs.getString("productUrlImage"));
                     lst.add(id);
+//                    System.out.println(id.getIdProduct());
                 }
             } catch (Exception e) {
                 e.printStackTrace();

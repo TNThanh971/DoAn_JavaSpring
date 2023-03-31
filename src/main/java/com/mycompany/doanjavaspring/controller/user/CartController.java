@@ -37,16 +37,21 @@ public class CartController {
             int subtotal = 0;
             float weight = 0;
             int shipFee = 0;
+            int dem = 0;
             for (Cart var : f) {
+                dem++;
                 subtotal += (var.getCartProductQuantity() * var.getRentalPrice());
                 weight += (1.0 * var.getCartProductWeight() * var.getCartProductQuantity() / 1000);
             }
             model.addAttribute("subtotalInvoice", subtotal);
-            if (weight < 1) {
-                shipFee = 15000;
+            if (dem == 0) {
+                shipFee=0;
+                model.addAttribute("shipFee", 0);
+            } else if (weight < 1) {
+                shipFee=15000;
                 model.addAttribute("shipFee", 15000);
             } else if (weight < 2) {
-                shipFee = 23000;
+                shipFee=23000;
                 model.addAttribute("shipFee", 23000);
             } else {
                 shipFee = (int) (weight * 1000 / 0.1);
@@ -55,6 +60,7 @@ public class CartController {
             model.addAttribute("weightOfCart", weight);
             model.addAttribute("total", subtotal + shipFee);
         }
+
         return "/cart";
     }
 

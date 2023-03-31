@@ -53,7 +53,7 @@ public class AdminInvoiceController {
                 return "redirect:/admin/adminLogin";
             }
             Invoice f = dbq.GetInvoiceByIdInvoice(idInvoice);
-            List<InvoiceDetail> lstIdDetails= dbq.getListInvoiceDetailByIdInvoice(idInvoice);
+            List<InvoiceDetail> lstIdDetails= dbq.getListProductDetailByIdInvoice(idInvoice);
             if (f == null) {
                 return "redirect:/admin/adminListInvoices";
             } else {

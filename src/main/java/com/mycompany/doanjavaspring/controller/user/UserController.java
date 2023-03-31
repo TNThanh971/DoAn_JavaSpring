@@ -4,15 +4,19 @@
  */
 package com.mycompany.doanjavaspring.controller.user;
 
+import com.mycompany.database.DBInvoice;
+import com.mycompany.database.DBInvoiceType;
 import com.mycompany.database.DBUser;
+import com.mycompany.model.Invoice;
+import com.mycompany.model.InvoiceType;
 import com.mycompany.model.User;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -21,12 +25,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class UserController {
     DBUser dbq = new DBUser();
-
+    DBInvoice dbqInvoice = new DBInvoice();
+    DBInvoiceType dpit= new DBInvoiceType();
+    
     @RequestMapping(value = "/profile")
     public String Profile(HttpSession session, Model model) {
         if (session.getAttribute("user") == null) {
             return "redirect:/";
         }
+        User user = (User) session.getAttribute("user");
+        List<Invoice> f =dbqInvoice.GetInvoiceByEmail(user.getEmail());
+        
+        System.out.println(user.getEmail());
+        if (f!=null){
+            System.out.println("get successfully");
+            model.addAttribute("InvoiceList", f);
+        }else{
+            System.out.println("get unsuccessfully");
+        }
+        List<InvoiceType> invoicetypes = dpit.GetInvoiceTypeList();
+        model.addAttribute("invoicetypes", invoicetypes);
         return "profile";
     }
 

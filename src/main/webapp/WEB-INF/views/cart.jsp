@@ -96,6 +96,11 @@
                                         <a href="./checkout?idUser=${user.idUser}">Thanh Toán</a>
                                     </div>
                                 </c:if>
+                                <c:if test="${empty userCarts}">
+                                    <div class="checkout_btn">
+                                        <a href="">Vui lòng chọn sản phẩm</a>
+                                    </div>
+                                </c:if>
                             </div>
                         </div>
                     </div>

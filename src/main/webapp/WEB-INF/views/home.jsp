@@ -41,52 +41,48 @@
     </div>
 </section>
 <!--slider area end-->
-
-<!--banner area start-->
 <div class="banner_area mb-66">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4">
-                <figure class="single_banner">
-                    <div class="banner_thumb">
-                        <a href=""><img src="assets/user/img/bg/banner1.webp" alt=""></a>
-                        <div class="banner_conent">
-                            <h3>sale up to</h3>
-                            <h2>50%</h2>
-                            <p>Hoodies <span> & </span> Sweatshirts</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <figure class="single_banner">
+                        <div class="banner_thumb">
+                            <img src="assets/user/img/bg/banner1.webp" alt="">
+                            <div class="banner_conent">
+                                <h3>sale up to</h3>
+                                <h2>50%</h2>
+                                <p>Hoodies <span> & </span> Sweatshirts</p>
+                            </div>
                         </div>
-                    </div>
-                </figure>
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <figure class="single_banner">
-                    <div class="banner_thumb">
-                        <a href=""><img src="assets/user/img/bg/banner2.webp" alt=""></a>
-                        <div class="banner_conent">
-                            <h3>sale up to</h3>
-                            <h2>70%</h2>
-                            <p>Caps & Hats</p>
+                    </figure>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <figure class="single_banner">
+                        <div class="banner_thumb">
+                            <img src="assets/user/img/bg/banner2.webp" alt="">
+                            <div class="banner_conent">
+                                <h3>sale up to</h3>
+                                <h2>70%</h2>
+                                <p>Caps & Hats</p>
+                            </div>
                         </div>
-                    </div>
-                </figure>
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <figure class="single_banner">
-                    <div class="banner_thumb">
-                        <a href=""><img src="assets/user/img/bg/banner3.webp" alt=""></a>
-                        <div class="banner_conent">
-                            <h3>model & Trending</h3>
-                            <h2>2021</h2>
-                            <p>winter collections</p>
+                    </figure>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <figure class="single_banner">
+                        <div class="banner_thumb">
+                            <img src="assets/user/img/bg/banner3.webp" alt="">
+                            <div class="banner_conent">
+                                <h3>model & Trending</h3>
+                                <h2>2021</h2>
+                                <p>winter collections</p>
+                            </div>
                         </div>
-                    </div>
-                </figure>
+                    </figure>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!--banner area end-->
-
 <!--product area start-->
 <div class="product_area mb-65">
     <div class="container">

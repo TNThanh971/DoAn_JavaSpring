@@ -13,7 +13,6 @@ import com.mycompany.model.Invoice;
 import com.mycompany.model.User;
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import jdk.internal.logger.BootstrapLogger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,14 +44,19 @@ public class PurchaseController {
             float weight = 0;
             int shipFee = 0;
             float pondFee = 0;
+            int dem = 0;
             for (Cart var : f) {
-                pondFee += (var.getProductPrice() * 1.0 * 0.3);
+                dem++;
+                pondFee += (var.getProductPrice() * 1.0 * 0.3*var.getCartProductQuantity());
                 subtotal += (var.getCartProductQuantity() * var.getRentalPrice());
                 weight += (1.0 * var.getCartProductWeight() * var.getCartProductQuantity() / 1000);
             }
             model.addAttribute("subtotalInvoice", subtotal);
             model.addAttribute("pondFee", (int) pondFee);
-            if (weight < 1) {
+            if (dem == 0) {
+                shipFee = 0;
+                model.addAttribute("shipFee", 0);
+            } else if (weight < 1) {
                 shipFee = 15000;
                 model.addAttribute("shipFee", 15000);
             } else if (weight < 2) {
@@ -84,14 +88,19 @@ public class PurchaseController {
             float weight = 0;
             int shipFee = 0;
             float pondFee = 0;
+            int dem = 0;
             for (Cart var : f) {
-                pondFee += (var.getProductPrice() * 1.0 * 0.3);
+                dem++;
+                pondFee += (var.getProductPrice() * 1.0 * 0.3*var.getCartProductQuantity());
                 subtotal += (var.getCartProductQuantity() * var.getRentalPrice());
                 weight += (1.0 * var.getCartProductWeight() * var.getCartProductQuantity() / 1000);
             }
             model.addAttribute("subtotalInvoice", subtotal);
             model.addAttribute("pondFee", (int) pondFee);
-            if (weight < 1) {
+            if (dem == 0) {
+                shipFee = 0;
+                model.addAttribute("shipFee", 0);
+            } else if (weight < 1) {
                 shipFee = 15000;
                 model.addAttribute("shipFee", 15000);
             } else if (weight < 2) {
@@ -141,11 +150,10 @@ public class PurchaseController {
             System.out.println("create Invoice unsuccesfully");
         }
         // update quantity of cart
-        for(Cart var : f){
-            if(dbqProduct.updateProductAfterPurchase(var, Integer.toString(var.getCartProductQuantity()))){
+        for (Cart var : f) {
+            if (dbqProduct.updateProductAfterPurchase(var, Integer.toString(var.getCartProductQuantity()))) {
                 System.out.println("update product quantity successfully");
-            }
-            else{
+            } else {
                 System.out.println("update product quantity unsuccessfully");
             }
         }
