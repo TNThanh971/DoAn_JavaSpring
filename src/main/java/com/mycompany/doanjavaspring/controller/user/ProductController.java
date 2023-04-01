@@ -21,6 +21,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProductController {
     
     private DBProduct dbq = new DBProduct();
+    
+    @RequestMapping(value = "/products")
+    public String products(Model model,@RequestParam(required = false) String page, 
+            @RequestParam(required = false) String id) {
+        int page_id = Utils.Page(page);
+        List<Product> products;
+        if (dbq.GetProductList(page_id) != null) {
+            products = dbq.GetProductListUser(page_id);
+            model.addAttribute("products",products);
+        } else System.out.println("failed");
+        return "/products";
+    }
     @RequestMapping(value = "/wig")
     public String wig(Model model,@RequestParam(required = false) String page, 
             @RequestParam(required = false) String id) {

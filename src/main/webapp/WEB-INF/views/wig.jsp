@@ -1,9 +1,10 @@
 <%@page import="com.mycompany.database.DBProduct"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.mycompany.config.Utils"%>
 <%@include file="header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--header area end-->
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!--breadcrumbs area start-->
 <div class="breadcrumbs_area">
@@ -42,15 +43,10 @@
                     <div class=" niceselect_option">
                         <form class="select_option" action="#">
                             <select name="orderby" id="short">
-
-                                <option selected value="1">Xếp theo mới nhất</option>
                                 <option  value="2">Xếp theo giá từ thấp đến cao</option>
                                 <option value="3">Xếp theo giá từ cao xuống thấp</option>
                             </select>
                         </form>
-                    </div>
-                    <div class="page_amount">
-                        <p>Showing 1–9 of 21 results</p>
                     </div>
                 </div>
                 <!--shop toolbar end-->
@@ -60,8 +56,12 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="./productDetail?idProduct=${wig.idProduct}"><img src="${wig.productUrlImage}" alt=""></a>
-                                        <a class="secondary_img" href="./productDetail?idProduct=${wig.idProduct}"><img src="${wig.productUrlImage}" alt=""></a>
+                                        <a class="primary_img" href="./productDetail?idProduct=${wig.idProduct}"><img src="${wig.productUrlImage}" alt=""
+                                                                                                                      style="width: 300px; height: 200px; object-fit: cover;"
+                                                                                                                      ></a>
+                                        <a class="secondary_img" href="./productDetail?idProduct=${wig.idProduct}"><img src="${wig.productUrlImage}" alt=""
+                                        style="width: 300px; height: 200px; object-fit: cover;"
+                                        ></a>
                                         <div class="action_links">
                                             <ul>
                                                 <%if (session.getAttribute("user") != null) {%>
@@ -77,7 +77,17 @@
                                         </div>
                                     </div>
                                     <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="./productDetail?idProduct=${wig.idProduct}">${wig.productName}</a></h4>
+                                        <h4 class="product_name"><a href="./productDetail?idProduct=${wig.idProduct}">
+                                                  <c:choose>
+                                                        <c:when test="${fn:length(wig.productName) > 20}">
+                                                            ${fn:substring(wig.productName, 0, 20)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${wig.productName}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                            </a>
+                                        </h4>
                                         <div class="price_box"> 
                                             <span class="current_price">${wig.productPrice} VND</span>
                                         </div>

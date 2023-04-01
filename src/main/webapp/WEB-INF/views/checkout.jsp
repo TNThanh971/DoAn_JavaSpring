@@ -98,11 +98,9 @@
                             </table>     
                         </div>
                         <c:if test="${not empty userCarts}">
-                            <div class="payment_method">
-                                <div class="order_button">
-                                    <a type="submit" href="javascript:" onclick="redirectCheckout(<%= user.getIdUser()%>)">Thanh Toán</a> 
-                                </div>    
-                            </div> 
+                            <div class="checkout_btn">
+                                <a type="submit" href="javascript:" onclick="redirectCheckout(<%= user.getIdUser()%>)">Thanh Toán</a> 
+                            </div>   
                         </c:if> 
                     </form>         
                 </div>

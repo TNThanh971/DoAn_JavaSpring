@@ -26,9 +26,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product-details-tab">
                     <div id="img-1" class="zoomWrapper single-zoom">
-                        <a href="">
-                            <img id="zoom1" src="${product.productUrlImage}" data-zoom-image="${product.productUrlImage}" alt="big-1">
-                        </a>
+                        <img  id="zoom1" src="${product.productUrlImage}" data-zoom-image="${product.productUrlImage}" alt="big-1">
                     </div>
                 </div>
             </div>

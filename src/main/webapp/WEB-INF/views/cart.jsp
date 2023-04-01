@@ -98,7 +98,7 @@
                                 </c:if>
                                 <c:if test="${empty userCarts}">
                                     <div class="checkout_btn">
-                                        <a href="">Vui lòng chọn sản phẩm</a>
+                                        <a href="./products">Vui lòng thêm sản phẩm</a>
                                     </div>
                                 </c:if>
                             </div>

@@ -2,7 +2,7 @@
 <%@include file="header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--header area end-->
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!--slider area start-->
 <section class="slider_section slider_s_one mb-40">
     <div class="slider_area owl-carousel">
@@ -15,7 +15,7 @@
                             <h2>50% off</h2>
                             <p> Look good with fall's fresh take on white shirts with cool blue swaters </p>
 
-                            <a class="button" href="">shop Now <i
+                            <a class="button" href="./products">shop Now <i
                                     class="zmdi zmdi-long-arrow-right"></i></a>
                         </div>
                     </div>
@@ -42,47 +42,47 @@
 </section>
 <!--slider area end-->
 <div class="banner_area mb-66">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <figure class="single_banner">
-                        <div class="banner_thumb">
-                            <img src="assets/user/img/bg/banner1.webp" alt="">
-                            <div class="banner_conent">
-                                <h3>sale up to</h3>
-                                <h2>50%</h2>
-                                <p>Hoodies <span> & </span> Sweatshirts</p>
-                            </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <figure class="single_banner">
+                    <div class="banner_thumb">
+                        <img src="assets/user/img/bg/banner1.webp" alt="">
+                        <div class="banner_conent">
+                            <h3>sale up to</h3>
+                            <h2>50%</h2>
+                            <p>Hoodies <span> & </span> Sweatshirts</p>
                         </div>
-                    </figure>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <figure class="single_banner">
-                        <div class="banner_thumb">
-                            <img src="assets/user/img/bg/banner2.webp" alt="">
-                            <div class="banner_conent">
-                                <h3>sale up to</h3>
-                                <h2>70%</h2>
-                                <p>Caps & Hats</p>
-                            </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <figure class="single_banner">
+                    <div class="banner_thumb">
+                        <img src="assets/user/img/bg/banner2.webp" alt="">
+                        <div class="banner_conent">
+                            <h3>sale up to</h3>
+                            <h2>70%</h2>
+                            <p>Caps & Hats</p>
                         </div>
-                    </figure>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <figure class="single_banner">
-                        <div class="banner_thumb">
-                            <img src="assets/user/img/bg/banner3.webp" alt="">
-                            <div class="banner_conent">
-                                <h3>model & Trending</h3>
-                                <h2>2021</h2>
-                                <p>winter collections</p>
-                            </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <figure class="single_banner">
+                    <div class="banner_thumb">
+                        <img src="assets/user/img/bg/banner3.webp" alt="">
+                        <div class="banner_conent">
+                            <h3>model & Trending</h3>
+                            <h2>2021</h2>
+                            <p>winter collections</p>
                         </div>
-                    </figure>
-                </div>
+                    </div>
+                </figure>
             </div>
         </div>
     </div>
+</div>
 <!--product area start-->
 <div class="product_area mb-65">
     <div class="container">
@@ -105,10 +105,13 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="./productDetail?idProduct=${product.idProduct}"><img
-                                                        src="${product.productUrlImage}" alt=""></a>
-                                                <a class="secondary_img" href="./productDetail?idProduct=${product.idProduct}"><img
-                                                        src="${product.productUrlImage}" alt=""></a>  
+                                                <a class="primary_img" href="./productDetail?idProduct=${product.idProduct}">
+                                                    <img width="50%" height="50%" src="${product.productUrlImage}"
+                                                         
+                                                         alt=""
+                                                         style="width: 300px; height: 200px; object-fit: cover;"
+                                                         >
+                                                </a>
                                                 <div class="action_links">
                                                     <ul>
                                                         <%if (session.getAttribute("user") != null) {%>
@@ -134,9 +137,18 @@
                                                 </div>
                                             </div>
                                             <figcaption class="product_content">
-                                                <h4 class="product_name"><a href="./productDetail?idProduct=${product.idProduct}">${product.productName}</a></h4>
+                                                <h4 class="product_name"><a href="./productDetail?idProduct=${product.idProduct}">
+                                                        <c:choose>
+                                                        <c:when test="${fn:length(product.productName) > 20}">
+                                                            ${fn:substring(product.productName, 0, 20)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${product.productName}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                    </a></h4>
                                                 <div class="price_box">
-                                                    <span class="current_price">${product.productPrice} VNĐ</span>
+                                                    <span class="current_price">${product.productRentalPrice} VNĐ</span>
                                                 </div>
                                             </figcaption>
                                         </figure>

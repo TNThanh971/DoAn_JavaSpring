@@ -50,7 +50,7 @@
                     <p>Phí đảm bảo tài sản là phí sẽ sử dụng trong trường hợp:</p>
                     <p><b>Wig:</b> tóc giả được cắt, xịt keo, nhuộm màu khác...<br><b>Trang phục:</b> dính màu khó tẩy rửa, ...<br>Và các trường hợp khác như làm mất sản phẩm, quá hạn thuê...</p>
                     <p>Tuỳ vào mức độ sẽ xử lý một khoản tiền nhất định. Sau đó cửa hàng sẽ hoàn lại sau khi khách hàng gửi trả trang phục đầy đủ, nguyên vẹn.</p>
-                    <p>Đơn dưới 1 triệu: <b>500.000đ</b><br>Từ 1 triệu trở đi: <b>1.000.000đ + 35% tổng đơn</b></p>
+                    <p>Phí đảm bảo được tính bằng: <b>30% giá gốc sản phẩm</b></p>
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4">
                     <h6 class="mb-3 text-primary"><i class="text-primary pe-2" aria-hidden="true"></i>Phương thức thanh toán được chấp nhận?</h6>

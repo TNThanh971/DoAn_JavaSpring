@@ -5,8 +5,10 @@
 package com.mycompany.doanjavaspring.controller.user;
 
 import com.mycompany.database.DBInvoice;
+import com.mycompany.database.DBInvoiceType;
 import com.mycompany.model.Invoice;
 import com.mycompany.model.InvoiceDetail;
+import com.mycompany.model.InvoiceType;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -22,7 +24,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class InvoiceController {
 
     DBInvoice dbqInvoiceDetail = new DBInvoice();
-
+    DBInvoiceType dpit= new DBInvoiceType();
+    
     @RequestMapping(value = "/invoiceDetail")
     public String invoiceDetail(HttpSession session, Model model,
             @RequestParam() String idInvoice) {
@@ -43,7 +46,8 @@ public class InvoiceController {
             }
             model.addAttribute("cartSum",cartSum);
         }
-
+        List<InvoiceType> invoicetypes = dpit.GetInvoiceTypeList();
+        model.addAttribute("invoicetypes", invoicetypes);
         return "invoiceDetail";
     }
 }

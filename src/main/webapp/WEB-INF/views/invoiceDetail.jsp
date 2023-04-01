@@ -151,7 +151,11 @@
                                 </div>
                                 <div class="cart_subtotal">
                                     <p>Trạng thái đơn hàng</p>
-                                    <p class="cart_amount">${invoiceUserInfo.idInvoiceStatus}</p>
+                                    <c:forEach items="${invoicetypes}" var="invoicetype">
+                                        <c:if test="${invoicetype.invoiceStatusId == invoiceUserInfo.idInvoiceStatus}">
+                                            <p class="cart_amount">${invoicetype.invoiceStatusName}</p>
+                                        </c:if>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>

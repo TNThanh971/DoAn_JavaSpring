@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file="header.jsp" %>
 <!--header area end-->
 
@@ -40,15 +40,10 @@
                     <div class=" niceselect_option">
                         <form class="select_option" action="#">
                             <select name="orderby" id="short">
-
-                                <option selected value="1">Xếp theo mới nhất</option>
                                 <option  value="2">Xếp theo giá từ thấp đến cao</option>
                                 <option value="3">Xếp theo giá từ cao xuống thấp</option>
                             </select>
                         </form>
-                    </div>
-                    <div class="page_amount">
-                        <p>Showing 1–9 of 21 results</p>
                     </div>
                 </div>
                 <!--shop toolbar end-->
@@ -58,8 +53,12 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="./productDetail?idProduct=${accessory.idProduct}"><img src="${accessory.productUrlImage}" alt=""></a>
-                                        <a class="secondary_img" href="./productDetail?idProduct=${accessory.idProduct}"><img src="${accessory.productUrlImage}" alt=""></a>
+                                        <a class="primary_img" href="./productDetail?idProduct=${accessory.idProduct}"><img src="${accessory.productUrlImage}" alt=""
+                                                                                                                            style="width: 300px; height: 200px; object-fit: cover;"
+                                                                                                                            ></a>
+                                        <a class="secondary_img" href="./productDetail?idProduct=${accessory.idProduct}"><img src="${accessory.productUrlImage}" alt=""
+                                                                                                                              style="width: 300px; height: 200px; object-fit: cover;"
+                                                                                                                              ></a>
                                         <div class="action_links">
                                             <ul>
                                                 <%if (session.getAttribute("user") != null) {%>
@@ -75,13 +74,31 @@
                                         </div>
                                     </div>
                                     <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="./productDetail?idProduct=${accessory.idProduct}">${accessory.productName}</a></h4>
+                                        <h4 class="product_name"><a href="./productDetail?idProduct=${accessory.idProduct}">
+                                                 <c:choose>
+                                                        <c:when test="${fn:length(accessory.productName) > 20}">
+                                                            ${fn:substring(accessory.productName, 0, 20)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${accessory.productName}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                            </a></h4>
                                         <div class="price_box"> 
                                             <span class="current_price">${accessory.productPrice} VND</span>
                                         </div>
                                     </div>
                                     <div class="product_content list_content">
-                                        <h4 class="product_name"><a href="./productDetail?idProduct=${accessory.idProduct}">${accessory.productName}</a></h4>
+                                        <h4 class="product_name"><a href="./productDetail?idProduct=${accessory.idProduct}">
+                                                 <c:choose>
+                                                        <c:when test="${fn:length(accessory.productName) > 20}">
+                                                            ${fn:substring(accessory.productName, 0, 20)}...
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${accessory.productName}
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                            </a></h4>
                                         <div class="price_box"> 
                                             <span class="current_price">${accessory.productPrice} VND</span>
                                         </div>
