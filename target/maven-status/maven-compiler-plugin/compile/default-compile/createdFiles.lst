@@ -12,6 +12,7 @@ com\mycompany\model\Invoice.class
 com\mycompany\model\Product.class
 com\mycompany\model\InvoiceType.class
 com\mycompany\config\DispatcherServletInitializer.class
+com\mycompany\doanjavaspring\controller\admin\AdminInvoiceController.class
 com\mycompany\doanjavaspring\controller\user\CartController.class
 com\mycompany\database\DBAdmin.class
 com\mycompany\config\WebApplicationContextConfig.class
@@ -23,6 +24,7 @@ com\mycompany\database\DBUser.class
 com\mycompany\model\InvoiceDetail.class
 com\mycompany\database\DBProductType.class
 com\mycompany\doanjavaspring\controller\user\AboutUsController.class
+com\mycompany\doanjavaspring\controller\admin\AdminUserController.class
 com\mycompany\database\Transaction.class
 com\mycompany\database\DBInvoice.class
 com\mycompany\database\DBProduct.class

@@ -60,8 +60,8 @@
                                                                                                                       style="width: 300px; height: 200px; object-fit: cover;"
                                                                                                                       ></a>
                                         <a class="secondary_img" href="./productDetail?idProduct=${wig.idProduct}"><img src="${wig.productUrlImage}" alt=""
-                                        style="width: 300px; height: 200px; object-fit: cover;"
-                                        ></a>
+                                                                                                                        style="width: 300px; height: 200px; object-fit: cover;"
+                                                                                                                        ></a>
                                         <div class="action_links">
                                             <ul>
                                                 <%if (session.getAttribute("user") != null) {%>
@@ -77,19 +77,20 @@
                                         </div>
                                     </div>
                                     <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="./productDetail?idProduct=${wig.idProduct}">
-                                                  <c:choose>
-                                                        <c:when test="${fn:length(wig.productName) > 20}">
-                                                            ${fn:substring(wig.productName, 0, 20)}...
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            ${wig.productName}
-                                                        </c:otherwise>
-                                                    </c:choose>
+                                        <h4 class="product_name">
+                                            <a href="./productDetail?idProduct=${wig.idProduct}">
+                                                <c:choose>
+                                                    <c:when test="${fn:length(wig.productName) > 20}">
+                                                        ${fn:substring(wig.productName, 0, 20)}...
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        ${wig.productName}
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </a>
                                         </h4>
                                         <div class="price_box"> 
-                                            <span class="current_price">${wig.productPrice} VND</span>
+                                            <span class="current_price">Giá thuê: ${wig.productRentalPrice} VND</span>
                                         </div>
                                     </div>
                                     <div class="product_content list_content">

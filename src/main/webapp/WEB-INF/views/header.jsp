@@ -77,7 +77,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-3">
                                 <div class="logo">
-                                    <a href="./"><img src="./assets/user/img/logo/logo.webp" alt=""></a>
+                                    <a href="./"><img src="./assets/user/img/logo/logo_1.webp" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-lg-9">

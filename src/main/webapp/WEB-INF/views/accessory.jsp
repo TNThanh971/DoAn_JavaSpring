@@ -74,7 +74,8 @@
                                         </div>
                                     </div>
                                     <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="./productDetail?idProduct=${accessory.idProduct}">
+                                        <h4 class="product_name">
+                                            <a href="./productDetail?idProduct=${accessory.idProduct}">
                                                  <c:choose>
                                                         <c:when test="${fn:length(accessory.productName) > 20}">
                                                             ${fn:substring(accessory.productName, 0, 20)}...
@@ -85,7 +86,7 @@
                                                     </c:choose>
                                             </a></h4>
                                         <div class="price_box"> 
-                                            <span class="current_price">${accessory.productPrice} VND</span>
+                                            <span class="current_price">Giá thuê: ${accessory.productRentalPrice} VND</span>
                                         </div>
                                     </div>
                                     <div class="product_content list_content">

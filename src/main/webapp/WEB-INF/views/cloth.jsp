@@ -51,12 +51,12 @@
                                     <div class="product_thumb">
                                         <a class="primary_img" href="./productDetail?idProduct=${cloth.idProduct}">
                                             <img src="${cloth.productUrlImage}" alt=""
-                                                  style="width: 300px; height: 200px; object-fit: cover;"
+                                                 style="width: 300px; height: 200px; object-fit: cover;"
                                                  >
                                         </a>
                                         <a class="secondary_img" href="./productDetail?idProduct=${cloth.idProduct}">
                                             <img src="${cloth.productUrlImage}" alt=""
-                                                  style="width: 300px; height: 200px; object-fit: cover;"
+                                                 style="width: 300px; height: 200px; object-fit: cover;"
                                                  >
                                         </a>
                                         <div class="action_links">
@@ -74,31 +74,32 @@
                                         </div>
                                     </div>
                                     <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="./productDetail?idProduct=${cloth.idProduct}">
-                                                 <c:choose>
-                                                        <c:when test="${fn:length(cloth.productName) > 20}">
-                                                            ${fn:substring(cloth.productName, 0, 20)}...
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            ${cloth.productName}
-                                                        </c:otherwise>
-                                                    </c:choose>
+                                        <h4 class="product_name">
+                                            <a href="./productDetail?idProduct=${cloth.idProduct}">
+                                                <c:choose>
+                                                    <c:when test="${fn:length(cloth.productName) > 20}">
+                                                        ${fn:substring(cloth.productName, 0, 20)}...
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        ${cloth.productName}
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </a>
                                         </h4>
                                         <div class="price_box"> 
-                                            <span class="current_price">${cloth.productPrice} VND</span>
+                                            <span class="current_price">Giá thuê: ${cloth.productRentalPrice} VND</span>
                                         </div>
                                     </div>
                                     <div class="product_content list_content">
                                         <h4 class="product_name"><a href="./productDetail?idProduct=${cloth.idProduct}">
                                                 <c:choose>
-                                                        <c:when test="${fn:length(cloth.productName) > 20}">
-                                                            ${fn:substring(cloth.productName, 0, 20)}...
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            ${cloth.productName}
-                                                        </c:otherwise>
-                                                    </c:choose>
+                                                    <c:when test="${fn:length(cloth.productName) > 20}">
+                                                        ${fn:substring(cloth.productName, 0, 20)}...
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        ${cloth.productName}
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </a>
                                         </h4>
                                         <div class="price_box"> 

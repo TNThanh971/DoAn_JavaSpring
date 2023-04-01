@@ -79,19 +79,20 @@
                                         </div>
                                     </div>
                                     <div class="product_content grid_content">
-                                        <h4 class="product_name"><a href="./productDetail?idProduct=${product.idProduct}">
-                                                  <c:choose>
-                                                        <c:when test="${fn:length(product.productName) > 20}">
-                                                            ${fn:substring(product.productName, 0, 20)}...
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            ${product.productName}
-                                                        </c:otherwise>
-                                                    </c:choose>
+                                        <h4 class="product_name">
+                                            <a href="./productDetail?idProduct=${product.idProduct}">
+                                                <c:choose>
+                                                    <c:when test="${fn:length(product.productName) > 20}">
+                                                        ${fn:substring(product.productName, 0, 20)}...
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        ${product.productName}
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </a>
                                         </h4>
                                         <div class="price_box"> 
-                                            <span class="current_price">${product.productPrice} VND</span>
+                                            <span class="current_price">Giá thuê: ${product.productRentalPrice} VND</span>
                                         </div>
                                     </div>
                                     <div class="product_content list_content">
