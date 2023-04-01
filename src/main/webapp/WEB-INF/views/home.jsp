@@ -11,9 +11,9 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-7">
                         <div class="slider_content content_left">
-                            <h1> fashion sale preview</h1>
-                            <h2>50% off</h2>
-                            <p> Look good with fall's fresh take on white shirts with cool blue swaters </p>
+                            <h1> WibuShop</h1>
+                            <h2>Thời trang hàng hiệu</h2>
+                            <p> Đa dạng sản phẩm, nhiều kiểu dáng... </p>
 
                             <a class="button" href="./products">shop Now <i
                                     class="zmdi zmdi-long-arrow-right"></i></a>
@@ -28,9 +28,9 @@
                 <div class="row">
                     <div class="col-lg-6 offset-lg-6 col-md-6 offset-md-6">
                         <div class="slider_content content_right">
-                            <h1> fashion sale preview</h1>
-                            <h2>50% off</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+                            <h1> WibuShop</h1>
+                            <h2>Thời trang hàng hiệu</h2>
+                            <p>Đa dạng sản phẩm, nhiều kiểu dáng... </p>
                             <a class="button" href="">shop Now <i
                                     class="zmdi zmdi-long-arrow-right"></i></a>
                         </div>
@@ -49,9 +49,9 @@
                     <div class="banner_thumb">
                         <img src="assets/user/img/bg/banner1.webp" alt="">
                         <div class="banner_conent">
-                            <h3>sale up to</h3>
-                            <h2>50%</h2>
-                            <p>Hoodies <span> & </span> Sweatshirts</p>
+                            <h3>Đặt hàng Online</h3>
+                            <h2></h2>
+                            <p>Tiện lợi & Nhanh chóng</p>
                         </div>
                     </div>
                 </figure>
@@ -61,9 +61,9 @@
                     <div class="banner_thumb">
                         <img src="assets/user/img/bg/banner2.webp" alt="">
                         <div class="banner_conent">
-                            <h3>sale up to</h3>
-                            <h2>70%</h2>
-                            <p>Caps & Hats</p>
+                            <h3>model & Trending</h3>
+                            <h2>2023</h2>
+                            <p>cosplay</p>
                         </div>
                     </div>
                 </figure>
@@ -73,9 +73,9 @@
                     <div class="banner_thumb">
                         <img src="assets/user/img/bg/banner3.webp" alt="">
                         <div class="banner_conent">
-                            <h3>model & Trending</h3>
-                            <h2>2021</h2>
-                            <p>winter collections</p>
+                            <h3>đa dạng</h3>
+                            <h2></h2>
+                            <p>trang phục, phụ kiện</p>
                         </div>
                     </div>
                 </figure>
