@@ -38,14 +38,14 @@
 
                         <button data-role="grid_list" type="button"  class="btn-list" data-bs-toggle="tooltip" title="List"></button>
                     </div>
-                    <div class=" niceselect_option">
-                        <form class="select_option" action="#">
-                            <select name="orderby" id="short">
-                                <option  value="2">Xếp theo giá từ thấp đến cao</option>
-                                <option value="3">Xếp theo giá từ cao xuống thấp</option>
+<!--                    <div class=" niceselect_option">
+                        <form class="select_option" action="">
+                            <select name="orderby" id="short" onchange="showSelectedValue()">
+                                <option value="1" >Xếp theo giá từ thấp đến cao</option>
+                                <option value="2" >Xếp theo giá từ cao xuống thấp</option>
                             </select>
                         </form>
-                    </div>
+                    </div>-->
                 </div>
                 <!--shop toolbar end-->
                 <div class="row shop_wrapper grid_4">

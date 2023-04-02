@@ -6,7 +6,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-7">
                     <div class="widgets_container contact_us">
                         <div class="footer_logo">
-                            <a href="index.html"><img src="assets/user/img/logo/logo.webp" alt=""></a>
+                            <a href="index.html"><img src="assets/user/img/logo/logo_1.webp" alt=""></a>
                         </div>
                         <div class="footer_desc">
                             <p>Wibu Shop luôn đồng hành với tín đồ cosplay</p>
@@ -64,17 +64,38 @@
     function redirectRemoveFromCart(idUser, idProduct) {
         window.location.href = './removeProductFromCart?idUser=' + idUser + '&idProduct=' + idProduct;
     }
-    
-    const quantityInputElement = document.getElementById("productDetailQuantity");
+
+
     function addProductsToCart(idUser, idProduct) {
+        const quantityInputElement = document.getElementById("productDetailQuantity");
         const inputValue = quantityInputElement.value;
-        window.location.href= './addProductToCart?idUser=' + idUser + '&idProduct=' + idProduct + '&quantity=' + quantityInputElement.value;
+        window.location.href = './addProductToCart?idUser=' + idUser + '&idProduct=' + idProduct + '&quantity=' + quantityInputElement.value;
     }
-    
-    const rentalDaysInputElement = document.getElementById("rentalDays");
-    const invNoteInputElement = document.getElementById("order_note");
+
+    function checkRentalDayNumber() {
+        const invNoteInputElement = document.getElementById("order_note").value;
+        const rentalDaysInputElement = document.getElementById("rentalDays").value;
+        if (rentalDaysInputElement < 3 || rentalDaysInputElement > 7) {
+            alert("Số ngày thuê từ 3 đến 7 ngày!");
+        }
+    }
     function redirectCheckout(idUser) {
-        window.location.href = './createInvoice?idUser='+idUser+'&rentalDays=' +rentalDaysInputElement.value+'&invNote='+invNoteInputElement.value;
+        const invNoteInputElement = document.getElementById("order_note").value;
+        const rentalDaysInputElement = document.getElementById("rentalDays").value;
+        if (rentalDaysInputElement < 3 || rentalDaysInputElement > 7) {
+            alert("Số ngày thuê từ 3 đến 7 ngày!");
+        } else
+            window.location.href = './createInvoice?idUser=' + idUser + '&rentalDays=' + rentalDaysInputElement + '&invNote=' + invNoteInputElement;
+
+    }
+    function quantityUpdateFunc(idUser, idProduct) {
+        const quantityInput = document.getElementById("quantityUpdate");
+        const quantity = quantityInput.value;
+        if (quantity >= 1)
+            window.location.href = './updateProductQuantityInCart?idUser=' + idUser + '&idProduct=' + idProduct + '&quantity=' + quantity;
+        else {
+            alert("Số lượng sản phẩm phải lớn hơn hoặc bằng 1!");
+        }
     }
 </script>
 </body>

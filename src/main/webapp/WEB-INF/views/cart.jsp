@@ -44,17 +44,15 @@
                                             <td class="product_thumb"><a href=""><img src="${userCart.image}" alt=""></a></td>
                                             <td class="product_name"><a href="">${userCart.productName}</a></td>
                                             <td class="product-price">${userCart.rentalPrice}</td>
-                                            <td class="product-price">${userCart.productPrice}</td>
-                                            <td class="product_quantity"><label></label><input min="0" max="100" value="${userCart.cartProductQuantity}" type="number" /></td>
+                                            <td class="product-price">${userCart.productPrice*userCart.cartProductQuantity}</td>
+                                            <td class="product_quantity"><label></label><input min="1" max="50" value="${userCart.cartProductQuantity}" type="number"
+                                                                                                   onchange="quantityUpdateFunc(${user.idUser},${userCart.idProduct})" id="quantityUpdate"/></td>
                                             <td class="product_total">${userCart.rentalPrice*userCart.cartProductQuantity}</td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>   
                         </div>  
-                        <div class="cart_submit">
-                            <button type="submit">cập nhật giỏ hàng</button>
-                        </div>      
                     </div>
                 </div>
             </div>
@@ -98,7 +96,7 @@
                                 </c:if>
                                 <c:if test="${empty userCarts}">
                                     <div class="checkout_btn">
-                                        <a href="./products">Vui lòng thêm sản phẩm</a>
+                                        <a href="./products?keyword=${""}">Vui lòng thêm sản phẩm</a>
                                     </div>
                                 </c:if>
                             </div>

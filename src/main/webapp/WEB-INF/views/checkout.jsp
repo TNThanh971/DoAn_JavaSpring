@@ -43,7 +43,7 @@
                             </div> 
                             <div class="col-4 mb-20">
                                 <label>Số ngày thuê tối đa<span>*</span></label>
-                                <input type="number" name="invoice_num_rental_days" value="3" min="3" max="7" id="rentalDays" required>
+                                <input type="number" name="invoice_num_rental_days" value="3" min="3" max="7" onchange="checkRentalDayNumber()" id="rentalDays" required>
                             </div>
                             <div class="col-12 mb-20">
                                 <label> Email<span>*</span></label>

@@ -97,8 +97,8 @@ public class DBProduct {
         }
         return lst;
     }
-    public List<Product> SearchProductList(String name) {
-        ResultSet rs = db.Query("select * from product where productName like ?", new String[]{name});
+    public List<Product> SearchProductList(String keyword) {
+        ResultSet rs = db.Query("select * from product WHERE MATCH(productName) AGAINST('" + keyword + "')");
         List<Product> lst = new ArrayList<Product>();
         if (rs != null) {
             try {
@@ -114,6 +114,7 @@ public class DBProduct {
                     p.setProductDescription(rs.getString("productDescription"));
                     p.setProductPrice(rs.getFloat("productPrice"));
                     p.setProductWeight(rs.getFloat("productWeight"));
+                    System.out.println(p.getProductName());
                     lst.add(p);
                 }
             } catch (Exception e) {
@@ -338,5 +339,55 @@ public class DBProduct {
             e.printStackTrace();
         }
         return false;
+    }
+    public List<Product> GetProductListAscByPrice(int page) {
+        ResultSet rs = db.Query("select * from product where productQuantity>0" + Utils.Offset(page));
+        List<Product> lst = new ArrayList<Product>();
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    Product p = new Product();
+                    p.setIdProduct(rs.getInt("idProduct"));
+                    p.setProductName(rs.getString("productName"));
+                    p.setProductQuantity(rs.getInt("productQuantity"));
+                    p.setProductUrlImage(rs.getString("productUrlImage"));
+                    p.setIdProductType(rs.getInt("idProductType"));
+                    p.setProductSize(rs.getString("productSize"));
+                    p.setProductRentalPrice(rs.getFloat("productRentalPrice"));
+                    p.setProductDescription(rs.getString("productDescription"));
+                    p.setProductPrice(rs.getFloat("productPrice"));
+                    p.setProductWeight(rs.getFloat("productWeight"));
+                    lst.add(p);
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        return lst;
+    }
+    public List<Product> GetProductListDescByPrice(int page) {
+        ResultSet rs = db.Query("select * from product where productQuantity>0" + Utils.Offset(page));
+        List<Product> lst = new ArrayList<Product>();
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    Product p = new Product();
+                    p.setIdProduct(rs.getInt("idProduct"));
+                    p.setProductName(rs.getString("productName"));
+                    p.setProductQuantity(rs.getInt("productQuantity"));
+                    p.setProductUrlImage(rs.getString("productUrlImage"));
+                    p.setIdProductType(rs.getInt("idProductType"));
+                    p.setProductSize(rs.getString("productSize"));
+                    p.setProductRentalPrice(rs.getFloat("productRentalPrice"));
+                    p.setProductDescription(rs.getString("productDescription"));
+                    p.setProductPrice(rs.getFloat("productPrice"));
+                    p.setProductWeight(rs.getFloat("productWeight"));
+                    lst.add(p);
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        return lst;
     }
 }

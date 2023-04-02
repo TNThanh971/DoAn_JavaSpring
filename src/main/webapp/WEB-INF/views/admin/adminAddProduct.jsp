@@ -7,9 +7,6 @@
 <%@include file="header.jsp" %>
 <div class="dashboard-wrapper">
     <div class="container-fluid  dashboard-content py-0">
-        <!-- ============================================================== -->
-        <!-- pageheader -->
-        <!-- ============================================================== -->
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">

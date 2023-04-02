@@ -15,7 +15,7 @@
                             <h2>Thời trang hàng hiệu</h2>
                             <p> Đa dạng sản phẩm, nhiều kiểu dáng... </p>
 
-                            <a class="button" href="./products">shop Now <i
+                            <a class="button" href="./products?keyword=${""}">shop Now <i
                                     class="zmdi zmdi-long-arrow-right"></i></a>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                                                     </c:choose>
                                                     </a></h4>
                                                 <div class="price_box">
-                                                    <span class="current_price">${product.productRentalPrice} VNĐ</span>
+                                                    <span class="current_price">Giá thuê: ${product.productRentalPrice} VNĐ</span>
                                                 </div>
                                             </figcaption>
                                         </figure>

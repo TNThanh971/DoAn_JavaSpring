@@ -128,10 +128,11 @@
                                             <li class="search_box"><a href="javascript:void(0)"><i
                                                         class="zmdi zmdi-search zmdi-hc-fw"></i></a>
                                                 <div class="search_widget">
-                                                    <form action="">
-                                                        <input placeholder="Search our catalog" type="text">
-                                                        <button type="submit"><i
-                                                                class="zmdi zmdi-search zmdi-hc-fw"></i></button>
+                                                    <form action="<c:url value="/products" />" method="GET">
+                                                        <input placeholder="Nhập tên sản phẩm" type="text" name="keyword">  
+                                                        <button onclick="searchProduct()">
+                                                            <i class="zmdi zmdi-search zmdi-hc-fw"></i>
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </li>

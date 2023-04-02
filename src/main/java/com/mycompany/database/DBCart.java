@@ -138,4 +138,12 @@ public class DBCart {
         }
         return 0;
     }
+    public int UpdateProductListToCart(String idUser, String idProduct, String quantity) {
+        String[] params = new String[]{quantity,idUser, idProduct};
+        int rs = db.Update("UPDATE cart SET cart_product_quantity=? WHERE user_id=? and product_id =?", params);
+        if (rs > 0) {
+            return 1;
+        }
+        return 0;
+    }
 }

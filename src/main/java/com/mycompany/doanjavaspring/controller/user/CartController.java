@@ -158,4 +158,50 @@ public class CartController {
         }
         return "/cart";
     }
+    @RequestMapping(value = "/updateProductQuantityInCart", method = {RequestMethod.GET, RequestMethod.POST})
+    public String UpdateProductQuantityInCart(HttpSession session,
+            @RequestParam(required = false) String idUser,
+            @RequestParam(required = false) String idProduct,
+            @RequestParam(required = false) String quantity, Model model) {
+        if (session.getAttribute("user") == null) {
+            return "redirect:/signIn";
+        }
+        if (idUser != null && idProduct != null && quantity != null) {
+            // create and uprate product to cart
+            int is_reg = dbq.UpdateProductListToCart(idUser, idProduct, quantity);
+            if (is_reg == 1) {
+                System.out.println("create or update successfully");
+            } else {
+                System.out.println("create or update unsuccessfully");
+                return "redirect:/";
+            }
+        }
+        List<Cart> f;
+        if (dbq.GetCartByIdUser(idUser) != null) {
+            f = dbq.GetCartByIdUser(idUser);
+            model.addAttribute("userCarts", f);
+
+            int subtotal = 0;
+            float weight = 0;
+            int shipFee = 0;
+            for (Cart var : f) {
+                subtotal += (var.getCartProductQuantity() * var.getRentalPrice());
+                weight += (1.0 * var.getCartProductWeight() * var.getCartProductQuantity() / 1000);
+            }
+            model.addAttribute("subtotalInvoice", subtotal);
+            if (weight < 1) {
+                shipFee = 15000;
+                model.addAttribute("shipFee", 15000);
+            } else if (weight < 2) {
+                shipFee = 23000;
+                model.addAttribute("shipFee", 23000);
+            } else {
+                shipFee = (int) (weight * 1000 / 0.1);
+                model.addAttribute("shipFee", shipFee);
+            }
+            model.addAttribute("weightOfCart", weight);
+            model.addAttribute("total", subtotal + shipFee);
+        }
+        return "/cart";
+    }
 }

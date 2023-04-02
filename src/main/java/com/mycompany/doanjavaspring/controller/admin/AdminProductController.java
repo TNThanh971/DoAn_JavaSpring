@@ -29,16 +29,6 @@ public class AdminProductController {
     DBProduct dbq = new DBProduct();
     DBProductType db = new DBProductType();
 
-    // admin's home page
-    @RequestMapping(value = "/admin/adminIndex")
-    public String adminIndex(HttpSession session, @ModelAttribute() Admin admin, Model model) {
-        if (session.getAttribute("admin") == null) {
-            return "redirect:/admin/adminLogin";
-        }
-        return "/admin/adminIndex";
-    }
-    // end admin homepage
-
     // admin's adding product page
     @RequestMapping(value = "/admin/adminAddProduct")
     public String adminAddProduct(HttpSession session, @ModelAttribute() Admin admin, Model model) {

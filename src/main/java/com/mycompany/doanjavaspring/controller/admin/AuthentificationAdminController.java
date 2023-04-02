@@ -27,7 +27,7 @@ public class AuthentificationAdminController {
     //sign in admin
     @RequestMapping(value = "/admin/adminLogin")
     public String adminLogin(Model model) {
-        return "admin/adminLogin";
+        return "/admin/adminLogin";
     }
     @RequestMapping(value = "/admin/adminLogin", method = RequestMethod.POST)
     public String adminLogin(HttpSession session, @RequestParam(required = false) String url, @ModelAttribute() Admin admin, Model model) throws SQLException {
@@ -46,6 +46,6 @@ public class AuthentificationAdminController {
     @RequestMapping(value = "/admin/adminLogout")
     public String Logout(HttpSession session) {
         session.removeAttribute("admin");
-        return "redirect:/admin/adminLogin";
+        return "redirect:/adminLogin";
     }
 }

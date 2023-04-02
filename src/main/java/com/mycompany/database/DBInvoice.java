@@ -240,8 +240,20 @@ public class DBInvoice {
         }
         return 0;
     }
+    public int getInvoiceRevenue() {
+        ResultSet rs = db.Query("SELECT SUM(invd_product_quantity*invd_product_rental_price) AS total FROM invoice_detail, invoice where idInvoice = invoice_id and invoiceStatusId=3");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                    return rs.getInt("total");
+                }
+            } catch (SQLException ex) {
+                System.out.println("error get count product: " + ex.toString());
+            }
+        }
+        return 0;
+    }
     //update invoice status 
-
     public boolean updateInvoiceStatus(String idStatus, String idInvoice) {
         if (db.Update("update invoice set invoiceStatusId =? where idInvoice=? ",
                 new String[]{idStatus, idInvoice}) > 0) {
